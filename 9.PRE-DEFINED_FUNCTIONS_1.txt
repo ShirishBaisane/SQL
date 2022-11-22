@@ -1,0 +1,503 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sat Nov 19 01:17:29 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Sat Nov 19 2022 00:14:24 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> DESC DUAL;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DUMMY                                              VARCHAR2(1)
+
+SQL> SELECT * FROM DUAL;
+
+D
+-
+X
+
+SQL> SELECT ABS(-12) FROM DUAL;
+
+  ABS(-12)
+----------
+        12
+
+SQL> SELECT ENAME, SAL, COMM, ABS(COMM-SAL) FROM EMP;
+
+ENAME             SAL       COMM ABS(COMM-SAL)
+---------- ---------- ---------- -------------
+SMITH             800        800             0
+ALLEN            1600        800           800
+WARD             1250       1000           250
+JONES            2975        800          2175
+MARTIN           1250       1900           650
+BLAKE            2850        800          2050
+CLARK            2450        800          1650
+SCOTT            3000        800          2200
+KING             5000        800          4200
+TURNER           1500        500          1000
+ADAMS            1100        800           300
+
+ENAME             SAL       COMM ABS(COMM-SAL)
+---------- ---------- ---------- -------------
+JAMES             950        800           150
+FORD             3000        800          2200
+MILLER           1300        800           500
+
+14 rows selected.
+
+SQL> SELECT CEIL(9.8) FROM DUAL;
+
+ CEIL(9.8)
+----------
+        10
+
+SQL> SELECT CEIL(9.2) FROM DUAL;
+
+ CEIL(9.2)
+----------
+        10
+
+SQL> SELECT FLOOR(9.8) FROM DUAL;
+
+FLOOR(9.8)
+----------
+         9
+
+SQL> SELECT FLOOR(9.2) FROM DUAL;
+
+FLOOR(9.2)
+----------
+         9
+
+SQL> SELECT POWER(2,3) FROM DUAL;
+
+POWER(2,3)
+----------
+         8
+
+SQL> SELECT POWER(3,5) FROM DUAL;
+
+POWER(3,5)
+----------
+       243
+
+SQL> SELECT POWER(2,8) FROM DUAL;
+
+POWER(2,8)
+----------
+       256
+
+SQL> SELECT MOD(11,2) FROM DUAL;
+
+ MOD(11,2)
+----------
+         1
+
+SQL> SELECT MOD(6,2) FROM DUAL;
+
+  MOD(6,2)
+----------
+         0
+
+SQL> SELECT MOD(125855, 13) FROM DUAL;
+
+MOD(125855,13)
+--------------
+             2
+
+SQL> SELECT ROUND(35.45) FROM DUAL;
+
+ROUND(35.45)
+------------
+          35
+
+SQL> SELECT ROUND(35.50) FROM DUAL;
+
+ROUND(35.50)
+------------
+          36
+
+SQL> SELECT ROUND(35.49) FROM DUAL;
+
+ROUND(35.49)
+------------
+          35
+
+SQL> SELECT ROUND(35.78) FROM DUAL;
+
+ROUND(35.78)
+------------
+          36
+
+SQL> SELECT TRUNC(35.45) FROM DUAL;
+
+TRUNC(35.45)
+------------
+          35
+
+SQL> SELECT TRUNC(35.50) FROM DUAL;
+
+TRUNC(35.50)
+------------
+          35
+
+SQL> SELECT TRUNC(35.78) FROM DUAL;
+
+TRUNC(35.78)
+------------
+          35
+
+SQL> REM ***THE ABOVE FUNTIONS BELONG TO NUMERIC FUNCTION***
+SQL> REM *****PRE-DEFINED FUNCTIONS*****
+SQL> REM ****SINGLE ROW FUNTIONS****
+SQL> REM
+SQL> REM ***CHARACTER/STRING FUNTIONS***
+SQL> SELECT LENGTH('HELLO') FROM DUAL;
+
+LENGTH('HELLO')
+---------------
+              5
+
+SQL> SELECT LENGTH('WELCOME') FROM DUAL;
+
+LENGTH('WELCOME')
+-----------------
+                7
+
+SQL> SELECT ENAME, LENGTH(ENAME) LENGTH_OF_NAME FROM EMP;
+
+ENAME      LENGTH_OF_NAME
+---------- --------------
+SMITH                   5
+ALLEN                   5
+WARD                    4
+JONES                   5
+MARTIN                  6
+BLAKE                   5
+CLARK                   5
+SCOTT                   5
+KING                    4
+TURNER                  6
+ADAMS                   5
+
+ENAME      LENGTH_OF_NAME
+---------- --------------
+JAMES                   5
+FORD                    4
+MILLER                  6
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP WHERE LENGTH(ENAME)=6;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300        800
+        10
+
+
+SQL> SELECT LOWER('HELLO') FROM DUAL;
+
+LOWER
+-----
+hello
+
+SQL> SELECT UPPER('hello') FROM DUAL;
+
+UPPER
+-----
+HELLO
+
+SQL> SELECT LTRIM('    SAI') FROM DUAL;
+
+LTR
+---
+SAI
+
+SQL> SELECT LTRIM('XXXXXSAI','X') FROM DUAL;
+
+LTR
+---
+SAI
+
+SQL> SELECT LTRIM('123SAI',123) FROM DUAL;
+
+LTR
+---
+SAI
+
+SQL> SELECT LTRIM('XXXXXSAI',X) FROM DUAL;
+SELECT LTRIM('XXXXXSAI',X) FROM DUAL
+                        *
+ERROR at line 1:
+ORA-00904: "X": invalid identifier
+
+
+SQL> SELECT RTRIM('SAIXXXXX', 'X') FROM DUAL;
+
+RTR
+---
+SAI
+
+SQL> SELECT RTRIM('SAI123', 123) FROM DUAL;
+
+RTR
+---
+SAI
+
+SQL> SELECT TRIM('X' FROM 'XXXXSAIXXX') FROM DUAL;
+
+TRI
+---
+SAI
+
+SQL> SELECT RTRIM('XXSAIXXXXX', 'X') FROM DUAL;
+
+RTRIM
+-----
+XXSAI
+
+SQL> SELECT LTRIM('XXXXXSAIXX',X) FROM DUAL;
+SELECT LTRIM('XXXXXSAIXX',X) FROM DUAL
+                          *
+ERROR at line 1:
+ORA-00904: "X": invalid identifier
+
+
+SQL> SELECT LTRIM('XXXXXSAIXX','X') FROM DUAL;
+
+LTRIM
+-----
+SAIXX
+
+SQL> SELECT LPAD('SAI', 10) FROM DUAL;
+
+LPAD('SAI'
+----------
+       SAI
+
+SQL> REM THE ABOVE RESULT IS WRONG AS THE PARAMETERS ARE INCOMPLETE...
+SQL> SELECT LPAD('SAI', 10, '@') FROM DUAL;
+
+LPAD('SAI'
+----------
+@@@@@@@SAI
+
+SQL> SELECT LPAD('SAI', 5, 7) FROM DUAL;
+
+LPAD(
+-----
+77SAI
+
+SQL> SELECT LPAD('SAI', 3, 7) FROM DUAL;
+
+LPA
+---
+SAI
+
+SQL> REM THE ABOVE RESULT IS NOT WRONG AS THE 2ND PARAMETER IS LENGTH OF STRING.
+SQL> SELECT RPAD('SAI', 8, '%') FROM DUAL;
+
+RPAD('SA
+--------
+SAI%%%%%
+
+SQL> SELECT RPAD('SAI', 6, '2') FROM DUAL;
+
+RPAD('
+------
+SAI222
+
+SQL> SELECT INITCAP('hello') FROM DUAL;
+
+INITC
+-----
+Hello
+
+SQL> SELECT INITCAP('shirish baisane') FROM DUAL;
+
+INITCAP('SHIRIS
+---------------
+Shirish Baisane
+
+SQL> SLELCT REPLACE('HELLO', 'EL', 'ABC') FROM DUAL;
+SP2-0734: unknown command beginning "SLELCT REP..." - rest of line ignored.
+SQL> SELECT REPLACE('HELLO', 'EL', 'ABC') FROM DUAL;
+
+REPLAC
+------
+HABCLO
+
+SQL> SELECT REPLACE('JACK AND JUE','J','BL') FROM DUAL;
+
+REPLACE('JACKA
+--------------
+BLACK AND BLUE
+
+SQL> SELECT TRANSLATE('HELLO', 'ELO', XYZ') FROM DUAL;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT TRANSLATE('HELLO','ELO','XYZ') FROM DUAL;
+
+TRANS
+-----
+HXYYZ
+
+SQL> SELECT TRANSLATE('HELLO','EL','PQR') FROM DUAL;
+
+TRANS
+-----
+HPQQO
+
+SQL> SELECT SUBSTR('WELCOME',4,3) FROM DUAL;
+
+SUB
+---
+COM
+
+SQL> SELECT SUBSTR('WELCOME',-3,2) FROM DUAL;
+
+SU
+--
+OM
+
+SQL> SELECT SUBSTR('WELCOME',-2,2) FROM DUAL;
+
+SU
+--
+ME
+
+SQL> SELECT INSTR('WELCOME','E') FROM DUAL;
+
+INSTR('WELCOME','E')
+--------------------
+                   2
+
+SQL> SELECT INSTR('WELCOME','E',1,2) FROM DUAL;
+
+INSTR('WELCOME','E',1,2)
+------------------------
+                       7
+
+SQL> SELECT INSTR('WELCOME','E',1,3);
+SELECT INSTR('WELCOME','E',1,3)
+                              *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT INSTR('WELCOME','E',1,3) FROM DUAL;
+
+INSTR('WELCOME','E',1,3)
+------------------------
+                       0
+
+SQL> SELECT INSTR('WELCOME','E',-2,1) FROM DUAL;
+
+INSTR('WELCOME','E',-2,1)
+-------------------------
+                        2
+
+SQL> SELECT INSTR('WELCOME','E',-2,2);
+SELECT INSTR('WELCOME','E',-2,2)
+                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT INSTR('WELCOME','E',-2,2) FROM DUAL;
+
+INSTR('WELCOME','E',-2,2)
+-------------------------
+                        0
+
+SQL> SELECT INSTR('WELCOME','E',-1,1) FROM DUAL;
+
+INSTR('WELCOME','E',-1,1)
+-------------------------
+                        7
+
+SQL> REM ***DATE FUNCTION***
+SQL> SELECT SYSDATE FROM DUAL;
+
+SYSDATE
+---------
+19-NOV-22
+
+SQL> SELECT SYSDATE+10 FROM DUAL;
+
+SYSDATE+1
+---------
+29-NOV-22
+
+SQL> SELECT SYSDATE-5 FROM DUAL;
+
+SYSDATE-5
+---------
+14-NOV-22
+
+SQL> SELECT ADD_MONTHS(SYSDATE, 2) FROM DUAL;
+
+ADD_MONTH
+---------
+19-JAN-23
+
+SQL> SELECT LAST_DATE(SYSDATE) FROM DUAL;
+SELECT LAST_DATE(SYSDATE) FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "LAST_DATE": invalid identifier
+
+
+SQL> SELECT LAST_DAY(SYSDATE) FROM DUAL;
+
+LAST_DAY(
+---------
+30-NOV-22
+
+SQL> SELECT MONTHS_BETWEEN(SYSDATE, '27-JUL-2023') FROM DUAL;
+
+MONTHS_BETWEEN(SYSDATE,'27-JUL-2023')
+-------------------------------------
+                           -8.2524223
+
+SQL> SELECT MONTHS_BETWEEN('27-JUL-2023', SYSDATE) FROM DUAL;
+
+MONTHS_BETWEEN('27-JUL-2023',SYSDATE)
+-------------------------------------
+                           8.25241301
+
+SQL> SELECT MONTHS_BETWEEN('04-JAN-19','09-DEC-20') FROM DUAL;
+
+MONTHS_BETWEEN('04-JAN-19','09-DEC-20')
+---------------------------------------
+                              -23.16129
+
+SQL> SELECT MONTHS_BETWEEN('04-JAN-20','04-DEC-19') FROM DUAL;
+
+MONTHS_BETWEEN('04-JAN-20','04-DEC-19')
+---------------------------------------
+                                      1
+
+SQL>

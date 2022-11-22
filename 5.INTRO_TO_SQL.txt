@@ -1,0 +1,250 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Nov 9 14:35:45 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system/Guddu2707
+Last Successful login time: Tue Nov 08 2022 22:35:02 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> SET PAGESIZE 100;
+SQL> SET LINES 160;
+SQL> SELECT 'MR.'||ENAME||' '||'IS WORKING AS A '||JOB FROM EMP;
+
+'MR.'||ENAME||''||'ISWORKINGASA'||JOB
+---------------------------------------
+MR.SMITH IS WORKING AS A CLERK
+MR.ALLEN IS WORKING AS A SALESMAN
+MR.WARD IS WORKING AS A SALESMAN
+MR.JONES IS WORKING AS A MANAGER
+MR.MARTIN IS WORKING AS A SALESMAN
+MR.BLAKE IS WORKING AS A MANAGER
+MR.CLARK IS WORKING AS A MANAGER
+MR.SCOTT IS WORKING AS A ANALYST
+MR.KING IS WORKING AS A PRESIDENT
+MR.TURNER IS WORKING AS A SALESMAN
+MR.ADAMS IS WORKING AS A CLERK
+MR.JAMES IS WORKING AS A CLERK
+MR.FORD IS WORKING AS A ANALYST
+MR.MILLER IS WORKING AS A CLERK
+
+14 rows selected.
+
+SQL> SELECT DISTINCT JOB FROM EMP;
+
+JOB
+---------
+CLERK
+SALESMAN
+ANALYST
+MANAGER
+PRESIDENT
+
+SQL> SELECT DISTINCT DEPTNO FROM EMP ORDER BY DEPTNO;
+
+    DEPTNO
+----------
+        10
+        20
+        30
+
+SQL> SELECT DEPTNO X, DNAME Y, LOC Z FROM DEPT D;
+
+         X Y              Z
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> CREATE TABLE NEWDEPT AS SEECT * FROM DEPT;
+CREATE TABLE NEWDEPT AS SEECT * FROM DEPT
+                        *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> CREATE TABLE NEWDEPT AS SELECT * FROM DEPT;
+
+Table created.
+
+SQL> CREATE TABLE SPEDEPT AS SELECT * FROM DEPT WHERE 1=1;
+
+Table created.
+
+SQL> CREATE TABLE SPDEPT AS SELECT * FROM DEPT WHERE 1=2;
+
+Table created.
+
+SQL> DESC SPEDEPT;
+ Name                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------- -------- ------------------------------------------------------------
+ DEPTNO                                                                                             NUMBER(2)
+ DNAME                                                                                              VARCHAR2(14)
+ LOC                                                                                                VARCHAR2(13)
+
+SQL> SELECT * FROM SPEDEPT;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> DESC SPDEPT;
+ Name                                                                                      Null?    Type
+ ----------------------------------------------------------------------------------------- -------- ------------------------------------------------------------
+ DEPTNO                                                                                             NUMBER(2)
+ DNAME                                                                                              VARCHAR2(14)
+ LOC                                                                                                VARCHAR2(13)
+
+SQL> SELECT * FROM SPDEPT;
+
+no rows selected
+
+SQL> CREATE TABLE SPEMP AS SELECT EMPNO, ENAME, SAL FROM EMP;
+
+Table created.
+
+SQL> SELECT * FROM SPEMP;
+
+     EMPNO ENAME             SAL
+---------- ---------- ----------
+      7369 SMITH             800
+      7499 ALLEN            1600
+      7521 WARD             1250
+      7566 JONES            2975
+      7654 MARTIN           1250
+      7698 BLAKE            2850
+      7782 CLARK            2450
+      7788 SCOTT            3000
+      7839 KING             5000
+      7844 TURNER           1500
+      7876 ADAMS            1100
+      7900 JAMES             950
+      7902 FORD             3000
+      7934 MILLER           1300
+
+14 rows selected.
+
+SQL> CREATE SPECEMP AS SELECT * FROM EMP WHERE DEPTNO=20;
+CREATE SPECEMP AS SELECT * FROM EMP WHERE DEPTNO=20
+       *
+ERROR at line 1:
+ORA-00901: invalid CREATE command
+
+
+SQL> CREATE TABLE SPECEMP AS SELECT * FROM EMP WHERE DEPTNO=20;
+
+Table created.
+
+SQL> SELECT * FROM SPECEMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                    20
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                    20
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+
+SQL> CREATE TABLE DEMP AS SELECT * FROM EMP WHERE 1=2;
+
+Table created.
+
+SQL> INSERT INTO DEMP SELECT EMPNO, ENAME, SAL FROM EMP;
+INSERT INTO DEMP SELECT EMPNO, ENAME, SAL FROM EMP
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO DEMP SELECT * FROM EMP;
+
+14 rows created.
+
+SQL> SELECT * FROM DEMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM     DEPTNO
+---------- ---------- --------- ---------- --------- ---------- ---------- ----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800                    20
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300         30
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500         30
+      7566 JONES      MANAGER         7839 02-APR-81       2975                    20
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400         30
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850                    30
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450                    10
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000                    20
+      7839 KING       PRESIDENT            17-NOV-81       5000                    10
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0         30
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100                    20
+      7900 JAMES      CLERK           7698 03-DEC-81        950                    30
+      7902 FORD       ANALYST         7566 03-DEC-81       3000                    20
+      7934 MILLER     CLERK           7782 23-JAN-82       1300                    10
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> CREATE TABLE TEST1 AS SELECT * FROM DEPT WHERE 1=0;
+
+Table created.
+
+SQL> CREATE TABLE TEST2 AS SELECT * FROM DEPT WHERE 1=0;
+
+Table created.
+
+SQL> CREATE TABLE TEST3 AS SELECT * FROM DEPT WHERE 1=0;
+
+Table created.
+
+SQL> INSERT ALL INTO TEST1 VALUES (DEPTNO, DNAME, LOC)
+  2             INTO TEST2 VALUES (DEPTNO, DNAME, LOC)
+  3             INTO TEST3 VALUES (DEPTNO, DNAME, LOC)
+  4             SELECT * FROM DEPT;
+
+12 rows created.
+
+SQL> SELECT * FROM TEST1;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT * FROM TEST2;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT * FROM TEST3;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL>

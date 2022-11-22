@@ -1,0 +1,170 @@
+
+SQL> REM Q2-> W.A.Q. to display the employye name, job and annual salary.
+SQL> DESC employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> SELECT EMPLOYEE_NAME, JOB_ID, SALARY*12 ANNUAL SALARY FROM employees;
+SELECT EMPLOYEE_NAME, JOB_ID, SALARY*12 ANNUAL SALARY FROM employees
+                                               *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> SELECT EMPLOYEE_NAME, JOB_ID, SALARY*12 ANNUAL_SALARY FROM employees;
+SELECT EMPLOYEE_NAME, JOB_ID, SALARY*12 ANNUAL_SALARY FROM employees
+       *
+ERROR at line 1:
+ORA-00904: "EMPLOYEE_NAME": invalid identifier
+
+
+SQL> SELECT FIRST_NAME, LAST_NAME, JOB_ID, SALARY*12 ANNUAL_SALARY FROM employees;
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Steven               King                      AD_PRES           288000
+Neena                Kochhar                   AD_VP             204000
+Lex                  De Haan                   AD_VP             204000
+Alexander            Hunold                    IT_PROG           108000
+Bruce                Ernst                     IT_PROG            72000
+David                Austin                    IT_PROG            57600
+Valli                Pataballa                 IT_PROG            57600
+Diana                Lorentz                   IT_PROG            50400
+Nancy                Greenberg                 FI_MGR            144000
+Daniel               Faviet                    FI_ACCOUNT        108000
+John                 Chen                      FI_ACCOUNT         98400
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Ismael               Sciarra                   FI_ACCOUNT         92400
+Jose Manuel          Urman                     FI_ACCOUNT         93600
+Luis                 Popp                      FI_ACCOUNT         82800
+Den                  Raphealy                  PU_MAN            132000
+Alexander            Khoo                      PU_CLERK           37200
+Shelli               Baida                     PU_CLERK           34800
+Sigal                Tobias                    PU_CLERK           33600
+guy                  Himuro                    PU_CLERK           33600
+Karen                Colmenares                PU_CLERK           30000
+Matthew              Weiss                     ST_MAN             96000
+Adam                 Fripp                     ST_MAN             98400
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Payam                Kaufling                  ST_MAN             94800
+Shanta               Vollman                   ST_MAN             78000
+Kevin                Mourgos                   ST_MAN             69600
+Julia                Nayer                     ST_CLERK           38400
+Irene                Mikkilineni               ST_CLERK           32400
+James                Landry                    ST_CLERK           28800
+Steven               Markle                    ST_CLERK           26400
+Mozhe                Atkinson                  ST_CLERK           33600
+James                Marlow                    ST_CLERK           30000
+TJ                   Olson                     ST_CLERK           25200
+Jason                Mallin                    ST_CLERK           39600
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Michael              Rogers                    ST_CLERK           34800
+Ki                   Gee                       ST_CLERK           28800
+Hazel                Philtanker                ST_CLERK           26400
+Renske               Ladwig                    ST_CLERK           43200
+Stephen              Stiles                    ST_CLERK           38400
+John                 Seo                       ST_CLERK           32400
+Joshua               Patel                     ST_CLERK           30000
+Trenna               Rajs                      ST_CLERK           42000
+Curtis               Davies                    ST_CLERK           37200
+Randall              Matos                     ST_CLERK           31200
+Peter                Vargas                    ST_CLERK           30000
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+John                 Russell                   SA_MAN            168000
+Karen                Partners                  SA_MAN            162000
+Alberto              Errazuriz                 SA_MAN            144000
+Gerald               Cambrault                 SA_MAN            132000
+Eleni                Zlotkey                   SA_MAN            126000
+Peter                Tucker                    SA_REP            120000
+David                Bernstein                 SA_REP            114000
+Peter                Hall                      SA_REP            108000
+Christopher          Olsen                     SA_REP             96000
+Nanette              Cambrault                 SA_REP             90000
+Oliver               Tuvault                   SA_REP             84000
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Janette              King                      SA_REP            120000
+Patrick              Sully                     SA_REP            114000
+Allan                McEwen                    SA_REP            108000
+Lindsey              Smith                     SA_REP             96000
+Louise               Doran                     SA_REP             90000
+Sarath               Sewall                    SA_REP             84000
+Clara                Vishney                   SA_REP            126000
+Danielle             Greene                    SA_REP            114000
+Mattea               Marvins                   SA_REP             86400
+David                Lee                       SA_REP             81600
+Sundar               Ande                      SA_REP             76800
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Amit                 Banda                     SA_REP             74400
+Lisa                 Ozer                      SA_REP            138000
+Harrison             Bloom                     SA_REP            120000
+Tayler               Fox                       SA_REP            115200
+William              Smith                     SA_REP             88800
+Elizabeth            Bates                     SA_REP             87600
+Sundita              Kumar                     SA_REP             73200
+Ellen                Abel                      SA_REP            132000
+Alyssa               Hutton                    SA_REP            105600
+Jonathon             Taylor                    SA_REP            103200
+Jack                 Livingston                SA_REP            100800
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Kimberely            Grant                     SA_REP             84000
+Charles              Johnson                   SA_REP             74400
+Winston              Taylor                    SH_CLERK           38400
+Jean                 Fleaur                    SH_CLERK           37200
+Martha               Sullivan                  SH_CLERK           30000
+Girard               Geoni                     SH_CLERK           33600
+Nandita              Sarchand                  SH_CLERK           50400
+Alexis               Bull                      SH_CLERK           49200
+Julia                Dellinger                 SH_CLERK           40800
+Anthony              Cabrio                    SH_CLERK           36000
+Kelly                Chung                     SH_CLERK           45600
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Jennifer             Dilly                     SH_CLERK           43200
+Timothy              Gates                     SH_CLERK           34800
+Randall              Perkins                   SH_CLERK           30000
+Sarah                Bell                      SH_CLERK           48000
+Britney              Everett                   SH_CLERK           46800
+Samuel               McCain                    SH_CLERK           38400
+Vance                Jones                     SH_CLERK           33600
+Alana                Walsh                     SH_CLERK           37200
+Kevin                Feeney                    SH_CLERK           36000
+Donald               OConnell                  SH_CLERK           31200
+Douglas              Grant                     SH_CLERK           31200
+
+FIRST_NAME           LAST_NAME                 JOB_ID     ANNUAL_SALARY
+-------------------- ------------------------- ---------- -------------
+Jennifer             Whalen                    AD_ASST            52800
+Michael              Hartstein                 MK_MAN            156000
+Pat                  Fay                       MK_REP             72000
+Susan                Mavris                    HR_REP             78000
+Hermann              Baer                      PR_REP            120000
+Shelley              Higgins                   AC_MGR            144000
+William              Gietz                     AC_ACCOUNT         99600
+
+106 rows selected.

@@ -1,0 +1,14 @@
+
+SQL> REM Q3-> W.A.Q. to get the total number of employees working in the company.
+SQL> SELECT COUNT(*) FROM employees;
+
+  COUNT(*)
+----------
+       106
+
+SQL> REM Q4-> W.A.Q. to get the total salary being paid to all employees.
+SQL> SELECT SUM(SALARY) SAL_EXP_PER_MONTH FROM employees;
+
+SAL_EXP_PER_MONTH
+-----------------
+           688300

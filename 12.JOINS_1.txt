@@ -1,0 +1,441 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Nov 22 11:26:33 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Sun Nov 20 2022 17:55:06 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> SELECT * FROM TAB;
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+STUDENT
+TABLE
+
+DEPT
+TABLE
+
+EMP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SALGRADE
+TABLE
+
+SPEDEPT
+TABLE
+
+NEWDEPT
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SPDEPT
+TABLE
+
+SPEMP
+TABLE
+
+SPECEMP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+DEMP
+TABLE
+
+TEST1
+TABLE
+
+TEST2
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+TEST3
+TABLE
+
+BIN$For+pZO3QCKdspLquV120A==$0
+TABLE
+
+EMP_CHENNAI
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+EMP_HYD
+TABLE
+
+TEST
+TABLE
+
+
+17 rows selected.
+
+SQL> SELECT * FROM STUDENT;
+
+no rows selected
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ SFEE                                               NUMBER(6,2)
+
+SQL> ALTER TABLE STUDENT DROP COLUMN SFEE;
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT ADD COLUMN CID NUMBER(5);
+ALTER TABLE STUDENT ADD COLUMN CID NUMBER(5)
+                        *
+ERROR at line 1:
+ORA-00904: : invalid identifier
+
+
+SQL> ALTER TABLE STUDENT ADD CID NUMBER(5);
+
+Table altered.
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ CID                                                NUMBER(5)
+
+SQL> INSERT INTO STUDENT VALUES (&STID, '&SNAME', &CID);
+Enter value for stid: 1021
+Enter value for sname: SAI
+Enter value for cid: 10
+old   1: INSERT INTO STUDENT VALUES (&STID, '&SNAME', &CID)
+new   1: INSERT INTO STUDENT VALUES (1021, 'SAI', 10)
+
+1 row created.
+
+SQL> /
+Enter value for stid: 1022
+Enter value for sname: ADAMS
+Enter value for cid: 20
+old   1: INSERT INTO STUDENT VALUES (&STID, '&SNAME', &CID)
+new   1: INSERT INTO STUDENT VALUES (1022, 'ADAMS', 20)
+
+1 row created.
+
+SQL> /
+Enter value for stid: 1023
+Enter value for sname: JONES
+Enter value for cid: 30
+old   1: INSERT INTO STUDENT VALUES (&STID, '&SNAME', &CID)
+new   1: INSERT INTO STUDENT VALUES (1023, 'JONES', 30)
+
+1 row created.
+
+SQL> CREATE TABLE COURSE (
+  2     CID NUMBER(6),
+  3     CNAME VARCHAR2(20),
+  4
+SQL> CREATE TABLE COURSE (
+  2     CID NUMBER(5),
+  3     CNAME VARCHAR2(20),
+  4     CFEE NUMBER(10)
+  5  );
+
+Table created.
+
+SQL> INSERT INTO COURSE VALUES (&CID, '&CNAME', &CFEE);
+Enter value for cid: 10
+Enter value for cname: ORACLE
+Enter value for cfee: 2500
+old   1: INSERT INTO COURSE VALUES (&CID, '&CNAME', &CFEE)
+new   1: INSERT INTO COURSE VALUES (10, 'ORACLE', 2500)
+
+1 row created.
+
+SQL> /
+Enter value for cid: 20
+Enter value for cname: JAVA
+Enter value for cfee: 6000
+old   1: INSERT INTO COURSE VALUES (&CID, '&CNAME', &CFEE)
+new   1: INSERT INTO COURSE VALUES (20, 'JAVA', 6000)
+
+1 row created.
+
+SQL> /
+Enter value for cid: 40
+Enter value for cname: PHP
+Enter value for cfee: 4500
+old   1: INSERT INTO COURSE VALUES (&CID, '&CNAME', &CFEE)
+new   1: INSERT INTO COURSE VALUES (40, 'PHP', 4500)
+
+1 row created.
+
+SQL> REM
+SQL> REM ***** JOINS ******
+SQL> REM
+SQL> REM *** EQUI JOINS ***
+SQL> REM EX1. W.A.Q. TO RETRIEVE STUDENT AND CORRESPONDING COURSE DETAILS FROM STUDENT&COURSE TABLES BY USING EQUI JOIN.
+SQL> SELECT * FROM STUDENT, COURSE WHERE CID=CID;
+SELECT * FROM STUDENT, COURSE WHERE CID=CID
+                                        *
+ERROR at line 1:
+ORA-00918: column ambiguously defined
+
+
+SQL> REM TO OVERCOME ABOVE ERROR, WE SHOULD USE TABLE NAME AS AN IDENTITY.
+SQL> SELECT * FROM STUDENT, COURSE WHERE STUDENT.CID=COURSE.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> REM EX2. W.A.Q TO RETRIEVE STUDENT, COURSE DETAILS FROM TABLES IF CID IS 20.
+SQL> SELECT * FROM STUDENT S,COURSE C WHERE S.CID=C.CID AND C.CID=20;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> SELECT * FROM STUDENT S,COURSE C WHERE S.CID=C.CID AND S.CID=20;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> REM EX3. W/A/Q/ TO RETRIEVE LIST OF EMPLOYESS FROM EMP, DEPT TABLES BY USING EQUI JOIN
+ WHO ARE WORKING IN THE LOCATION='CHICAGO'.
+SQL> SELECT * FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO AND D.DEPTNO='CHICAGO';
+SELECT * FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO AND D.DEPTNO='CHICAGO'
+                                                                 *
+ERROR at line 1:
+ORA-01722: invalid number
+
+
+SQL> SELECT * FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO AND LOC='CHICAGO';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30         30 SALES          CHICAGO
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30         30 SALES          CHICAGO
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30         30 SALES          CHICAGO
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30         30 SALES          CHICAGO
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30         30 SALES          CHICAGO
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30         30 SALES          CHICAGO
+
+
+6 rows selected.
+
+SQL> EX4. W.A.Q. TO DISPLAY SUM OF SALARIES OF DEPARTMENT FROM EMP, DEPT TABLES BY USING EQ
+UI JOIN.
+SP2-0734: unknown command beginning "EX4. W.A.Q..." - rest of line ignored.
+SQL> REM EX4. W.A.Q. TO DISPLAY SUM OF SALARIES OF DEPARTMENT FROM EMP, DEPT TABLES BY USING EQUI JOIN.
+SQL> SELECT DNAME, SUM(SAL) FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO GROUP BY DNAME;
+
+DNAME            SUM(SAL)
+-------------- ----------
+RESEARCH            13975
+SALES               10950
+ACCOUNTING           8750
+
+SQL> REM EX5. W.A.Q. TO DISPLAY SUM OF SALARIES OF DEPARTMENT FROM EMP,DEPT TABLES BY USING
+ EQUI JOIN IF SUM OF SALARIES OF DEPARTMENT ARE MORE THAN 10000.
+SQL> SELECT DNAME, SUM(SAL) FROM EMP E,DEPT D WHERE E.DEPTNO=D.DEPTNO GROUP BY DNAME HAVING
+ SUM(SAL)>10000;
+
+DNAME            SUM(SAL)
+-------------- ----------
+RESEARCH            13975
+SALES               10950
+
+SQL> REM EX.6 USING ROLL UP & CUBE CLAUSES IN JOINS
+SQL> SELECT DNAME, SUM(SAL) FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO GROUP BY ROLLUP(DNAM
+E);
+
+DNAME            SUM(SAL)
+-------------- ----------
+ACCOUNTING           8750
+RESEARCH            13975
+SALES               10950
+                    33675
+
+SQL> SELECT DNAME, SUM(SAL) FROM EMP E, DEPT D WHERE E.DEPTNO=D.DEPTNO GROUP BY CUBE(D.DEPTNO, DNAME);
+
+DNAME            SUM(SAL)
+-------------- ----------
+                    33675
+SALES               10950
+RESEARCH            13975
+ACCOUNTING           8750
+                     8750
+ACCOUNTING           8750
+                    13975
+RESEARCH            13975
+                    10950
+SALES               10950
+
+10 rows selected.
+
+SQL> REM
+SQL> REM *** INNER JOIN ***
+SQL> REM EX1. W.A.Q. TO RETRIEVE STUDENT,COURSE DETAILS FROM TABLES BY USING INNER JOIN.
+SQL> SELECT * FROM STUDENT INNER JOIN COURSE ON STUDENT.CID=COURSE.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> REM EX2.W.A.Q. TO DISPLAY EMPLOYEES FROM EMP, DEPT TABLES BY USING INNER JOIN WHO ARE
+WORKING IN THE LOCATION CHICAGO.
+SQL> SLELCT * FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO AND LOC='CHICAGO';
+SP2-0734: unknown command beginning "SLELCT * F..." - rest of line ignored.
+SQL> SELELCT * FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO AND LOC='CHICAGO';
+SP2-0734: unknown command beginning "SELELCT * ..." - rest of line ignored.
+SQL> SELECT * FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO AND LOC='CHICAGO';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30         30 SALES          CHICAGO
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30         30 SALES          CHICAGO
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30         30 SALES          CHICAGO
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30         30 SALES          CHICAGO
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30         30 SALES          CHICAGO
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30         30 SALES          CHICAGO
+
+
+6 rows selected.
+
+SQL> SELCT * FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO WHERE LOC='CHICAGO';
+SP2-0734: unknown command beginning "SELCT * FR..." - rest of line ignored.
+SQL> SELECT * FROM EMP E INNER JOIN DEPT D ON E.DEPTNO=D.DEPTNO WHERE LOC='CHICAGO';
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30         30 SALES          CHICAGO
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30         30 SALES          CHICAGO
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30         30 SALES          CHICAGO
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO     DEPTNO DNAME          LOC
+---------- ---------- -------------- -------------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30         30 SALES          CHICAGO
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30         30 SALES          CHICAGO
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30         30 SALES          CHICAGO
+
+
+6 rows selected.
+
+SQL>

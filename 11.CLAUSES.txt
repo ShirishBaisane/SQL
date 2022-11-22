@@ -1,0 +1,1147 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sun Nov 20 17:54:51 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Sun Nov 20 2022 17:45:02 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> REM   *****CLAUSES*****
+SQL> REM
+SQL> REM ***WHERE***
+SQL> SELECT * FROM EMP WHERE EMPNO=7788;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+SQL> UPDATE EMP SET SAL=2500 WHERE JOB='CLERK';
+
+4 rows updated.
+
+SQL> DELETE FROM EMP WHERE DEPTNO=10;
+
+3 rows deleted.
+
+SQL> REM
+SQL> REM ***ORDER BY***
+SQL> SELECT * FROM EMP ORDER BY SAL;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY SAL DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP ORDER NY ENAME;
+SELECT * FROM EMP ORDER NY ENAME
+                        *
+ERROR at line 1:
+ORA-00924: missing BY keyword
+
+
+SQL> SELECT * FROM EMP ORDER BY ENAME;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY ENAME DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+11 rows selected.
+
+SQL> REM Q>> W.A.Q. TO DISPLAY EMPLOYEE WHO ARE WORKING UNDER DEPTNO=20 AND ARRANGE THOSE E
+MPLOYEES SALARIES IN DESCENDING ORDER.
+SQL> SELECT * FROM EMP WHERE DEPTNO=20 ORDER BY SAL DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+
+SQL> SELECT * FROM EMP ORDER BY DEPTNO, SAL DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+
+11 rows selected.
+
+SQL> REM THE ABOVE QUERY WAS FOR THE FOLLOWING QUESTION....
+SQL> REM Q>> W.A.Q. TO ARRANGE DEPTNO IN ASCENDING ORDER AND THEIR EMPLOYEE SALARIES ARE IN
+ DESCENDING ORDER.
+SQL> REM **ORER BY CLAUSE ON POSITION OF COLUMNS IN SELECT QUERY**
+SQL> SELECT * FROM EMP ORDER BY SAL;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+11 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY 6;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+11 rows selected.
+
+SQL> SELECT ENAME, EMPNO, SAL FROM EMP ORDER BY 3;
+
+ENAME           EMPNO        SAL
+---------- ---------- ----------
+WARD             7521       1250
+MARTIN           7654       1250
+TURNER           7844       1500
+ALLEN            7499       1600
+SMITH            7369       2500
+JAMES            7900       2500
+ADAMS            7876       2500
+BLAKE            7698       2850
+JONES            7566       2975
+FORD             7902       3000
+SCOTT            7788       3000
+
+11 rows selected.
+
+SQL> SELECT ENAME, SAL FROM EMP ORDER BY 2;
+
+ENAME             SAL
+---------- ----------
+WARD             1250
+MARTIN           1250
+TURNER           1500
+ALLEN            1600
+SMITH            2500
+JAMES            2500
+ADAMS            2500
+BLAKE            2850
+JONES            2975
+FORD             3000
+SCOTT            3000
+
+11 rows selected.
+
+SQL> SELECT SAL FROM EMP ORDER BY 1;
+
+       SAL
+----------
+      1250
+      1250
+      1500
+      1600
+      2500
+      2500
+      2500
+      2850
+      2975
+      3000
+      3000
+
+11 rows selected.
+
+SQL> **ORDER BY CLAUSE WITH 'NULL' CLAUSE**
+SP2-0734: unknown command beginning "**ORDER BY..." - rest of line ignored.
+SQL> REM **ORDER BY CLAUSE WITH 'NULL' CLAUSE**
+SQL> REM *NULLS FIRST*
+SQL> SELECT * FROM EMP ORDER BY COMM;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+
+11 rows selected.
+
+SQL> INSERT INTO EMP VALUES
+  2          (7782, 'CLARK',  'MANAGER',   7839,
+  3          TO_DATE('9-JUN-1981', 'DD-MON-YYYY'),  2450, NULL, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES
+  2          (7839, 'KING',   'PRESIDENT', NULL,
+  3          TO_DATE('17-NOV-1981', 'DD-MON-YYYY'), 5000, NULL, 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES
+  2          (7934, 'MILLER', 'CLERK',     7782,
+  3          TO_DATE('23-JAN-1982', 'DD-MON-YYYY'), 1300, NULL, 10);
+
+1 row created.
+
+SQL> SELECT * FROM EMP ORDER BY COMM;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY COMM NULLS FIRST;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+
+14 rows selected.
+
+SQL> REM *NULLS LAST*
+SQL> SELECT * FROM EMP ORDER BY COMM DESC;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+
+14 rows selected.
+
+SQL> SELECT * FROM EMP ORDER BY COMM DESC NULLS LAST;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> REM
+SQL> REM ***GROUP BY***
+SQL> REM Q>> W.A.Q. TO DISPLAY NO. OF EMPLOYEES IN EACH JOB.
+SQL> SELECT JOB, COUNT(8) FROM EMP GROUP BY JOB;
+
+JOB         COUNT(8)
+--------- ----------
+CLERK              4
+SALESMAN           4
+ANALYST            2
+MANAGER            3
+PRESIDENT          1
+
+SQL> SELECT JOB, COUNT(*) FROM EMP GROUP BY JOB;
+
+JOB         COUNT(*)
+--------- ----------
+CLERK              4
+SALESMAN           4
+ANALYST            2
+MANAGER            3
+PRESIDENT          1
+
+SQL> REM Q>> W.A.Q. TO DISPLAY NO. OF EMPLOYEES IN X-COMPANY.
+SQL> SELECT COUNT(*) FROM EMP;
+
+  COUNT(*)
+----------
+        14
+
+SQL> REM Q>> W.A.Q. TO DISPLAY SUM OF SALARY OF EACH DEPTNO-WISE.
+SQL> SELECT DEPTNO, SUM(SAL) FROM EMP GROUP BY DEPTNO ORDER BY DEPTNO;
+
+    DEPTNO   SUM(SAL)
+---------- ----------
+        10       8750
+        20      13975
+        30      10950
+
+SQL> REM Q>> W.A.Q TO FIND THE NO. OF EMPLOYEES FROM EACH JOB ALONG WITH DEPTNO-WISE.
+SQL> SELECT DEPTNO, JOB, COUNT(*) FROM EMP GROUP BY DEPTNO, JOB;
+
+    DEPTNO JOB         COUNT(*)
+---------- --------- ----------
+        20 MANAGER            1
+        10 PRESIDENT          1
+        10 CLERK              1
+        20 ANALYST            2
+        10 MANAGER            1
+        30 SALESMAN           4
+        20 CLERK              2
+        30 MANAGER            1
+        30 CLERK              1
+
+9 rows selected.
+
+SQL> REM Q>> W.A.Q. TO FIND OUT NO. OF EMPLOYEES, SUM OF SALARTIES, AVG,MIN,MAX SALARY FROM
+ EACH DEPTNO-WISE.
+SQL> SELECT DEPTNO, COUNT(*) NO_OF_EMPS, SUM(SAL) SUM_SAL, AVG(SAL) AVG_SAL,
+  2         MIN(SAL) MIN_SAL, MAX(SAL) MAX_SAL FROM EMP
+  3             GROUP BY DEPTNO ORDER BY DEPTNO;
+
+    DEPTNO NO_OF_EMPS    SUM_SAL    AVG_SAL    MIN_SAL    MAX_SAL
+---------- ---------- ---------- ---------- ---------- ----------
+        10          3       8750 2916.66667       1300       5000
+        20          5      13975       2795       2500       3000
+        30          6      10950       1825       1250       2850
+
+SQL> REM
+SQL> REM ***HAVING***
+SQL> REM Q>> W.A.Q. TO DISPLAY JOBS IN WHICH JOB,S NO OF EMPLOYEES IS MORE THAN 3.
+SQL> SELECT JOB, COUNT(*) FROM EMP GROUP BY JOB HAVING COUNT(*)>3;
+
+JOB         COUNT(*)
+--------- ----------
+CLERK              4
+SALESMAN           4
+
+SQL> SELECT JOB, COUNT(*) FROM EMP GROUP BY JOB HAVING COUNT(*)>=3;
+
+JOB         COUNT(*)
+--------- ----------
+CLERK              4
+SALESMAN           4
+MANAGER            3
+
+SQL> REM Q>> W.A.Q TO DISPLAY DEPTNO IN WHICH DEPTNO SUM OF SLARY IS LESS THEN 10000.
+SQL> SELECT DEPTNO, SUM(SAL) SUM_SAL FROM EMP GROUP BY DEPTNO HAVING SUM(SAL)<10000;
+
+    DEPTNO    SUM_SAL
+---------- ----------
+        10       8750
+
+SQL> REM
+SQL> REM ***ALL CLAUSES IN A SINGLE SELECT STATEMENT***
+SQL> REM
+SQL> SELECT DEPTNO, COUNT(*) FROM EMP
+  2     WHERE SAL>1000
+  3     GROUP BY DEPTNO
+  4     HAVING COUNT(*)>3
+  5     ORDER BY DEPTNO DESC;
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        30          6
+        20          5
+
+SQL> REM
+SQL> REM ***ROLL & CUBE***
+SQL> REM **ON ROLLUP ON WITH A SINGLE COLUMN**
+SQL> SELECT DEPTNO,COUNT(*) FROM EMP GROUP BY ROLLUP(DEPTNO, JOB);
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        10          1
+        10          1
+        10          1
+        10          3
+        20          2
+        20          2
+        20          1
+        20          5
+        30          1
+        30          1
+        30          4
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        30          6
+                   14
+
+13 rows selected.
+
+SQL> SELECT JOB,DEPTNO,COUNT(*) FROM EMP GROUP BY ROLLUP(DEPTNO, JOB);
+
+JOB           DEPTNO   COUNT(*)
+--------- ---------- ----------
+CLERK             10          1
+MANAGER           10          1
+PRESIDENT         10          1
+                  10          3
+CLERK             20          2
+ANALYST           20          2
+MANAGER           20          1
+                  20          5
+CLERK             30          1
+MANAGER           30          1
+SALESMAN          30          4
+
+JOB           DEPTNO   COUNT(*)
+--------- ---------- ----------
+                  30          6
+                             14
+
+13 rows selected.
+
+SQL> SELECT JOB,DEPTNO,COUNT(*) FROM EMP GROUP BY ROLL(JOB,DEPTNO);
+SELECT JOB,DEPTNO,COUNT(*) FROM EMP GROUP BY ROLL(JOB,DEPTNO)
+                                             *
+ERROR at line 1:
+ORA-00904: "ROLL": invalid identifier
+
+
+SQL> SELECT JOB,DEPTNO,COUNT(*) FROM EMP GROUP BY ROLLUP(JOB,DEPTNO);
+
+JOB           DEPTNO   COUNT(*)
+--------- ---------- ----------
+CLERK             10          1
+CLERK             20          2
+CLERK             30          1
+CLERK                         4
+ANALYST           20          2
+ANALYST                       2
+MANAGER           10          1
+MANAGER           20          1
+MANAGER           30          1
+MANAGER                       3
+SALESMAN          30          4
+
+JOB           DEPTNO   COUNT(*)
+--------- ---------- ----------
+SALESMAN                      4
+PRESIDENT         10          1
+PRESIDENT                     1
+                             14
+
+15 rows selected.
+
+SQL> REM **ON CUDE WITH A SINGLE COLUMN**
+SQL> SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY CUBE(DEPTNO);
+
+    DEPTNO   COUNT(*)
+---------- ----------
+                   14
+        10          3
+        20          5
+        30          6
+
+SQL> SELECT DEPTNO, COUNT(*) FROM EMP GROUP BY CUBE(DEPTNO) ORDER BY
+  2                                                             DEPTNO;
+
+    DEPTNO   COUNT(*)
+---------- ----------
+        10          3
+        20          5
+        30          6                                                                                         14                                                                                                                                                                 SQL> **ON CUBE WITH MULTIPLE COLUMNS**                                                     SP2-0734: unknown command beginning "**ON CUBE ..." - rest of line ignored.                SQL> REM **ON CUBE WITH MULTIPLE COLUMNS**                                                 SQL> SELECT DEPTNO, JOB, COUNT(*) FROM EMP GROUP BY CUBE(DEPTNO,JOB) ORDER BY DEPTNO DESC;                                                                                                DEPTNO JOB         COUNT(*)                                                            ---------- --------- ----------                                                                       ANALYST            2                                                                       CLERK              4                                                                       MANAGER            3                                                                       PRESIDENT          1                                                                       SALESMAN           4                                                                                         14                                                                    30 CLERK              1                                                                    30 MANAGER            1                                                                    30 SALESMAN           4                                                                    30                    6                                                                    20 ANALYST            2                                                                                                                                                       ──────────────────────────────────────────────────┘
+---------- --------- ----------
+        20 CLERK              2
+        20 MANAGER            1
+        20                    5
+        10 CLERK              1
+        10 MANAGER            1
+        10 PRESIDENT          1
+        10                    3
+
+18 rows selected.
+
+SQL> REM
+SQL> REM ***GROUPING_ID()***
+SQL> SELECT DEPTNO, JOB, COUNT(*), GROUPING_ID(DEPTNO, JOB) FROM EMP
+  2             GROUP BY CUBE(DEPTNO,JOB)
+  3             ORDER BY DEPTNO;
+
+    DEPTNO JOB         COUNT(*) GROUPING_ID(DEPTNO,JOB)
+---------- --------- ---------- -----------------------
+        10 CLERK              1                       0
+        10 MANAGER            1                       0
+        10 PRESIDENT          1                       0
+        10                    3                       1
+        20 ANALYST            2                       0
+        20 CLERK              2                       0
+        20 MANAGER            1                       0
+        20                    5                       1
+        30 CLERK              1                       0
+        30 MANAGER            1                       0
+        30 SALESMAN           4                       0
+
+    DEPTNO JOB         COUNT(*) GROUPING_ID(DEPTNO,JOB)
+---------- --------- ---------- -----------------------
+        30                    6                       1
+           ANALYST            2                       2
+           CLERK              4                       2
+           MANAGER            3                       2
+           PRESIDENT          1                       2
+           SALESMAN           4                       2
+                             14                       3
+
+18 rows selected.
+
+SQL>

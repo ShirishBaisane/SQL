@@ -1,0 +1,245 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sun Nov 6 17:54:54 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Thu Nov 03 2022 20:10:35 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am
+Enter password:
+Connected.
+SQL> create table STUDENT (STID INT, SNAME VARCHAR2(20), SFEE NUMBER(6,2));
+
+Table created.
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ SFEE                                               NUMBER(6,2)
+
+SQL> CONN
+Enter user-name: SYSTEM
+Enter password:
+Connected.
+SQL> GRANT UNLIMITED TABLESPACE TO mydb11am;
+
+Grant succeeded.
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> INSERT INTO STUDENT VALUES (1, 'SMITH', 1500);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (STID, SNAME, SFEE) VALUES (2, 'ALLEN', 1200);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (STID, SNAME) VALUES (3, 'WARD');
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (STID) VALUES (4);
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (&STID, &SNAME, &SFEE);
+Enter value for stid: 4
+Enter value for sname: AKSHAY
+Enter value for sfee: 2000
+old   1: INSERT INTO STUDENT (&STID, &SNAME, &SFEE)
+new   1: INSERT INTO STUDENT (4, AKSHAY, 2000)
+INSERT INTO STUDENT (4, AKSHAY, 2000)
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> INSERT INTO STUDENT (&STID, '&SNAME', &SFEE);
+Enter value for stid: 4
+Enter value for sname: AKSHAY
+Enter value for sfee: 2000
+old   1: INSERT INTO STUDENT (&STID, '&SNAME', &SFEE)
+new   1: INSERT INTO STUDENT (4, 'AKSHAY', 2000)
+INSERT INTO STUDENT (4, 'AKSHAY', 2000)
+                     *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> INSERT INTO STUDENT VALUES (&STID, '&SNAME', &SFEE);
+Enter value for stid: 4
+Enter value for sname: AKSHAY
+Enter value for sfee: 1400
+old   1: INSERT INTO STUDENT VALUES (&STID, '&SNAME', &SFEE)
+new   1: INSERT INTO STUDENT VALUES (4, 'AKSHAY', 1400)
+
+1 row created.
+
+SQL> /
+Enter value for stid: 5
+Enter value for sname: ROHIT
+Enter value for sfee: 4700
+old   1: INSERT INTO STUDENT VALUES (&STID, '&SNAME', &SFEE)
+new   1: INSERT INTO STUDENT VALUES (5, 'ROHIT', 4700)
+
+1 row created.
+
+SQL> INSERT INTO STUDENT (STID, SFEE) VALUES (&STID, &SFEE);
+Enter value for stid: 6
+Enter value for sfee: 4000
+old   1: INSERT INTO STUDENT (STID, SFEE) VALUES (&STID, &SFEE)
+new   1: INSERT INTO STUDENT (STID, SFEE) VALUES (6, 4000)
+
+1 row created.
+
+SQL> /
+Enter value for stid: 7
+Enter value for sfee: 300
+old   1: INSERT INTO STUDENT (STID, SFEE) VALUES (&STID, &SFEE)
+new   1: INSERT INTO STUDENT (STID, SFEE) VALUES (7, 300)
+
+1 row created.
+
+SQL> 8
+SP2-0226: Invalid line number
+SQL> /
+Enter value for stid: 8
+Enter value for sfee: 4400
+old   1: INSERT INTO STUDENT (STID, SFEE) VALUES (&STID, &SFEE)
+new   1: INSERT INTO STUDENT (STID, SFEE) VALUES (8, 4400)
+
+1 row created.
+
+SQL> UPDATE STUDENT SET SFEE=5000 WHERE SNAME='WARD';
+
+1 row updated.
+
+SQL> UPDATE STUDENT SET SNAME='ADAM', SFEE=500 WHERE STID=6;
+
+1 row updated.
+
+SQL> UPDATE STUDENT SET SFEE=NULL WHERE STID=7;
+
+1 row updated.
+
+SQL> UPDATE STUDENT SET SFEE=8000 WHERE SFEE IS NULL;
+
+2 rows updated.
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ SNAME                                              VARCHAR2(20)
+ SFEE                                               NUMBER(6,2)
+
+SQL> SELECT * FROM STUDENT;
+
+      STID SNAME                      SFEE
+---------- -------------------- ----------
+         1 SMITH                      1500
+         2 ALLEN                      1200
+         3 WARD                       5000
+         4                            8000
+         4 AKSHAY                     1400
+         5 ROHIT                      4700
+         6 ADAM                        500
+         7                            8000
+         8                            4400
+
+9 rows selected.
+
+SQL> UPDATE STUDENT SET SFEE=NULL;
+
+9 rows updated.
+
+SQL> SELECT * FROM STUDENT;
+
+      STID SNAME                      SFEE
+---------- -------------------- ----------
+         1 SMITH
+         2 ALLEN
+         3 WARD
+         4
+         4 AKSHAY
+         5 ROHIT
+         6 ADAM
+         7
+         8
+
+9 rows selected.
+
+SQL> UPDATE STUDENT SET SFEE=5000;
+
+9 rows updated.
+
+SQL> SELECT * FROM STUDENT;
+
+      STID SNAME                      SFEE
+---------- -------------------- ----------
+         1 SMITH                      5000
+         2 ALLEN                      5000
+         3 WARD                       5000
+         4                            5000
+         4 AKSHAY                     5000
+         5 ROHIT                      5000
+         6 ADAM                       5000
+         7                            5000
+         8                            5000
+
+9 rows selected.
+
+SQL> DELETE FROM STUDENT WHERE STID=6;
+
+1 row deleted.
+
+SQL> SELECT * FROM STUDENT;
+
+      STID SNAME                      SFEE
+---------- -------------------- ----------
+         1 SMITH                      5000
+         2 ALLEN                      5000
+         3 WARD                       5000
+         4                            5000
+         4 AKSHAY                     5000
+         5 ROHIT                      5000
+         7                            5000
+         8                            5000
+
+8 rows selected.
+
+SQL> DELETE FROM STUDENT WHERE SNAME IS NULL;
+
+3 rows deleted.
+
+SQL> SELECT * FROM STUDENT;
+
+      STID SNAME                      SFEE
+---------- -------------------- ----------
+         1 SMITH                      5000
+         2 ALLEN                      5000
+         3 WARD                       5000
+         4 AKSHAY                     5000
+         5 ROHIT                      5000
+
+SQL> DELETE FROM STUDENT;
+
+5 rows deleted.
+
+SQL> SELECT * FROM STUDENT;
+
+no rows selected
+
+SQL>

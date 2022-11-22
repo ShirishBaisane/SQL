@@ -1,0 +1,934 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Thu Nov 3 20:03:36 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Thu Nov 03 2022 00:54:23 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> CREATE USER mydb11am IDENTIFIED BY mydb11am;
+
+User created.
+
+SQL> alter user mydb11am account unlock;
+
+User altered.
+
+SQL> grant connect to mydb11am;
+
+Grant succeeded.
+
+SQL> select * from tab;
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+AQ$_INTERNET_AGENTS
+TABLE
+
+AQ$_INTERNET_AGENT_PRIVS
+TABLE
+
+AQ$_KEY_SHARD_MAP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+AQ$_QUEUES
+TABLE
+
+AQ$_QUEUE_TABLES
+TABLE
+
+AQ$_SCHEDULES
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+CATALOG
+SYNONYM
+
+COL
+SYNONYM
+
+HELP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRC_CONCOL_GG
+TABLE
+
+LOGMNRC_CON_GG
+TABLE
+
+LOGMNRC_DBNAME_UID_MAP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRC_GSBA
+TABLE
+
+LOGMNRC_GSII
+TABLE
+
+LOGMNRC_GTCS
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRC_GTLO
+TABLE
+
+LOGMNRC_INDCOL_GG
+TABLE
+
+LOGMNRC_IND_GG
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRC_SEQ_GG
+TABLE
+
+LOGMNRC_SHARD_TS
+TABLE
+
+LOGMNRC_TS
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRC_TSPART
+TABLE
+
+LOGMNRGGC_GTCS
+TABLE
+
+LOGMNRGGC_GTLO
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNRP_CTAS_PART_MAP
+TABLE
+
+LOGMNRT_MDDL$
+TABLE
+
+LOGMNR_AGE_SPILL$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_ATTRCOL$
+TABLE
+
+LOGMNR_ATTRIBUTE$
+TABLE
+
+LOGMNR_CCOL$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_CDEF$
+TABLE
+
+LOGMNR_COL$
+TABLE
+
+LOGMNR_COLTYPE$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_CON$
+TABLE
+
+LOGMNR_CONTAINER$
+TABLE
+
+LOGMNR_DICTIONARY$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_DICTSTATE$
+TABLE
+
+LOGMNR_DID$
+TABLE
+
+LOGMNR_ENC$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_ERROR$
+TABLE
+
+LOGMNR_FILTER$
+TABLE
+
+LOGMNR_GLOBAL$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_GT_TAB_INCLUDE$
+TABLE
+
+LOGMNR_GT_USER_INCLUDE$
+TABLE
+
+LOGMNR_GT_XID_INCLUDE$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_ICOL$
+TABLE
+
+LOGMNR_IDNSEQ$
+TABLE
+
+LOGMNR_IND$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_INDCOMPART$
+TABLE
+
+LOGMNR_INDPART$
+TABLE
+
+LOGMNR_INDSUBPART$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_KOPM$
+TABLE
+
+LOGMNR_LOB$
+TABLE
+
+LOGMNR_LOBFRAG$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_LOG$
+TABLE
+
+LOGMNR_LOGMNR_BUILDLOG
+TABLE
+
+LOGMNR_NTAB$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_OBJ$
+TABLE
+
+LOGMNR_OPQTYPE$
+TABLE
+
+LOGMNR_PARAMETER$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_PARTOBJ$
+TABLE
+
+LOGMNR_PDB_INFO$
+TABLE
+
+LOGMNR_PROCESSED_LOG$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_PROFILE_PLSQL_STATS$
+TABLE
+
+LOGMNR_PROFILE_TABLE_STATS$
+TABLE
+
+LOGMNR_PROPS$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_REFCON$
+TABLE
+
+LOGMNR_RESTART_CKPT$
+TABLE
+
+LOGMNR_RESTART_CKPT_TXINFO$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_SEED$
+TABLE
+
+LOGMNR_SESSION$
+TABLE
+
+LOGMNR_SESSION_ACTIONS$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_SESSION_EVOLVE$
+TABLE
+
+LOGMNR_SHARD_TS
+TABLE
+
+LOGMNR_SPILL$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_SUBCOLTYPE$
+TABLE
+
+LOGMNR_TAB$
+TABLE
+
+LOGMNR_TABCOMPART$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_TABPART$
+TABLE
+
+LOGMNR_TABSUBPART$
+TABLE
+
+LOGMNR_TS$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGMNR_TYPE$
+TABLE
+
+LOGMNR_UID$
+TABLE
+
+LOGMNR_USER$
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGSTDBY$APPLY_MILESTONE
+TABLE
+
+LOGSTDBY$APPLY_PROGRESS
+TABLE
+
+LOGSTDBY$EDS_TABLES
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGSTDBY$EVENTS
+TABLE
+
+LOGSTDBY$FLASHBACK_SCN
+TABLE
+
+LOGSTDBY$HISTORY
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGSTDBY$PARAMETERS
+TABLE
+
+LOGSTDBY$PLSQL
+TABLE
+
+LOGSTDBY$SCN
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+LOGSTDBY$SKIP
+TABLE
+
+LOGSTDBY$SKIP_SUPPORT
+TABLE
+
+LOGSTDBY$SKIP_TRANSACTION
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_AJG
+TABLE
+
+MVIEW$_ADV_BASETABLE
+TABLE
+
+MVIEW$_ADV_CLIQUE
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_ELIGIBLE
+TABLE
+
+MVIEW$_ADV_EXCEPTIONS
+TABLE
+
+MVIEW$_ADV_FILTER
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_FILTERINSTANCE
+TABLE
+
+MVIEW$_ADV_FJG
+TABLE
+
+MVIEW$_ADV_GC
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_INFO
+TABLE
+
+MVIEW$_ADV_JOURNAL
+TABLE
+
+MVIEW$_ADV_LEVEL
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_LOG
+TABLE
+
+MVIEW$_ADV_OUTPUT
+TABLE
+
+MVIEW$_ADV_PARAMETERS
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_PLAN
+TABLE
+
+MVIEW$_ADV_PRETTY
+TABLE
+
+MVIEW$_ADV_ROLLUP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW$_ADV_SQLDEPEND
+TABLE
+
+MVIEW$_ADV_TEMP
+TABLE
+
+MVIEW$_ADV_WORKLOAD
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW_EVALUATIONS
+VIEW
+
+MVIEW_EXCEPTIONS
+VIEW
+
+MVIEW_FILTER
+VIEW
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW_FILTERINSTANCE
+VIEW
+
+MVIEW_LOG
+VIEW
+
+MVIEW_RECOMMENDATIONS
+VIEW
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+MVIEW_WORKLOAD
+VIEW
+
+OL$
+TABLE
+
+OL$HINTS
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+OL$NODES
+TABLE
+
+PRODUCT_PRIVS
+VIEW
+
+PRODUCT_USER_PROFILE
+SYNONYM
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+PUBLICSYN
+SYNONYM
+
+REDO_DB
+TABLE
+
+REDO_LOG
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+ROLLING$CONNECTIONS
+TABLE
+
+ROLLING$DATABASES
+TABLE
+
+ROLLING$DIRECTIVES
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+ROLLING$EVENTS
+TABLE
+
+ROLLING$PARAMETERS
+TABLE
+
+ROLLING$PLAN
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+ROLLING$STATISTICS
+TABLE
+
+ROLLING$STATUS
+TABLE
+
+SCHEDULER_JOB_ARGS
+VIEW
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SCHEDULER_JOB_ARGS_TBL
+TABLE
+
+SCHEDULER_PROGRAM_ARGS
+VIEW
+
+SCHEDULER_PROGRAM_ARGS_TBL
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SQLPLUS_PRODUCT_PROFILE
+TABLE
+
+SYSCATALOG
+SYNONYM
+
+SYSFILES
+SYNONYM
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+TAB
+SYNONYM
+
+TABQUOTAS
+SYNONYM
+
+
+149 rows selected.
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL>    create table student (stid int, sname varchar(10), sfees numbers(6,2));
+        create table student (stid int, sname varchar(10), sfees numbers(6,2))
+                                                                        *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> conn
+Enter user-name: system/Guddu2707
+Connected.
+SQL> grant create table to mydb11am;
+
+Grant succeeded.
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL>    create table student (stid int, sname varchar(10), sfees numbers(6,2));
+        create table student (stid int, sname varchar(10), sfees numbers(6,2))
+                                                                        *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student (stid int, sname varchar(10), sfees numbers(6,2) );
+create table student (stid int, sname varchar(10), sfees numbers(6,2) )
+                                                                *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student (stid int, sname varchar(10), sfees numbers(6,2)) );
+create table student (stid int, sname varchar(10), sfees numbers(6,2)) )
+                                                                *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> create table student (stid int, sname varchar(10), sfees numbers(6,2) ;
+create table student (stid int, sname varchar(10), sfees numbers(6,2)
+                                                                *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE STUDENT (STID INT, SNAME CHAR(10), SFEES NUMBER(6,2) );
+
+Table created.
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ SNAME                                              CHAR(10)
+ SFEES                                              NUMBER(6,2)
+
+SQL> ALTER TABLE STUDENT MODIFY SNAME VARCHAR(20);
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT ADD SADDRESS VARCHAR2(50);
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT MODIFY SNAME VARCHAR2(20);
+
+Table altered.
+
+SQL> ALTER TABLE STUDENT RENAME SNAME TO STU_NAME;
+ALTER TABLE STUDENT RENAME SNAME TO STU_NAME
+                           *
+ERROR at line 1:
+ORA-14155: missing PARTITION, PARTITIONS, SUBPARTITION, or SUBPARTITIONS
+keyword
+
+
+SQL> ALTER TABLE STUDENT RENAME COLUMN SNAME TO STU_NAME;
+
+Table altered.
+
+SQL> ATLER TABLE STUDENT DROP COLUMN SFEES;
+SP2-0734: unknown command beginning "ATLER TABL..." - rest of line ignored.
+SQL> ALTER TABLE STUDENT DROP COLUMN SFEES;
+
+Table altered.
+
+SQL> DESC STUDENT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ STU_NAME                                           VARCHAR2(20)
+ SADDRESS                                           VARCHAR2(50)
+
+SQL> RENAME STUDENT TO SDETAILS;
+
+Table renamed.
+
+SQL> DESC STUDENT;
+ERROR:
+ORA-04043: object STUDENT does not exist
+
+
+SQL> DESC SDETAILS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ STU_NAME                                           VARCHAR2(20)
+ SADDRESS                                           VARCHAR2(50)
+
+SQL> TRUNCATE TABLE SDETAILS;
+
+Table truncated.
+
+SQL> DESC SDETAILS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ STU_NAME                                           VARCHAR2(20)
+ SADDRESS                                           VARCHAR2(50)
+
+SQL> DROP TABLE STUDENT;
+DROP TABLE STUDENT
+           *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> DROP TABLE SDETAILS;
+
+Table dropped.
+
+SQL> DESC SDETAILS;
+ERROR:
+ORA-04043: object SDETAILS does not exist
+
+
+SQL> DESC RECYCLEBIN;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OBJECT_NAME                               NOT NULL VARCHAR2(128)
+ ORIGINAL_NAME                                      VARCHAR2(128)
+ OPERATION                                          VARCHAR2(9)
+ TYPE                                               VARCHAR2(25)
+ TS_NAME                                            VARCHAR2(30)
+ CREATETIME                                         VARCHAR2(19)
+ DROPTIME                                           VARCHAR2(19)
+ DROPSCN                                            NUMBER
+ PARTITION_NAME                                     VARCHAR2(128)
+ CAN_UNDROP                                         VARCHAR2(3)
+ CAN_PURGE                                          VARCHAR2(3)
+ RELATED                                   NOT NULL NUMBER
+ BASE_OBJECT                               NOT NULL NUMBER
+ PURGE_OBJECT                              NOT NULL NUMBER
+ SPACE                                              NUMBER
+
+SQL> SELECT ONJECT_NAME, ORIGINAL_NAME FROM RECYCLEBIN;
+SELECT ONJECT_NAME, ORIGINAL_NAME FROM RECYCLEBIN
+       *
+ERROR at line 1:
+ORA-00904: "ONJECT_NAME": invalid identifier
+
+
+SQL> SELECT OBJECT_NAME, ORIGINAL_NAME FROM RECYCLEBIN;
+
+OBJECT_NAME
+--------------------------------------------------------------------------------
+ORIGINAL_NAME
+--------------------------------------------------------------------------------
+BIN$xTLnBgObSfONgkqBfssGrA==$0
+SDETAILS
+
+
+SQL> FLASHBACK TABLE SDETAILS TO BEFORE DROP;
+
+Flashback complete.
+
+SQL> DESC SDETAILS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ STID                                               NUMBER(38)
+ STU_NAME                                           VARCHAR2(20)
+ SADDRESS                                           VARCHAR2(50)
+
+SQL> DROP TABLE SDETAILS PURGE;
+
+Table dropped.
+
+SQL> DESC SDETAILS;
+ERROR:
+ORA-04043: object SDETAILS does not exist
+
+
+SQL> SELECT OBJECT_NAME, ORIGINAL_NMAE FROM RECYCLEBIN;
+SELECT OBJECT_NAME, ORIGINAL_NMAE FROM RECYCLEBIN
+                    *
+ERROR at line 1:
+ORA-00904: "ORIGINAL_NMAE": invalid identifier
+
+
+SQL> SELECT OBJECT_NAME, ORIGINAL_NAME FROM RECYCLEBIN;
+
+no rows selected
+
+SQL>

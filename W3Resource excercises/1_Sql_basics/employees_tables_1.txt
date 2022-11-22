@@ -1,0 +1,127 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Nov 11 17:14:41 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system/Guddu2707
+Last Successful login time: Thu Nov 10 2022 23:12:12 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> CREATE USER W3Resource IDENTIFIED BY 123;
+
+User created.
+
+SQL> GRANT CONNECT TO W3Resource;
+
+Grant succeeded.
+
+SQL> CONN
+Enter user-name: W3Resource
+Enter password:
+Connected.
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+  3     FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4     LAST_NAME VARCHAR2(25) NOT NULL,
+  5     EMAIL VARCHAR2(25) NOT NULL,
+  6     PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7     HIRE_DATE DATE NOT NULL;
+        EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+                            *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+  3     FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4     LAST_NAME VARCHAR2(25) NOT NULL,
+  5     EMAIL VARCHAR2(25) NOT NULL,
+  6     PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7     HIRE_DATE DATE NOT NULL;
+        EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+                            *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+  3     FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4     LAST_NAME VARCHAR2(25) NOT NULL,
+  5     EMAIL VARCHAR2(25) NOT NULL,
+  6     PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7     HIRE_DATE DATE NOT NULL,
+  8     JOB_ID VARCHAR2(10) NOT NULL,
+  9     SALARY DECIMAL(8,2) DEFAULT NULL,
+ 10     COMMISSION_PCT DECIMAL(2,2) DEFAULT NULL,
+ 11     MANAGER_ID NUMBERIC(6) DEFAULT NULL,
+ 12     DEPARTMENT_ID NUMBERIC(4) DEFAULT NULL
+ 13  );
+        EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+                            *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+  3     EMPLOYEE_ID NUMBERIC(6) NOT NULL PRIMARY KEY,
+  4
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMERIC(6) NOT NULL PRIMARY KEY,
+  3     FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4     LAST_NAME VARCHAR2(25) NOT NULL,
+  5     EMAIL VARCHAR2(25) NOT NULL,
+  6     PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7     HIRE_DATE DATE NOT NULL,
+  8     JOB_ID VARCHAR2(10) NOT NULL,
+  9     SALARY DECIMAL(8,2) DEFAULT NULL,
+ 10     COMMISSION_PCT DECIMAL(2,2) DEFAULT NULL,
+ 11     MANAGER_ID NUMERIC(6) DEFAULT NULL,
+ 12     DEPARTMENT_ID NUMERIC(4) DEFAULT NULL
+ 13  );
+CREATE TABLE employees (
+*
+ERROR at line 1:
+ORA-01031: insufficient privileges
+
+
+SQL> CONN
+Enter user-name: system/Guddy2707
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> CONN
+Enter user-name: system/Guddu2707
+Connected.
+SQL> GRANT CREATE TABLE TO W3Resource;
+
+Grant succeeded.
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> CREATE TABLE employees (
+  2     EMPLOYEE_ID NUMERIC(6) NOT NULL PRIMARY KEY,
+  3     FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4     LAST_NAME VARCHAR2(25) NOT NULL,
+  5     EMAIL VARCHAR2(25) NOT NULL,
+  6     PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7     HIRE_DATE DATE NOT NULL,
+  8     JOB_ID VARCHAR2(10) NOT NULL,
+  9     SALARY DECIMAL(8,2) DEFAULT NULL,
+ 10     COMMISSION_PCT DECIMAL(2,2) DEFAULT NULL,
+ 11     MANAGER_ID NUMERIC(6) DEFAULT NULL,
+ 12     DEPARTMENT_ID NUMERIC(4) DEFAULT NULL
+ 13  );
+
+Table created.
+
+SQL>

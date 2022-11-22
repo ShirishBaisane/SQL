@@ -1,0 +1,375 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sun Nov 20 15:41:27 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Sat Nov 19 2022 01:17:52 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> REM ***CONVERSION FUNCTIONS***
+SQL> SELECT TO_CHAR(SYSDATE, 'YYYY') FROM DUAL;
+
+TO_C
+----
+2022
+
+SQL> SELECT TO_CHAR(SYSDATE, 'YY') FROM DUAL;
+
+TO
+--
+22
+
+SQL> SELECT TO_CHAR(SYSDATE, 'YEAR') FROM DUAL;
+
+TO_CHAR(SYSDATE,'YEAR')
+------------------------------------------
+TWENTY TWENTY-TWO
+
+SQL> SELECT TO_CHAR(SYSDATE, 'CC') FROM DUAL;
+
+TO
+--
+21
+
+SQL> SELECT TO_CHAR(SYSDATE, 'BC') FROM DUAL;
+
+TO
+--
+AD
+
+SQL> SELECT TO_CHAR(SYSDATE, 'YYYY YY YEAR CC BC') FROM DUAL;
+
+TO_CHAR(SYSDATE,'YYYYYYYEARCCBC')
+--------------------------------------------------------
+2022 22 TWENTY TWENTY-TWO 21 AD
+
+SQL> SELECT TO_CHAR(SYSDATE, 'MM MON MONTH') FROM DUAL;
+
+TO_CHAR(SYSDATE,'MMMONMONTH')
+----------------------------------------------------
+11 NOV NOVEMBER
+
+SQL> SELECT TO_CHAR(SYSDATE, 'DDD') FROM DUAL;
+
+TO_
+---
+324
+
+SQL> SELECT TO_CHAR(SYSDATE, 'DD') FROM DUAL;
+
+TO
+--
+20
+
+SQL> SELECT TO_CHAR(SYSDATE, 'D') FROM DUAL;
+
+T
+-
+1
+
+SQL> SELECT TO_CHAR(SYSDATE, 'DAY') FROM DUAL;
+
+TO_CHAR(SYSDATE,'DAY')
+------------------------------------
+SUNDAY
+
+SQL> SELECT TO_CHAR(SYSDATE, 'DY') FROM DUAL;
+
+TO_CHAR(SYSD
+------------
+SUN
+
+SQL> SELECT TO_CHAR(SYSDATE, 'DDD DD D DAY DY') FROM DUAL;
+
+TO_CHAR(SYSDATE,'DDDDDDDAYDY')
+----------------------------------------------------------
+324 20 1 SUNDAY    SUN
+
+SQL> SELECT TO_CHAR(SYSDATE, 'Q') FROM DUAL;
+
+T
+-
+4
+
+SQL> SELECT TOCHAR(SYSDATE, 'WW') FROM DUAL;
+SELECT TOCHAR(SYSDATE, 'WW') FROM DUAL
+       *
+ERROR at line 1:
+ORA-00904: "TOCHAR": invalid identifier
+
+
+SQL> SELECT TO_CHAR(SYSDATE, 'WW') FROM DUAL;
+
+TO
+--
+47
+
+SQL> SELECT TO_CHAR(SYSDATE, 'W') FROM DUAL;
+
+T
+-
+3
+
+SQL> SELECT TO_CHAR(SYSDATE, 'WW W') FROM DUAL;
+
+TO_C
+----
+47 3
+
+SQL> SELECT TO_CHAR(SYSDATE, 'HH') FROM DUAL;
+
+TO
+--
+04
+
+SQL> SELECT TO_CHAR(SYSDATE, 'HH24') FROM DUAL;
+
+TO
+--
+16
+
+SQL> SELECT TO_CHAR(SYSDATE, 'MI') FROM DUAL;
+
+TO
+--
+01
+
+SQL> SELECT TO_CHAR(SYSDATE, 'SS') FROM DUAL;
+
+TO
+--
+17
+
+SQL> SELECT TO_CHAR(SYSDATE, 'AM') FROM DUAL;
+
+TO
+--
+PM
+
+SQL> SELECT TO_CHAR(SYSDATE, 'HH24 HH MI SS AM') FROM DUAL;
+
+TO_CHAR(SYSDAT
+--------------
+16 04 03 30 PM
+
+SQL> SELECT TO_DATE('20-NOVEMBER-2022') FROM DUAL;
+
+TO_DATE('
+---------
+20-NOV-22
+
+SQL> REM
+SQL> REM ****MULTIPLE ROW FUNCTION****
+SQL> SELECT SUM(SAL) FROM DUAL;
+SELECT SUM(SAL) FROM DUAL
+           *
+ERROR at line 1:
+ORA-00904: "SAL": invalid identifier
+
+
+SQL> SELECT SUM(SAL) FROM EMP;;
+SELECT SUM(SAL) FROM EMP;
+                        *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> SELECT SUM(SAL) FROM EMP;
+
+  SUM(SAL)
+----------
+     29025
+
+SQL> SELECT SUM(SAL) SAL_ANALYST FROM EMP WHERE JOB='ANALYST';
+
+SAL_ANALYST
+-----------
+       6000
+
+SQL> SELECT AVG(SAL) AVG_SAL_ANALYST FROM EMP WHERE JOB='ANALYST';
+
+AVG_SAL_ANALYST
+---------------
+           3000
+
+SQL> SELECT AVG(SAL) AVG_SAL_CLERK FROM EMP WHERE JOB='CLERK';
+
+AVG_SAL_CLERK
+-------------
+       1037.5
+
+SQL> SELECT MIN(SAL) FROM EMP;
+
+  MIN(SAL)
+----------
+       800
+
+SQL> SELECT MIN(HIREDATE) FROM WMP;
+SELECT MIN(HIREDATE) FROM WMP
+                          *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> SELECT MIN(HIREDATE) FROM EMP;
+
+MIN(HIRED
+---------
+17-DEC-80
+
+SQL> SELECT MIN(SAL
+  2  ) FROM EMP WHERE DEPTNO=10;
+
+  MIN(SAL)
+----------
+      1300
+
+SQL> SELECT MAX(SAL) FROM EMP;
+
+  MAX(SAL)
+----------
+      5000
+
+SQL> SELECT MAX(HIREDATE) FROM EMP;
+
+MAX(HIRED
+---------
+12-JAN-83
+
+SQL> SELECT MAX(SAL) FROM EMP WHERE JOB='CLERK';
+
+  MAX(SAL)
+----------
+      1300
+
+SQL> SELECT MIN(SAL) FROM EMP WHERE JOB='CLERK';
+
+  MIN(SAL)
+----------
+       800
+
+SQL> DEC TEST;
+SP2-0042: unknown command "DEC TEST" - rest of line ignored.
+SQL> DESC TEST;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SRNO                                               NUMBER(38)
+ NAME                                               VARCHAR2(20)
+
+SQL> SELECT * FROM TEST;
+
+      SRNO NAME
+---------- --------------------
+         1 R@HIT
+         2 AKSH@Y
+         3 _WARD
+         4 JAMES%
+         5 WAR_NER
+         6 ALL%EN
+         7 $HIRIS#
+
+7 rows selected.
+
+SQL> TRUNCATE TEST;
+TRUNCATE TEST
+            *
+ERROR at line 1:
+ORA-03290: Invalid truncate command - missing CLUSTER or TABLE keyword
+
+
+SQL> TRUNCATE TABLE TEST;
+
+Table truncated.
+
+SQL> DESC TEST;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ SRNO                                               NUMBER(38)
+ NAME                                               VARCHAR2(20)
+
+SQL> INSERT INTO TEST VALUES (&SRNO, '&NAME');
+Enter value for srno: 1
+Enter value for name: AKSHAY
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (1, 'AKSHAY')
+
+1 row created.
+
+SQL> /
+Enter value for srno: 2
+Enter value for name: ROHIT
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (2, 'ROHIT')
+
+1 row created.
+
+SQL> /
+Enter value for srno: 3
+Enter value for name: AKSHAY
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (3, 'AKSHAY')
+
+1 row created.
+
+SQL> /
+Enter value for srno: 4
+Enter value for name: SHIRISH
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (4, 'SHIRISH')
+
+1 row created.
+
+SQL> /
+Enter value for srno: 5
+Enter value for name: ROHIT
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (5, 'ROHIT')
+
+1 row created.
+
+SQL> /
+Enter value for srno: 6
+Enter value for name: YASH
+old   1: INSERT INTO TEST VALUES (&SRNO, '&NAME')
+new   1: INSERT INTO TEST VALUES (6, 'YASH')
+
+1 row created.
+
+SQL> SELECT COUNT('*') FROM TEST;
+
+COUNT('*')
+----------
+         6
+
+SQL> UPDATE TEST SET NAME=NULL WHERE SRNO=5;
+
+1 row updated.
+
+SQL> SELECT COUNT(*) FROM TEST;
+
+  COUNT(*)
+----------
+         6
+
+SQL> SELECT COUNT(NAME) FROM TEST;
+
+COUNT(NAME)
+-----------
+          5
+
+SQL> SELECT COUNT( DISTINCT NAME) FROM TEST;
+
+COUNT(DISTINCTNAME)
+-------------------
+                  4
+
+SQL>

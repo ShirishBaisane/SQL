@@ -1,0 +1,763 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Fri Nov 11 18:42:42 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system/Guddu2707
+Last Successful login time: Fri Nov 11 2022 17:30:14 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: W3Resources/123
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+Warning: You are no longer connected to ORACLE.
+SQL> W3Resource/123
+SP2-0734: unknown command beginning "W3Resource..." - rest of line ignored.
+SQL> conn
+Enter user-name: W3Resource/123
+Connected.
+SQL> desc employees;
+ERROR:
+ORA-04043: object employees does not exist
+
+
+SQL> desc employee;
+ERROR:
+ORA-04043: object employee does not exist
+
+
+SQL> select * from employee;
+select * from employee
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> select * from employees;
+select * from employees
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> select * from employees;
+
+no rows selected
+
+SQL> desc employee;
+ERROR:
+ORA-04043: object employee does not exist
+
+
+SQL> desc employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> drop employees;
+drop employees
+     *
+ERROR at line 1:
+ORA-00950: invalid DROP option
+
+
+SQL> drop table employees;
+
+Table dropped.
+
+SQL> conn
+Enter user-name: W3Resource/123
+Connected.
+SQL> CREATE TABLE employees (
+  2        EMPLOYEE_ID NUMERIC(6) NOT NULL PRIMARY KEY,
+  3        FIRST_NAME VARCHAR2(20) DEFAULT NULL,
+  4        LAST_NAME VARCHAR2(25) NOT NULL,
+  5        EMAIL VARCHAR2(25) NOT NULL,
+  6        PHONE_NUMBER VARCHAR2(20) DEFAULT NULL,
+  7        HIRE_DATE DATE NOT NULL,
+  8        JOB_ID VARCHAR2(10) NOT NULL,
+  9        SALARY DECIMAL(8,2) DEFAULT NULL,
+ 10        COMMISSION_PCT DECIMAL(2,2) DEFAULT NULL,
+ 11        MANAGER_ID NUMERIC(6) DEFAULT NULL,
+ 12        DEPARTMENT_ID NUMERIC(4) DEFAULT NULL
+ 13   );
+
+Table created.
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIREDATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (100, 'Steven', 'King', 'SKING', '515.123.4567', '17-JUN-2003', 'AD_PRES',
+  4                      24000.00,0.00,0,90);
+INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIREDATE, JOB_ID,
+                                                                                *
+ERROR at line 1:
+ORA-00904: "HIREDATE": invalid identifier
+
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (100, 'Steven', 'King', 'SKING', '515.123.4567', '17-JUN-2003', 'AD_PRES',
+  4                      24000.00,0.00,0,90);
+INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+            *
+ERROR at line 1:
+ORA-01950: no privileges on tablespace 'USERS'
+
+
+SQL> conn
+Enter user-name: system/Guddu2707
+Connected.
+SQL> GRANT UNLIMITED TABLESPACE TO W3Resource;
+
+Grant succeeded.
+
+SQL> conn
+Enter user-name: W3Resource/123
+Connected.
+SQL> desc employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (100, 'Steven', 'King', 'SKING', '515.123.4567', '17-JUN-2003', 'AD_PRES',
+  4                      24000.00,0.00,0,90);
+
+1 row created.
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (100, 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', '21-SEP-2005', 'AD_VP',
+  4                      17000.00,0.00,100,90);
+INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+*
+ERROR at line 1:
+ORA-00001: unique constraint (W3RESOURCE.SYS_C007509) violated
+
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (101, 'Neena', 'Kochhar', 'NKOCHHAR', '515.123.4568', '21-SEP-2005', 'AD_VP',
+  4                      17000.00,0.00,100,90);
+
+1 row created.
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (102, 'Lex', 'De Haan', 'LDEHAAN', '515.123.4569', '13-JAN-2001', 'AD_VP',
+  4                      17000.00,0.00,100,90);
+
+1 row created.
+
+SQL> INSERT INTO employees (EMPLOYEE_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, HIRE_DATE, JOB_ID,
+  2                         SALARY, COMMISSION_PCT, MANAGER_ID, DEPARTMENT_ID)
+  3              VALUES (103, 'Alexander', 'Hunold', 'AHUNOLD', '590.423.4567', '03-JAN-2006', 'IT_PROG',
+  4                      9000.00,0.00,102,60);
+
+1 row created.
+
+SQL> DECS employees;
+SP2-0734: unknown command beginning "DECS emplo..." - rest of line ignored.
+SQL> DEsc employees;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPLOYEE_ID                               NOT NULL NUMBER(6)
+ FIRST_NAME                                         VARCHAR2(20)
+ LAST_NAME                                 NOT NULL VARCHAR2(25)
+ EMAIL                                     NOT NULL VARCHAR2(25)
+ PHONE_NUMBER                                       VARCHAR2(20)
+ HIRE_DATE                                 NOT NULL DATE
+ JOB_ID                                    NOT NULL VARCHAR2(10)
+ SALARY                                             NUMBER(8,2)
+ COMMISSION_PCT                                     NUMBER(2,2)
+ MANAGER_ID                                         NUMBER(6)
+ DEPARTMENT_ID                                      NUMBER(4)
+
+SQL> INSERT INTO employees (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+  2                         '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+  3                         &DEPARTMENT_ID);
+Enter value for employee_id: 104
+Enter value for first_name: Bruce
+Enter value for last_name: Ernst
+Enter value for email: BERNST
+Enter value for phone_number: 590.423.4568
+old   1: INSERT INTO employees (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees (104, 'Bruce', 'Ernst', 'BERNST', '590.423.4568',
+Enter value for hire_date: 21-MAY-2007
+Enter value for job_id: IT_PROG
+Enter value for salary: 6000.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 103
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '21-MAY-2007', 'IT_PROG', 6000.00, 0.00, 103,
+Enter value for department_id: 60
+old   3:                            &DEPARTMENT_ID)
+new   3:                            60)
+INSERT INTO employees (104, 'Bruce', 'Ernst', 'BERNST', '590.423.4568',
+                       *
+ERROR at line 1:
+ORA-00928: missing SELECT keyword
+
+
+SQL> INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+  2                         '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+  3                         &DEPARTMENT_ID);
+Enter value for employee_id: 104
+Enter value for first_name: Bruce
+Enter value for last_name: Ernst
+Enter value for email: BERNST
+Enter value for phone_number: 590.423.4568
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (104, 'Bruce', 'Ernst', 'BERNST', '590.423.4568',
+Enter value for hire_date: 21-MAY-2007
+Enter value for job_id: IT_PROG
+Enter value for salary: 6000.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 103
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '21-MAY-2007', 'IT_PROG', 6000.00, 0.00, 103,
+Enter value for department_id: 60
+old   3:                            &DEPARTMENT_ID)
+new   3:                            60)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 105
+Enter value for first_name: David
+Enter value for last_name: Austin
+Enter value for email: DAUSTIN
+Enter value for phone_number: 590.423.4569
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (105, 'David', 'Austin', 'DAUSTIN', '590.423.4569',
+Enter value for hire_date: 25-JUN-2005
+Enter value for job_id: IT_PROG
+Enter value for salary: 4800.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 103
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '25-JUN-2005', 'IT_PROG', 4800.00, 0.00, 103,
+Enter value for department_id: 60
+old   3:                            &DEPARTMENT_ID)
+new   3:                            60)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 106
+Enter value for first_name: Valli
+Enter value for last_name: Pataballa
+Enter value for email: VPATBAL
+Enter value for phone_number: 590.423.4560
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (106, 'Valli', 'Pataballa', 'VPATBAL', '590.423.4560',
+Enter value for hire_date: 05-FEB-2006
+Enter value for job_id: IT_PROG
+Enter value for salary: 4800.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 103
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '05-FEB-2006', 'IT_PROG', 4800.00, 0.00, 103,
+Enter value for department_id: 60
+old   3:                            &DEPARTMENT_ID)
+new   3:                            60)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 107
+Enter value for first_name: Diana
+Enter value for last_name: Lorentz
+Enter value for email: DLORENTZ
+Enter value for phone_number: 590.423.5567
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (107, 'Diana', 'Lorentz', 'DLORENTZ', '590.423.5567',
+Enter value for hire_date: 07-FEB-2007
+Enter value for job_id: IT_PROG
+Enter value for salary: 4200.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 103
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '07-FEB-2007', 'IT_PROG', 4200.00, 0.00, 103,
+Enter value for department_id: 60
+old   3:                            &DEPARTMENT_ID)
+new   3:                            60)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 108
+Enter value for first_name: Nancy
+Enter value for last_name: Greenberg
+Enter value for email: NGREENBE
+Enter value for phone_number: 515.124.4569
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (108, 'Nancy', 'Greenberg', 'NGREENBE', '515.124.4569',
+Enter value for hire_date: 17-AUG-2002
+Enter value for job_id: FI_MGR
+Enter value for salary: 12000.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 101
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '17-AUG-2002', 'FI_MGR', 12000.00, 0.00, 101,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 109
+Enter value for first_name: Daniel
+Enter value for last_name: Faviet
+Enter value for email: DFAVIET
+Enter value for phone_number: 515.124.4167
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (109, 'Daniel', 'Faviet', 'DFAVIET', '515.124.4167',
+Enter value for hire_date: 16-AUG-2002
+Enter value for job_id: FI_ACCOUNT
+Enter value for salary: 9000.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 108
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '16-AUG-2002', 'FI_ACCOUNT', 9000.00, 0.00, 108,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 110
+Enter value for first_name: John
+Enter value for last_name: Chen
+Enter value for email: JCHEN
+Enter value for phone_number: 515/124.4269
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (110, 'John', 'Chen', 'JCHEN', '515/124.4269',
+Enter value for hire_date: 28-SEP-2005
+Enter value for job_id: FI_ACCOUNT
+Enter value for salary: 8200.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 108
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '28-SEP-2005', 'FI_ACCOUNT', 8200.00, 0.00, 108,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 110
+Enter value for first_name:
+Enter value for last_name:
+Enter value for email:
+Enter value for phone_number:
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (110, '', '', '', '',
+Enter value for hire_date:
+Enter value for job_id:
+Enter value for salary:
+Enter value for commission_pct:
+Enter value for manager_id:
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '', '', , , ,
+Enter value for department_id:
+old   3:                            &DEPARTMENT_ID)
+new   3:                            )
+                            '', '', , , ,
+                                    *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for employee_id: 111
+Enter value for first_name: Ismael
+Enter value for last_name: Sciarra
+Enter value for email: ISCIARRA
+Enter value for phone_number: 515.124.4369
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (111, 'Ismael', 'Sciarra', 'ISCIARRA', '515.124.4369',
+Enter value for hire_date: 30-SEP-2005
+Enter value for job_id: FI_ACCOUNT
+Enter value for salary: 7700.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 108
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '30-SEP-2005', 'FI_ACCOUNT', 7700.00, 0.00, 108,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 112
+Enter value for first_name: Jose Manuel
+Enter value for last_name: Urman
+Enter value for email: JURMAN
+Enter value for phone_number: 515.124.4469
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (112, 'Jose Manuel', 'Urman', 'JURMAN', '515.124.4469',
+Enter value for hire_date: 07-MAR-2006
+Enter value for job_id: FI_ACCOUNT
+Enter value for salary: 7800.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 108
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '07-MAR-2006', 'FI_ACCOUNT', 7800.00, 0.00, 108,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 113
+Enter value for first_name: Luis
+Enter value for last_name: Popp
+Enter value for email: LPOPP
+Enter value for phone_number: 515.124.4567
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (113, 'Luis', 'Popp', 'LPOPP', '515.124.4567',
+Enter value for hire_date: 07-DEC-2007
+Enter value for job_id: FI_ACCOUNT
+Enter value for salary: 6900.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 108
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '07-DEC-2007', 'FI_ACCOUNT', 6900.00, 0.00, 108,
+Enter value for department_id: 100
+old   3:                            &DEPARTMENT_ID)
+new   3:                            100)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 114
+Enter value for first_name: Den
+Enter value for last_name: Raphealy
+Enter value for email: DRAPHEAL
+Enter value for phone_number: 515.127.4561
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (114, 'Den', 'Raphealy', 'DRAPHEAL', '515.127.4561',
+Enter value for hire_date: 07-DEC-2002
+Enter value for job_id: PU_MAN
+Enter value for salary: 11000.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 100
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '07-DEC-2002', 'PU_MAN', 11000.00, 0.00, 100,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 115
+Enter value for first_name: Alexander
+Enter value for last_name: Khoo
+Enter value for email: AKHOO
+Enter value for phone_number: 515.127.4562
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (115, 'Alexander', 'Khoo', 'AKHOO', '515.127.4562',
+Enter value for hire_date: 18-MAY-2003
+Enter value for job_id: PU_CLERK
+Enter value for salary: 3100.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 114
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '18-MAY-2003', 'PU_CLERK', 3100.00, 0.00, 114,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 116
+Enter value for first_name: Shelli
+Enter value for last_name: Baida
+Enter value for email: SBAIDA
+Enter value for phone_number: 515.127.4563
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (116, 'Shelli', 'Baida', 'SBAIDA', '515.127.4563',
+Enter value for hire_date: 24-DEC-2005
+Enter value for job_id: PU_CLERK
+Enter value for salary: 2900.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 144
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '24-DEC-2005', 'PU_CLERK', 2900.00, 0.00, 144,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 117
+Enter value for first_name: Sigal
+Enter value for last_name: Tobias
+Enter value for email: STOBIAS
+Enter value for phone_number: 515.127.4564
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (117, 'Sigal', 'Tobias', 'STOBIAS', '515.127.4564',
+Enter value for hire_date: 24-JUL-2005
+Enter value for job_id: PU_CLERK
+Enter value for salary: 2800.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 114
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '24-JUL-2005', 'PU_CLERK', 2800.00, 0.00, 114,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 118
+Enter value for first_name: guy
+Enter value for last_name: Himuro
+Enter value for email: GHIMURO
+Enter value for phone_number: 515.127.4565
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (118, 'guy', 'Himuro', 'GHIMURO', '515.127.4565',
+Enter value for hire_date: 15-NOV-2006
+Enter value for job_id: PU_CLERK
+Enter value for salary: 2800.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 114
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '15-NOV-2006', 'PU_CLERK', 2800.00, 0.00, 114,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> /
+Enter value for employee_id: 119
+Enter value for first_name: Karen
+Enter value for last_name: Colmenares
+Enter value for email: KCOLMENA
+Enter value for phone_number: 515.127.4566
+old   1: INSERT INTO employees VALUES (&EMPLOYEE_ID, '&FIRST_NAME', '&LAST_NAME', '&EMAIL', '&PHONE_NUMBER',
+new   1: INSERT INTO employees VALUES (119, 'Karen', 'Colmenares', 'KCOLMENA', '515.127.4566',
+Enter value for hire_date: 10-AUG-2007
+Enter value for job_id: PU_CLERK
+Enter value for salary: 2500.00
+Enter value for commission_pct: 0.00
+Enter value for manager_id: 114
+old   2:                            '&HIRE_DATE', '&JOB_ID', &SALARY, &COMMISSION_PCT, &MANAGER_ID,
+new   2:                            '10-AUG-2007', 'PU_CLERK', 2500.00, 0.00, 114,
+Enter value for department_id: 30
+old   3:                            &DEPARTMENT_ID)
+new   3:                            30)
+
+1 row created.
+
+SQL> SELECT * FROM employees;
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+        100 Steven               King
+SKING                     515.123.4567         17-JUN-03 AD_PRES         24000
+             0          0            90
+
+        101 Neena                Kochhar
+NKOCHHAR                  515.123.4568         21-SEP-05 AD_VP           17000
+             0        100            90
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+
+        102 Lex                  De Haan
+LDEHAAN                   515.123.4569         13-JAN-01 AD_VP           17000
+             0        100            90
+
+        103 Alexander            Hunold
+AHUNOLD                   590.423.4567         03-JAN-06 IT_PROG          9000
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+             0        102            60
+
+        104 Bruce                Ernst
+BERNST                    590.423.4568         21-MAY-07 IT_PROG          6000
+             0        103            60
+
+        105 David                Austin
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+DAUSTIN                   590.423.4569         25-JUN-05 IT_PROG          4800
+             0        103            60
+
+        106 Valli                Pataballa
+VPATBAL                   590.423.4560         05-FEB-06 IT_PROG          4800
+             0        103            60
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+        107 Diana                Lorentz
+DLORENTZ                  590.423.5567         07-FEB-07 IT_PROG          4200
+             0        103            60
+
+        108 Nancy                Greenberg
+NGREENBE                  515.124.4569         17-AUG-02 FI_MGR          12000
+             0        101           100
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+
+        109 Daniel               Faviet
+DFAVIET                   515.124.4167         16-AUG-02 FI_ACCOUNT       9000
+             0        108           100
+
+        110 John                 Chen
+JCHEN                     515/124.4269         28-SEP-05 FI_ACCOUNT       8200
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+             0        108           100
+
+        111 Ismael               Sciarra
+ISCIARRA                  515.124.4369         30-SEP-05 FI_ACCOUNT       7700
+             0        108           100
+
+        112 Jose Manuel          Urman
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+JURMAN                    515.124.4469         07-MAR-06 FI_ACCOUNT       7800
+             0        108           100
+
+        113 Luis                 Popp
+LPOPP                     515.124.4567         07-DEC-07 FI_ACCOUNT       6900
+             0        108           100
+
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+        114 Den                  Raphealy
+DRAPHEAL                  515.127.4561         07-DEC-02 PU_MAN          11000
+             0        100            30
+
+        115 Alexander            Khoo
+AKHOO                     515.127.4562         18-MAY-03 PU_CLERK         3100
+             0        114            30
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+
+        116 Shelli               Baida
+SBAIDA                    515.127.4563         24-DEC-05 PU_CLERK         2900
+             0        144            30
+
+        117 Sigal                Tobias
+STOBIAS                   515.127.4564         24-JUL-05 PU_CLERK         2800
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+             0        114            30
+
+        118 guy                  Himuro
+GHIMURO                   515.127.4565         15-NOV-06 PU_CLERK         2800
+             0        114            30
+
+        119 Karen                Colmenares
+
+EMPLOYEE_ID FIRST_NAME           LAST_NAME
+----------- -------------------- -------------------------
+EMAIL                     PHONE_NUMBER         HIRE_DATE JOB_ID         SALARY
+------------------------- -------------------- --------- ---------- ----------
+COMMISSION_PCT MANAGER_ID DEPARTMENT_ID
+-------------- ---------- -------------
+KCOLMENA                  515.127.4566         10-AUG-07 PU_CLERK         2500
+             0        114            30
+
+
+20 rows selected.
+
+SQL>

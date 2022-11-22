@@ -1,0 +1,444 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Nov 8 22:34:51 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system/Guddu2707
+Last Successful login time: Tue Nov 08 2022 16:25:33 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> CREATE TABLE EMP
+  2             (EMPNO NUMBER(4) NOT NULL,
+  3              ENAME VARCHAR2(10),
+  4              JOB VARCHAR2(9),
+  5              MGR NUMBER(4),
+  6              HIREDATE DATE,
+  7              SAL NUMBER(7, 2),
+  8              COMM NUMBER(7, 2),
+  9              DEPTNO NUMBER(2));
+
+Table created.
+
+SQL> INSERT INTO EMP VALUES
+  2             (7369, 'SMITH', 'CLLERK', 7902,
+  3             TO_DATE('17-DEC-1980', 'DD=MON=YYYY'), 800, NULL, 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES
+  2             (7499, 'ALLEN', 'SALESMAN' 7698,
+  3             TO_DATE('20-FEB-1981, 'DD-MON-YYYY'), 1600, 300, 30);
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> INSERT INTO EMP VALUES
+  2             (7499, 'ALLEN', 'SALESMAN' 7698,
+  3             TO_DATE('20-FEB-1981', 'DD-MON-YYYY'), 1600, 300, 30);
+                (7499, 'ALLEN', 'SALESMAN' 7698,
+                                           *
+ERROR at line 2:
+ORA-00917: missing comma
+
+
+SQL> INSERT INTO EMP VALUES
+  2             (7499, 'ALLEN', 'SALESMAN', 7698,
+  3             TO_DATE('20-FEB-1981', 'DD-MON-YYYY'), 1600, 300, 30);
+
+1 row created.
+
+SQL> UPDATE EMP SET JOB='CLERK' WHERE ENAME='SMITH';
+
+1 row updated.
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+
+SQL> INSERT INTO EMP VALUES
+  2             (7521, 'WARD', 'SALESMAN', 7698,
+  3             TO_DATE('22-FEB-1981', 'DD-MON-YYYY'), 1250, 500, 30);
+
+1 row created.
+
+SQL> INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO);
+Enter value for empno: 7566
+Enter value for ename: 'JONES'
+Enter value for job: 'MANAGER'
+Enter value for mgr: 7839
+Enter value for date: '2-APR-1981'
+Enter value for sal: 2975
+Enter value for comm: NULL
+Enter value for deptno: 20
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7566, ''JONES'', ''MANAGER'', 7839, '2-APR-1981', 2975, NULL, 20)
+INSERT INTO EMP VALUES (7566, ''JONES'', ''MANAGER'', 7839, '2-APR-1981', 2975, NULL, 20)
+                                *
+ERROR at line 1:
+ORA-00917: missing comma
+
+
+SQL> /
+Enter value for empno: 7566
+Enter value for ename: JONES
+Enter value for job: MANAGER
+Enter value for mgr: 7839
+Enter value for date: '2-APR-1981'
+Enter value for sal: 2975
+Enter value for comm: NULL
+Enter value for deptno: 20
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7566, 'JONES', 'MANAGER', 7839, '2-APR-1981', 2975, NULL, 20)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7654
+Enter value for ename: MARTIN
+Enter value for job: SALESMAN
+Enter value for mgr: 7698
+Enter value for date: '28-SEP-1981'
+Enter value for sal: 1250
+Enter value for comm: 1400
+Enter value for deptno: 30
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7654, 'MARTIN', 'SALESMAN', 7698, '28-SEP-1981', 1250, 1400, 30)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7698
+Enter value for ename: BLAKE
+Enter value for job: MANAGER
+Enter value for mgr: 7839
+Enter value for date: '1-MAY-1981'
+Enter value for sal: 2850
+Enter value for comm: NULL
+Enter value for deptno: 30
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7698, 'BLAKE', 'MANAGER', 7839, '1-MAY-1981', 2850, NULL, 30)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7782
+Enter value for ename: CLARK
+Enter value for job: MANAGER
+Enter value for mgr: 7839
+Enter value for date: '9-JUN-1981'
+Enter value for sal: 2450
+Enter value for comm: NULL
+Enter value for deptno: 10
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7782, 'CLARK', 'MANAGER', 7839, '9-JUN-1981', 2450, NULL, 10)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7788
+Enter value for ename: SCOTT
+Enter value for job: ANALYST
+Enter value for mgr: 7566
+Enter value for date: '09-DEC-1982'
+Enter value for sal: 300
+Enter value for comm: NULL
+Enter value for deptno: 20
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7788, 'SCOTT', 'ANALYST', 7566, '09-DEC-1982', 300, NULL, 20)
+
+1 row created.
+
+SQL> UPDATE EMP SET SAL=3000 WHERE ENAME='SCOTT';
+
+1 row updated.
+
+SQL> /
+
+1 row updated.
+
+SQL> INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO);
+Enter value for empno: 7839
+Enter value for ename: KING
+Enter value for job: PRESIDENT
+Enter value for mgr: NULL
+Enter value for date: '17-NOV-1981'
+Enter value for sal: 5000
+Enter value for comm: NULL
+Enter value for deptno: 10
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7839, 'KING', 'PRESIDENT', NULL, '17-NOV-1981', 5000, NULL, 10)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7844
+Enter value for ename: TURNER
+Enter value for job: SALESMAN
+Enter value for mgr: 7698
+Enter value for date: '8-SEP-1981'
+Enter value for sal: 1500
+Enter value for comm: 0
+Enter value for deptno: 30
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7844, 'TURNER', 'SALESMAN', 7698, '8-SEP-1981', 1500, 0, 30)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7876
+Enter value for ename: ADAMS
+Enter value for job: CLERK
+Enter value for mgr: 7788
+Enter value for date: '12-JAN-1983'
+Enter value for sal: 1100
+Enter value for comm: NULL
+Enter value for deptno: 20
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7876, 'ADAMS', 'CLERK', 7788, '12-JAN-1983', 1100, NULL, 20)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7900
+Enter value for ename: JAMES
+Enter value for job: CLERK
+Enter value for mgr: 7698
+Enter value for date: '3-DEC-1981'
+Enter value for sal: 3000
+Enter value for comm: NULL
+Enter value for deptno: 30
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7900, 'JAMES', 'CLERK', 7698, '3-DEC-1981', 3000, NULL, 30)
+
+1 row created.
+
+SQL> UPDATE EMP SET SAL=950 WHERE ENAME='JAMES';
+
+1 row updated.
+
+SQL> INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO);
+Enter value for empno: 7902
+Enter value for ename: FORD
+Enter value for job: ANALYST
+Enter value for mgr: 7566
+Enter value for date: '3-DEC-1981'
+Enter value for sal: 3000
+Enter value for comm: NULL
+Enter value for deptno: 20
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7902, 'FORD', 'ANALYST', 7566, '3-DEC-1981', 3000, NULL, 20)
+
+1 row created.
+
+SQL> /
+Enter value for empno: 7934
+Enter value for ename: MILLER
+Enter value for job: CLERK
+Enter value for mgr: 7782
+Enter value for date: '23-JAN-1982'
+Enter value for sal: 1300
+Enter value for comm: NULL
+Enter value for deptno: 10
+old   1: INSERT INTO EMP VALUES (&EMPNO, '&ENAME', '&JOB', &MGR, &DATE, &SAL, &COMM, &DEPTNO)
+new   1: INSERT INTO EMP VALUES (7934, 'MILLER', 'CLERK', 7782, '23-JAN-1982', 1300, NULL, 10)
+
+1 row created.
+
+SQL> CREATE TABLE DEPT
+  2             (DEPTNO NUMBER(2),
+  3              DNAME VARCHAR2(14
+  4            ),LOC VARCHAR(13) );
+
+Table created.
+
+SQL> INSERT INTO DEPT VALUES (10, 'ACCOUNTING', 'NEW YORK');
+
+1 row created.
+
+SQL> INSERT INTO VALUES (20, 'RESEARCH', 'DALLAS');
+INSERT INTO VALUES (20, 'RESEARCH', 'DALLAS')
+            *
+ERROR at line 1:
+ORA-00903: invalid table name
+
+
+SQL> INSERT INTO DEPT VALUES (20, 'RESEARCH', 'DALLAS');
+
+1 row created.
+
+SQL> INSERT INTO DEPT VALUES (30, 'SALES', 'CHICAGO');
+
+1 row created.
+
+SQL> INSERT INTO DEPT VALUES (40, 'OPERATIONS' 'BOSTON');
+INSERT INTO DEPT VALUES (40, 'OPERATIONS' 'BOSTON')
+                                          *
+ERROR at line 1:
+ORA-00917: missing comma
+
+
+SQL> INSERT INTO DEPT VALUES (40, 'OPERATIONS', 'BOSTON');
+
+1 row created.
+
+SQL> CREATE TABLE SALGRADE
+  2             (GRADE NUMBER,
+  3              LOSAL NUMBER,
+  4              HISAL NUMBER);
+
+Table created.
+
+SQL> INSERT INTO SALGRADE VALUES (1, 700, 1200);
+
+1 row created.
+
+SQL> INSERT INTO SALGRADE VALUES (&GRADE, &LOSAL, &HISAL);
+Enter value for grade: 2
+Enter value for losal: 1201
+Enter value for hisal: 1400
+old   1: INSERT INTO SALGRADE VALUES (&GRADE, &LOSAL, &HISAL)
+new   1: INSERT INTO SALGRADE VALUES (2, 1201, 1400)
+
+1 row created.
+
+SQL> /
+Enter value for grade: 3
+Enter value for losal: 1401
+Enter value for hisal: 2000
+old   1: INSERT INTO SALGRADE VALUES (&GRADE, &LOSAL, &HISAL)
+new   1: INSERT INTO SALGRADE VALUES (3, 1401, 2000)
+
+1 row created.
+
+SQL> /
+Enter value for grade: 4
+Enter value for losal: 2001
+Enter value for hisal: 3000
+old   1: INSERT INTO SALGRADE VALUES (&GRADE, &LOSAL, &HISAL)
+new   1: INSERT INTO SALGRADE VALUES (4, 2001, 3000)
+
+1 row created.
+
+SQL> /
+Enter value for grade: 5
+Enter value for losal: 3001
+Enter value for hisal: 9999
+old   1: INSERT INTO SALGRADE VALUES (&GRADE, &LOSAL, &HISAL)
+new   1: INSERT INTO SALGRADE VALUES (5, 3001, 9999)
+
+1 row created.
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        300
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250        500
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1400
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000
+        20
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500          0
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       1100
+        20
+
+      7900 JAMES      CLERK           7698 03-DEC-81        950
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7902 FORD       ANALYST         7566 03-DEC-81       3000
+        20
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+14 rows selected.
+
+SQL> SELECT * FROM DEPT;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT * FROM SALGARDE;
+SELECT * FROM SALGARDE
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> SELECT * FROM SALGRADE;
+
+     GRADE      LOSAL      HISAL
+---------- ---------- ----------
+         1        700       1200
+         2       1201       1400
+         3       1401       2000
+         4       2001       3000
+         5       3001       9999
+
+SQL>

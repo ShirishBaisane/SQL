@@ -1,0 +1,873 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Tue Nov 22 15:08:37 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Nov 22 2022 11:51:43 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> REM *** OUTER JOINS ***
+SQL> REM ** LEFT OUTER JOIN **
+SQL> REM * ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S LEFT OUTER JOIN COURSE C ON S.CID=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+      1023 JONES                        30
+
+
+
+SQL> REM* NON-ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID=C.CID(+);
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+      1023 JONES                        30
+
+
+
+SQL> REM ** RIGHT OUTER JOIN **
+SQL> REM * ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S RIGHT OUTER JOIN COURSE C ON S.CID=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+                                                   40 PHP
+      4500
+
+
+SQL> REM * NON-ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID(+)=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+                                                   40 PHP
+      4500
+
+
+SQL> REM ** FULL OUTER JOIN **
+SQL> REM * ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S FULL OUTER JOIN COURSE C ON S.CID=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+                                                   40 PHP
+      4500
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1023 JONES                        30
+
+
+
+SQL> REM * NON-ANSI FORMAT *
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID=C.CID;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID(+)=C.CID(+);
+SELECT * FROM STUDENT S, COURSE C WHERE S.CID(+)=C.CID(+)
+                                                *
+ERROR at line 1:
+ORA-01468: a predicate may reference only one outer-joined table
+
+
+SQL> SELECT * FROM STUDENT S, COURSE C WHERE S.CID(+)=C.CID
+  2     UNION
+  3  SELECT * FROM STUDENT S, COURSE C WHERE S.CID=C.CID(+);
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+      1023 JONES                        30
+
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+                                                   40 PHP
+      4500
+
+
+SQL> REM
+SQL> REM *** NON-EQUI JOINS ***
+SQL> REM EX1
+SQL> REM * NON-ANSI *
+SQL> DESC TEST1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                             NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> DESC TEST2;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ DEPTNO                                             NUMBER(2)
+ DNAME                                              VARCHAR2(14)
+ LOC                                                VARCHAR2(13)
+
+SQL> SELECT * FROM TEST1 T1, TEST2 T2 WHERE T1.SNO>T2.SNO;
+SELECT * FROM TEST1 T1, TEST2 T2 WHERE T1.SNO>T2.SNO
+                                              *
+ERROR at line 1:
+ORA-00904: "T2"."SNO": invalid identifier
+
+
+SQL> SELECT * FROM TEST1 T1, TEST2 T2 WHERE T1.DEPTNO>T2.DEPTNO;
+
+    DEPTNO DNAME          LOC               DEPTNO DNAME          LOC
+---------- -------------- ------------- ---------- -------------- -------------
+        40 OPERATIONS     BOSTON                30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON                20 RESEARCH       DALLAS
+        40 OPERATIONS     BOSTON                10 ACCOUNTING     NEW YORK
+        30 SALES          CHICAGO               20 RESEARCH       DALLAS
+        30 SALES          CHICAGO               10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS                10 ACCOUNTING     NEW YORK
+
+6 rows selected.
+
+SQL> SELECT * FROM TEST1;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> SELECT * FROM TEST2;
+
+    DEPTNO DNAME          LOC
+---------- -------------- -------------
+        10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS
+        30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON
+
+SQL> REM * ANSI *
+SQL> SELECT * FROM TEST1 T1 JOIN TEST2 T2 WHERE T1.DEPTNO>T2.DEPTNO;
+SELECT * FROM TEST1 T1 JOIN TEST2 T2 WHERE T1.DEPTNO>T2.DEPTNO
+                                     *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> SELECT * FROM TEST1 T1 JOIN TEST2 T2 ON T1.DEPTNO>T2.DEPTNO;
+
+    DEPTNO DNAME          LOC               DEPTNO DNAME          LOC
+---------- -------------- ------------- ---------- -------------- -------------
+        40 OPERATIONS     BOSTON                30 SALES          CHICAGO
+        40 OPERATIONS     BOSTON                20 RESEARCH       DALLAS
+        40 OPERATIONS     BOSTON                10 ACCOUNTING     NEW YORK
+        30 SALES          CHICAGO               20 RESEARCH       DALLAS
+        30 SALES          CHICAGO               10 ACCOUNTING     NEW YORK
+        20 RESEARCH       DALLAS                10 ACCOUNTING     NEW YORK
+
+6 rows selected.
+
+SQL> REM EX2. W.A.Q. TO DISPLAY ENAME,SALARY,LOW SALARY,HIGH SALARY FROM EMP,SALGRADE TABLE
+S WHOSE SALARY IS BETWEEN LOW SALARY AND HIGH SALARY.
+SQL> REM * NON-ANSI *
+SQL> SELECT ENAME, SAL, LOSAL, HISAL FROM EMP, SALGRADE WHERE SAL BETWEEN LOSAL AND HISAL;
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+MARTIN           1250       1201       1400
+WARD             1250       1201       1400
+MILLER           1300       1201       1400
+TURNER           1500       1401       2000
+ALLEN            1600       1401       2000
+CLARK            2450       2001       3000
+JAMES            2500       2001       3000
+ADAMS            2500       2001       3000
+SMITH            2500       2001       3000
+BLAKE            2850       2001       3000
+JONES            2975       2001       3000
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+FORD             3000       2001       3000
+SCOTT            3000       2001       3000
+KING             5000       3001       9999
+
+14 rows selected.
+
+SQL> SELECT ENAME, SAL, LOSAL, HISAL FROM EMP,SALGRADE WHERE (SAL>=LOSAL) AND (SAL<=HISAL);
+
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+MARTIN           1250       1201       1400
+WARD             1250       1201       1400
+MILLER           1300       1201       1400
+TURNER           1500       1401       2000
+ALLEN            1600       1401       2000
+CLARK            2450       2001       3000
+JAMES            2500       2001       3000
+ADAMS            2500       2001       3000
+SMITH            2500       2001       3000
+BLAKE            2850       2001       3000
+JONES            2975       2001       3000
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+FORD             3000       2001       3000
+SCOTT            3000       2001       3000
+KING             5000       3001       9999
+
+14 rows selected.
+
+SQL> * ANSI *
+SP2-0042: unknown command "* ANSI *" - rest of line ignored.
+SQL> REM * ANSI *
+SQL> SELECT ENAME,SAL,LOSAL,HISAL FROM EMP JOIN SALGRADE ON SAL BETWEEN LOSAL AND HISAL;
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+MARTIN           1250       1201       1400
+WARD             1250       1201       1400
+MILLER           1300       1201       1400
+TURNER           1500       1401       2000
+ALLEN            1600       1401       2000
+CLARK            2450       2001       3000
+JAMES            2500       2001       3000
+ADAMS            2500       2001       3000
+SMITH            2500       2001       3000
+BLAKE            2850       2001       3000
+JONES            2975       2001       3000
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+FORD             3000       2001       3000
+SCOTT            3000       2001       3000
+KING             5000       3001       9999
+
+14 rows selected.
+
+SQL> SELECT ENAME,SAL,LOSAL,HISAL FROM EMP JOIN SALGRADE ON (SAL>=LOSAL) AND (SAL<=HISAL);
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+MARTIN           1250       1201       1400
+WARD             1250       1201       1400
+MILLER           1300       1201       1400
+TURNER           1500       1401       2000
+ALLEN            1600       1401       2000
+CLARK            2450       2001       3000
+JAMES            2500       2001       3000
+ADAMS            2500       2001       3000
+SMITH            2500       2001       3000
+BLAKE            2850       2001       3000
+JONES            2975       2001       3000
+
+ENAME             SAL      LOSAL      HISAL
+---------- ---------- ---------- ----------
+FORD             3000       2001       3000
+SCOTT            3000       2001       3000
+KING             5000       3001       9999
+
+14 rows selected.
+
+SQL> REM
+SQL> REM *** CROSS JOIN *** CARTESIAN JOIN ***
+SQL> REM EX1.
+SQL> REM * ANSI *
+SQL> SELECT * FROM STUDENT CROSS JOIN COURSE;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1021 SAI                          10         20 JAVA
+      6000
+
+      1021 SAI                          10         40 PHP
+      4500
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1022 ADAMS                        20         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+      1022 ADAMS                        20         40 PHP
+      4500
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1023 JONES                        30         10 ORACLE
+      2500
+
+      1023 JONES                        30         20 JAVA
+      6000
+
+      1023 JONES                        30         40 PHP
+      4500
+
+
+9 rows selected.
+
+SQL> REM * NON-ANSI *
+SQL> SELECT * FROM STUDENT,COURSE;
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1021 SAI                          10         10 ORACLE
+      2500
+
+      1021 SAI                          10         20 JAVA
+      6000
+
+      1021 SAI                          10         40 PHP
+      4500
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1022 ADAMS                        20         10 ORACLE
+      2500
+
+      1022 ADAMS                        20         20 JAVA
+      6000
+
+      1022 ADAMS                        20         40 PHP
+      4500
+
+
+      STID SNAME                       CID        CID CNAME
+---------- -------------------- ---------- ---------- --------------------
+      CFEE
+----------
+      1023 JONES                        30         10 ORACLE
+      2500
+
+      1023 JONES                        30         20 JAVA
+      6000
+
+      1023 JONES                        30         40 PHP
+      4500
+
+
+9 rows selected.
+
+SQL> REM EX2.
+SQL> CREATE TABLE ITEM1 ( INAME VARCHAR2(10), PRICE NUMBER(7) );
+
+Table created.
+
+SQL> INSERT INTO ITEM1 VALUES ( 'PIZZA', 180 );
+
+1 row created.
+
+SQL> CREATE TABLE ITEM2 ( INAME VARCHAR2(10), PRICE NUMBER(7) );
+
+Table created.
+
+SQL> INSERT INTO ITEM2 VALUES ( 'PEPSI', 25 );
+
+1 row created.
+
+SQL> SELECT I1.INAME, I2.PRICE, I2.INAME, I2.PRICE, I1.PRICE+I2.PRICE FROM ITEM1 I1 CROSS JOIN ITEM2 I2;
+
+INAME           PRICE INAME           PRICE I1.PRICE+I2.PRICE
+---------- ---------- ---------- ---------- -----------------
+PIZZA              25 PEPSI              25               205
+
+SQL> SELECT I1.INAME, I1.PRICE, I2.INAME, I2.PRICE, I1.PRICE+I2.PRICE FROM ITEM1 I1, ITEM2
+I2;
+
+INAME           PRICE INAME           PRICE I1.PRICE+I2.PRICE
+---------- ---------- ---------- ---------- -----------------
+PIZZA             180 PEPSI              25               205
+
+SQL> REM
+SQL> REM *** NATURAL JOIN ***
+SQL> SELECT * FROM STUDENT S NATURAL JOIN COURSE C;
+
+       CID       STID SNAME                CNAME                      CFEE
+---------- ---------- -------------------- -------------------- ----------
+        10       1021 SAI                  ORACLE                     2500
+        20       1022 ADAMS                JAVA                       6000
+
+SQL> REM
+SQL> REM *** SELF JOIN ***
+SQL> REM * ON COMPARING SINGLE COLUMN VALUES BY ITSELF *
+SQL> REM EX1. W.A.Q. TO DISPALY EMPLOYEE WHO ARE WORKING IN THE SAME LOCATION OF THE EMPLOY
+EE='SCOTT'.
+SQL> SELECT T1.ENAME,T1.LOC FROM TEST T1,TEST T2 WHERE
+  2  T1.LOC=T2.LOC
+  3   AND T2.ENAME='SCOTT';
+ AND T2.ENAME='SCOTT'
+     *
+ERROR at line 3:
+ORA-00904: "T2"."ENAME": invalid identifier
+
+
+SQL> SELECT E1.ENAME,T1.LOC FROM EMP E1, TEST1 T1 WHERE E1.DEPTNO=T1.DEPTNO AND E1.ENAME='S
+COOT;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT E1.ENAME,T1.LOC FROM EMP E1, TEST1 T1 WHERE E1.DEPTNO=T1.DEPTNO AND E1.ENAME='SCOTT;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT E1.ENAME,T1.LOC FROM EMP E1, TEST1 T1 WHERE T1.DEPTNO=E1.DEPTNO AND E1.ENAME='SCOTT;
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> SELECT E.ENAME,T1.LOC FROM EMP E, TEST1 T1 WHERE E.ENAME='SCOTT';
+
+ENAME      LOC
+---------- -------------
+SCOTT      NEW YORK
+SCOTT      DALLAS
+SCOTT      CHICAGO
+SCOTT      BOSTON
+
+SQL> SELECT E1.ENAME,T1.LOC FROM EMP E1, TEST1 T1 WHERE T1.DEPTNO=E1.DEPTNO AND E1.ENAME='SCOTT';
+
+ENAME      LOC
+---------- -------------
+SCOTT      DALLAS
+
+SQL> REM WRONG QUERY, AS THE TABLES ARE MODIFIED AND NOT MENTIONED IN THE NOTES.
+SQL> REM EX2. W.A.Q. TO DISPLAY EMPLOYEE WHOSE SALARY IS SAME AS THE SALARY OF THE EMPLOYEE
+ FORD.
+SQL> SELECT E1.ENAME, E1.SAL FROM EMP E1, EMP E2
+  2     WHERE E1.SAL=E2.SAL AND E2.ENAME='FORD';
+
+ENAME             SAL
+---------- ----------
+SCOTT            3000
+FORD             3000
+
+SQL> SELECT * FROM EMP;
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7782 CLARK      MANAGER         7839 09-JUN-81       2450
+        10
+
+      7839 KING       PRESIDENT            17-NOV-81       5000
+        10
+
+      7934 MILLER     CLERK           7782 23-JAN-82       1300
+        10
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7369 SMITH      CLERK           7902 17-DEC-80       2500        800
+        20
+
+      7499 ALLEN      SALESMAN        7698 20-FEB-81       1600        800
+        30
+
+      7521 WARD       SALESMAN        7698 22-FEB-81       1250       1000
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7566 JONES      MANAGER         7839 02-APR-81       2975        800
+        20
+
+      7654 MARTIN     SALESMAN        7698 28-SEP-81       1250       1900
+        30
+
+      7698 BLAKE      MANAGER         7839 01-MAY-81       2850        800
+        30
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7788 SCOTT      ANALYST         7566 09-DEC-82       3000        800
+        20
+
+      7844 TURNER     SALESMAN        7698 08-SEP-81       1500        500
+        30
+
+      7876 ADAMS      CLERK           7788 12-JAN-83       2500        800
+        20
+
+
+     EMPNO ENAME      JOB              MGR HIREDATE         SAL       COMM
+---------- ---------- --------- ---------- --------- ---------- ----------
+    DEPTNO
+----------
+      7900 JAMES      CLERK           7698 03-DEC-81       2500        800
+        30
+
+      7902 FORD       ANALYST         7566 03-DEC-81       3000        800
+        20
+
+
+14 rows selected.
+
+SQL> SELECT E1.ENAME, T.LOC, FROM EMP E1, EMPE2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT';
+SELECT E1.ENAME, T.LOC, FROM EMP E1, EMPE2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT'
+                        *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMPE2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT';
+SELECT E1.ENAME, T.LOC FROM EMP E1, EMPE2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT'
+                                    *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT';
+SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT'
+                                                                   *
+ERROR at line 1:
+ORA-00904: "T"."DEPTNO": invalid identifier
+
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=T.DEPTNO AND E2.ENAME='SCOTT';
+
+ENAME      LOC
+---------- -------------
+CLARK      NEW YORK
+KING       NEW YORK
+MILLER     NEW YORK
+SMITH      DALLAS
+ALLEN      CHICAGO
+WARD       CHICAGO
+JONES      DALLAS
+MARTIN     CHICAGO
+BLAKE      CHICAGO
+SCOTT      DALLAS
+TURNER     CHICAGO
+
+ENAME      LOC
+---------- -------------
+ADAMS      DALLAS
+JAMES      CHICAGO
+FORD       DALLAS
+
+14 rows selected.
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=T.DEPTNO AND E1.ENAME='SCOTT';
+
+ENAME      LOC
+---------- -------------
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+
+ENAME      LOC
+---------- -------------
+SCOTT      DALLAS
+SCOTT      DALLAS
+SCOTT      DALLAS
+
+14 rows selected.
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT';
+
+ENAME      LOC
+---------- -------------
+SMITH      NEW YORK
+SMITH      DALLAS
+SMITH      CHICAGO
+SMITH      BOSTON
+JONES      NEW YORK
+JONES      DALLAS
+JONES      CHICAGO
+JONES      BOSTON
+SCOTT      NEW YORK
+SCOTT      DALLAS
+SCOTT      CHICAGO
+
+ENAME      LOC
+---------- -------------
+SCOTT      BOSTON
+ADAMS      NEW YORK
+ADAMS      DALLAS
+ADAMS      CHICAGO
+ADAMS      BOSTON
+FORD       NEW YORK
+FORD       DALLAS
+FORD       CHICAGO
+FORD       BOSTON
+
+20 rows selected.
+
+SQL> SELECT E1.ENAME, E1.DEPTNO FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT';
+
+ENAME          DEPTNO
+---------- ----------
+SMITH              20
+SMITH              20
+SMITH              20
+SMITH              20
+JONES              20
+JONES              20
+JONES              20
+JONES              20
+SCOTT              20
+SCOTT              20
+SCOTT              20
+
+ENAME          DEPTNO
+---------- ----------
+SCOTT              20
+ADAMS              20
+ADAMS              20
+ADAMS              20
+ADAMS              20
+FORD               20
+FORD               20
+FORD               20
+FORD               20
+
+20 rows selected.
+
+SQL> SELECT E1.ENAME, E1.DEPTNO FROM EMP E1, EMP E2 WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT';
+
+ENAME          DEPTNO
+---------- ----------
+SMITH              20
+JONES              20
+SCOTT              20
+ADAMS              20
+FORD               20
+
+SQL> SELECT E1.ENAME, E1.DEPTNO, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT';
+
+ENAME          DEPTNO LOC
+---------- ---------- -------------
+SMITH              20 NEW YORK
+SMITH              20 DALLAS
+SMITH              20 CHICAGO
+SMITH              20 BOSTON
+JONES              20 NEW YORK
+JONES              20 DALLAS
+JONES              20 CHICAGO
+JONES              20 BOSTON
+SCOTT              20 NEW YORK
+SCOTT              20 DALLAS
+SCOTT              20 CHICAGO
+
+ENAME          DEPTNO LOC
+---------- ---------- -------------
+SCOTT              20 BOSTON
+ADAMS              20 NEW YORK
+ADAMS              20 DALLAS
+ADAMS              20 CHICAGO
+ADAMS              20 BOSTON
+FORD               20 NEW YORK
+FORD               20 DALLAS
+FORD               20 CHICAGO
+FORD               20 BOSTON
+
+20 rows selected.
+
+SQL> SELECT E1.ENAME, E1.DEPTNO, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT' AND E1.DEPTNO=T.DEPTNO;
+
+ENAME          DEPTNO LOC
+---------- ---------- -------------
+SMITH              20 DALLAS
+JONES              20 DALLAS
+SCOTT              20 DALLAS
+ADAMS              20 DALLAS
+FORD               20 DALLAS
+
+SQL> SELECT E1.ENAME, T.LOC FROM EMP E1, EMP E2, TEST1 T WHERE E1.DEPTNO=E2.DEPTNO AND E2.ENAME='SCOTT' AND E1.DEPTNO=T.DEPTNO;
+
+ENAME      LOC
+---------- -------------
+SMITH      DALLAS
+JONES      DALLAS
+SCOTT      DALLAS
+ADAMS      DALLAS
+FORD       DALLAS
+
+SQL> REM * ON COMPARING TWO DIFF. COLUMNS TO EACH OTHER *
+SQL> REM EX1. W.A.Q. TO DISPLAY MANAGERS AND THEIR EMPLOYEES FROM EMP TABLE.
+SQL> SELECT M.ENAME MANAGER, E.ENAME EMPLOYEE FROM EMP E, EMP M
+  2             WHERE M.EMPNO=E.MGR;
+
+MANAGER    EMPLOYEE
+---------- ----------
+CLARK      MILLER
+KING       CLARK
+KING       JONES
+KING       BLAKE
+JONES      SCOTT
+JONES      FORD
+BLAKE      ALLEN
+BLAKE      WARD
+BLAKE      MARTIN
+BLAKE      TURNER
+BLAKE      JAMES
+
+MANAGER    EMPLOYEE
+---------- ----------
+SCOTT      ADAMS
+FORD       SMITH
+
+13 rows selected.
+
+SQL> REM EX2. W.A.Q. TO DISPLAY EMPLOYEE WHO ARE GETTING MORE THAN THEIR MANAGER SALARY.
+SQL> SELECT M.ENAME MANAGER, M.SAL MSALARY, E.ENAME EMPLOYEE, E.SAL ESALARY FROM EMP E, EMP
+        M WHERE M.EMPNO=E.MGR AND E.SAL>M.SAL;
+
+MANAGER       MSALARY EMPLOYEE      ESALARY
+---------- ---------- ---------- ----------
+JONES            2975 SCOTT            3000
+JONES            2975 FORD             3000
+
+SQL> REM EX3. W.A.Q. TO DISPLAY EMPLOYEES WHO HAVE JOINED BEFORE THEIR MANAGER.
+SQL> SELECT M.ENAME MANAGER, M.HIREDATE MDOJ, E.ENAME EMPLOYEE, E.HIREDATE EDOJ FROM EMP E,
+        EMP M WHERE M.EMPNO=E.MGR AND E.HIREDATE<M.HIREDATE;
+
+MANAGER    MDOJ      EMPLOYEE   EDOJ
+---------- --------- ---------- ---------
+KING       17-NOV-81 CLARK      09-JUN-81
+KING       17-NOV-81 JONES      02-APR-81
+KING       17-NOV-81 BLAKE      01-MAY-81
+BLAKE      01-MAY-81 ALLEN      20-FEB-81
+BLAKE      01-MAY-81 WARD       22-FEB-81
+FORD       03-DEC-81 SMITH      17-DEC-80
+
+6 rows selected.
+
+SQL> REM
+SQL> REM ***'USING' CLAUSE***
+SQL> SELECT * FROM STUDENT S INNER JOIN COURSE C
+  2             USING(S.CID);
+                USING(S.CID)
+                       *
+ERROR at line 2:
+ORA-01748: only simple column names allowed here
+
+
+SQL> SELECT * FROM STUDENT S INNER JOIN COURSE C USING(CID);
+
+       CID       STID SNAME                CNAME                      CFEE
+---------- ---------- -------------------- -------------------- ----------
+        10       1021 SAI                  ORACLE                     2500
+        20       1022 ADAMS                JAVA                       6000
+
+SQL> REM
+SQL> REM
+SQL> REM *** HOW TO JOIN MOEW THAN TWO TABLES ***
+SQL> REM *** HOW TO JOIN MORE THAN TWO TABLES ***
+SQL> REM
+SQL> REM ** EQUI JOIN **
+SQL> DESC REGISTOR;
+ERROR:
+ORA-04043: object REGISTOR does not exist
+
+
+SQL> REM THERE IS NO REGISTOR TABLE DESCRIPTION SO I WILL DO THIS TOPIC LATER IN OTHER EXER
+CISES.

@@ -1,0 +1,130 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Sun Nov 13 09:57:04 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system/Guddu2707
+Last Successful login time: Sat Nov 12 2022 19:12:26 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> desc emp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ EMPNO                                     NOT NULL NUMBER(4)
+ ENAME                                              VARCHAR2(10)
+ JOB                                                VARCHAR2(9)
+ MGR                                                NUMBER(4)
+ HIREDATE                                           DATE
+ SAL                                                NUMBER(7,2)
+ COMM                                               NUMBER(7,2)
+ DEPTNO                                             NUMBER(2)
+
+SQL> CREATE TABLE EMP_Chennai (ENAME VARCHAR2(20), LOC VARCHAR2(10));
+
+Table created.
+
+SQL> CREATE TABLE EMP_Hyd (ENAME VARCHAR2(20), LOC VARCHAR2(10));
+
+Table created.
+
+SQL> ALTER TABLE EMP_Chennai DROP COLUMN LOC;
+
+Table altered.
+
+SQL> ALTER TABLE EMP_Hyd DROP COLUMN LOC;
+
+Table altered.
+
+SQL> INSERT INTO EMP_Chennai VALUES ('ROHIT');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Chennai VALUES ('AKSHAY');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Chennai VALUES ('PRATIK');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Chennai VALUES ('ADITYA');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Hyd VALUES ('ADITYA');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Hyd VALUES ('ROHIT');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Hyd VALUES ('SHIRISH');
+
+1 row created.
+
+SQL> INSERT INTO EMP_Hyd VALUES ('YASH');
+
+1 row created.
+
+SQL> SELECT * FROM EMP_Chennai UNION ALL SELECT * FROM EMP_Hyd;
+
+ENAME
+--------------------
+ROHIT
+AKSHAY
+PRATIK
+ADITYA
+ADITYA
+ROHIT
+SHIRISH
+YASH
+
+8 rows selected.
+
+SQL> SELECT * FROM EMP_Chennai UNION SELECT * FROM EMP_Hyd;
+
+ENAME
+--------------------
+ADITYA
+AKSHAY
+PRATIK
+ROHIT
+SHIRISH
+YASH
+
+6 rows selected.
+
+SQL> REM THE ABOVE QUERIES USE UNION & UNION ALL SET OPERATOR
+SQL> REM Q-> W.A.Q. TO DISPLAY EMPLOYEES WHO ARE WORKING IN HYD BUT NOT IN CHENNAI.
+SQL> SELECT ENAME FROM EMP_Hyd MINUS SELECT ENAME FROM EMP_Chennai;
+
+ENAME
+--------------------
+SHIRISH
+YASH
+
+SQL> REM Q-> W.A.Q. TO DISPLAY EMPLOYEES WHO ARE WORKING IN CHENNAI BUT NOT IN HYD.
+SQL> SELECT ENAME FROM EMP_Chennai MINUS SELECT ENAME FROM EMP_Hyd;
+
+ENAME
+--------------------
+AKSHAY
+PRATIK
+
+SQL> REM Q-> W.A.Q. TO DISPLAY EMPLOYEES WHO ARE WORKING IN BOTH THE BRANCHES.
+SQL> SELECT * FROM EMP_Hyd INTERSECT SELECT * FROM EMP_Chennai;
+
+ENAME
+--------------------
+ADITYA
+ROHIT
+
+SQL>
