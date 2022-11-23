@@ -1,0 +1,531 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Wed Nov 23 18:50:05 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Tue Nov 22 2022 15:09:59 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> select * from tab;
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+STUDENT
+TABLE
+
+DEPT
+TABLE
+
+EMP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SALGRADE
+TABLE
+
+SPEDEPT
+TABLE
+
+NEWDEPT
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+SPDEPT
+TABLE
+
+SPEMP
+TABLE
+
+SPECEMP
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+DEMP
+TABLE
+
+TEST1
+TABLE
+
+TEST2
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+TEST3
+TABLE
+
+COURSE
+TABLE
+
+ITEM1
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+ITEM2
+TABLE
+
+BIN$For+pZO3QCKdspLquV120A==$0
+TABLE
+
+EMP_CHENNAI
+TABLE
+
+
+TNAME
+--------------------------------------------------------------------------------
+TABTYPE        CLUSTERID
+------------- ----------
+EMP_HYD
+TABLE
+
+TEST
+TABLE
+
+
+20 rows selected.
+
+SQL> DROP TABLE TEST1, TEST2, TEST3 PURGE;
+DROP TABLE TEST1, TEST2, TEST3 PURGE
+                *
+ERROR at line 1:
+ORA-00933: SQL command not properly ended
+
+
+SQL> DROP TABLE TEST1 PURGE;
+
+Table dropped.
+
+SQL> DROP TABLE TEST2 PURGE;
+
+Table dropped.
+
+SQL> DROP TABLE TEST3 PURGE;
+
+Table dropped.
+
+SQL> REM ***** CONSTRAINTS *****
+SQL> REM
+SQL> REM *** UNIQUE ***
+SQL> REM * COLUMN LEVEL *
+SQL> REM EX.
+SQL> CREATE TABLE TEST1 (SNO INT UNIQUE, NAME VARCHAR2(10) UNIQUE);
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST1 VALUES(1, 'SMITH');
+
+1 row created.
+
+SQL> INSERT INTO TEST1 VALUES(1, 'SMITH');
+INSERT INTO TEST1 VALUES(1, 'SMITH')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007590) violated
+
+
+SQL> INSERT INTO TEST1 VALUES(NULL, NULL);
+
+1 row created.
+
+SQL> INSERT INTO TEST1 VALUES(NULL, NULL);
+
+1 row created.
+
+SQL> REM * TABLE LEVEL *
+SQL> REM EX.
+SQL> CREATE TABLE TEST2 (SNO INT, NAME VARCHAR2(10), UNIQUE(SNO, NAME));
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST2 VALUES (1, 'A');
+
+1 row created.
+
+SQL> INSERT INTO TEST2 VALUES (1, 'A');
+INSERT INTO TEST2 VALUES (1, 'A')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007592) violated
+
+
+SQL> INSERT INTO TEST2 VALUES (1, 'B');
+
+1 row created.
+
+SQL> INSERT INTO TEST1 VALUES(2, 'SMITH');
+INSERT INTO TEST1 VALUES(2, 'SMITH')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007591) violated
+
+
+SQL> REM
+SQL> REM *** NOT NULL ***
+SQL> REM * COLUMN LEVEL ONLY *
+SQL> REM EX.
+SQL> CREATE TABLE TEST3 (SNO INT NOT NULL, SAL NUMBER(10) NOT NULL);
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST3 VALUES (1,2500);
+
+1 row created.
+
+SQL> INSERT INTO TEST3 VALUES (1,2500);
+
+1 row created.
+
+SQL> INSERT INTO TEST3 VALUES (1,NULL);
+INSERT INTO TEST3 VALUES (1,NULL)
+                            *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("MYDB11AM"."TEST3"."SAL")
+
+
+SQL> INSERT INTO TEST3 VALUES (NULL,2500);
+INSERT INTO TEST3 VALUES (NULL,2500)
+                          *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("MYDB11AM"."TEST3"."SNO")
+
+
+SQL> INSERT INTO TEST3 VALUES (NULL,NULL);
+INSERT INTO TEST3 VALUES (NULL,NULL)
+                          *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("MYDB11AM"."TEST3"."SNO")
+
+
+SQL> REM
+SQL> REM *** PRIMARY KEY ***
+SQL> REM * COLUMN *
+SQL> REM EX.
+SQL> CREATE TABLE TEST4 (PCODE INT PRIMARY KEY, PNAME VARCHAR2(10);
+CREATE TABLE TEST4 (PCODE INT PRIMARY KEY, PNAME VARCHAR2(10)
+                                                            *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE TEST4 (PCODE INT PRIMARY KEY, PNAME VARCHAR2(10));
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST4 VALUES (1021, 'C');
+
+1 row created.
+
+SQL> INSERT INTO TEST4 VALUES (1021, 'C++');
+INSERT INTO TEST4 VALUES (1021, 'C++')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007595) violated
+
+
+SQL> INSERT INTO TEST4 VALUES (NULL, 'C++');
+INSERT INTO TEST4 VALUES (NULL, 'C++')
+                          *
+ERROR at line 1:
+ORA-01400: cannot insert NULL into ("MYDB11AM"."TEST4"."PCODE")
+
+
+SQL> REM * TABLE LEVEL *
+SQL> REM EX.
+SQL> CREATE TABLE TEST5 (PCODE INT, PNAME VARCHAR2(10), PRIMARY KEY(PCODE,PNAME));
+
+Table created.
+
+SQL> INSERT INTO TEST5 VALUES (1021, 'C');
+
+1 row created.
+
+SQL> INSERT INTO TEST5 VALUES (1021, 'C++');
+
+1 row created.
+
+SQL> INSERT INTO TEST5 VALUES (1021, 'C');
+INSERT INTO TEST5 VALUES (1021, 'C')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007596) violated
+
+
+SQL> REM
+SQL> REM *** CHECK ***
+SQL> REM * COLUMN LEVEL *
+SQL> CREATE TABLE TEST6 (EBAME VARCHAR2(10), SAL NUMBER(10) CHECH(SAL>8000),
+  2                      LOC VARCHAR2(10) CHECK(LOC IN('HYD','PUNE')));
+CREATE TABLE TEST6 (EBAME VARCHAR2(10), SAL NUMBER(10) CHECH(SAL>8000),
+                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE TEST6 (EBAME VARCHAR2(10), SAL NUMBER(10) CHECH(SAL>8000),
+  2                      LOC VARCHAR2(10) CHECK(LOC IN('HYD','PUNE')));
+CREATE TABLE TEST6 (EBAME VARCHAR2(10), SAL NUMBER(10) CHECH(SAL>8000),
+                                                       *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE TEST6 (EBAME VARCHAR2(10), SAL NUMBER(10) CHECK(SAL>8000),
+  2                      LOC VARCHAR2(10) CHECK(LOC IN('HYD','PUNE')));
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST6 VALUES ('A', 8000, 'MUMBAI');
+INSERT INTO TEST6 VALUES ('A', 8000, 'MUMBAI')
+*
+ERROR at line 1:
+ORA-02290: check constraint (MYDB11AM.SYS_C007598) violated
+
+
+SQL> INSERT INTO TEST6 VALUES ('A', 8000, 'PUNE');
+INSERT INTO TEST6 VALUES ('A', 8000, 'PUNE')
+*
+ERROR at line 1:
+ORA-02290: check constraint (MYDB11AM.SYS_C007597) violated
+
+
+SQL> INSERT INTO TEST6 VALUES ('A', 8001, 'HYD');
+
+1 row created.
+
+SQL> REM * TABLE LEVEL *
+SQL> REM EX.
+SQL> CREATE TABLE TEST7 (ENAME VARCHAR2(10), SAL NUMBER(10),
+  2                      CHECK(ENAME=LOWER(ENAME) AND SAL>=10000));
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST7 VALUES ('SMITH', 12000);
+INSERT INTO TEST7 VALUES ('SMITH', 12000)
+*
+ERROR at line 1:
+ORA-02290: check constraint (MYDB11AM.SYS_C007599) violated
+
+
+SQL> INSERT INTO TEST7 VALUES ('smith', 12000);
+
+1 row created.
+
+SQL> INSERT INTO TEST7 VALUES ('smith', 8000);
+INSERT INTO TEST7 VALUES ('smith', 8000)
+*
+ERROR at line 1:
+ORA-02290: check constraint (MYDB11AM.SYS_C007599) violated
+
+
+SQL> INSERT INTO TEST7 VALUES ('smith', 10000);
+
+1 row created.
+
+SQL> REM
+SQL> REM *** FOREIGN KEY / REFERENCES ***
+SQL> REM EX.
+SQL> CREATE TABLE DEPT1 (DEPTNO INT PRIMARY KEY, DNAME VARCHAR2(10));
+
+Table created.
+
+SQL> INSERT INTO DEPT1 VALUES (10, 'SALES');
+
+1 row created.
+
+SQL> INSERT INTO DEPT1 VALUES (20, 'PRODUCTION');
+
+1 row created.
+
+SQL> CREATE TABLE EMP1 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERNCES DEPT1(DEPTNO));
+CREATE TABLE EMP1 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERNCES DEPT1(DEPTNO))
+                                                           *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE EMP1 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERNCES DEPT1(DEPTNO));
+CREATE TABLE EMP1 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERNCES DEPT1(DEPTNO))
+                                                           *
+ERROR at line 1:
+ORA-00907: missing right parenthesis
+
+
+SQL> CREATE TABLE EMP1(EID INT PRIMARY KEY, ENAME VARCHAR2(10),
+  2   DEPTNO INT REFERENCES DEPT1(DEPTNO));
+
+Table created.
+
+SQL> INSERT INTO EMP1 VALUES(1,'SMITH');
+INSERT INTO EMP1 VALUES(1,'SMITH')
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO EMP1 VALUES(1,'SMITH', 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP1 VALUES(2,'ALLEN', 20);
+
+1 row created.
+
+SQL> INSERT INTO EMP1 VALUES(3,'BEN', 30);
+INSERT INTO EMP1 VALUES(3,'BEN', 30)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (MYDB11AM.SYS_C007602) violated - parent key
+not found
+
+
+SQL> INSERT INTO EMP1 VALUES(3,'BEN', NULL);
+
+1 row created.
+
+SQL> REM * ON DELETE CASCADE *
+SQL> CREATE TABLE DEPT2 (DEPTNO INT PRIMARY KEY, DNAME VARCHAR2(10));
+
+Table created.
+
+SQL> INSERT INTO DEPT1 VALUES (10, 'SALES');
+INSERT INTO DEPT1 VALUES (10, 'SALES')
+*
+ERROR at line 1:
+ORA-00001: unique constraint (MYDB11AM.SYS_C007600) violated
+
+
+SQL> INSERT INTO DEPT2 VALUES (10, 'SALES');
+
+1 row created.
+
+SQL> INSERT INTO DEPT2 VALUES (20, 'PRODUCTION');
+
+1 row created.
+
+SQL> CREATE TABLE EMP2 (EID INT PRIMARY KEY, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT
+2(DEPTNO) ON DELETION CASCADE);
+CREATE TABLE EMP2 (EID INT PRIMARY KEY, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT2(DEPTNO) ON DELETION CASCADE)
+
+        *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> CREATE TABLE EMP2 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT2(DEPTNO) ON DELETION CASCADE);
+CREATE TABLE EMP2 (EID INT, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT2(DEPTNO) ON DELETION CASCADE)
+                                                                                       *
+ERROR at line 1:
+ORA-00905: missing keyword
+
+
+SQL> CREATE TABLE EMP2 (EID INT PRIMARY KEY, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT2(DEPTNO) ON DELETE CASCADE);
+
+Table created.
+
+SQL> INSERT INTO EMP2 VALUES (1, 'SMITH', 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP2 VALUES (2, 'ALLEN', 20);
+
+1 row created.
+
+SQL> REM
+SQL> REM TESTING:
+SQL> DELETE FROM DEPT2 WHERE DEPTNO=20;
+
+1 row deleted.
+
+SQL> REM * ON DELETE SET NULL *
+SQL> CREATE TABLE DEPT3 (DEPTNO INT PRIMARY KEY, DNAME VARCHAR2(10));
+
+Table created.
+
+SQL> INSERT INTO DEPT3 VALUES (10, 'SALES');
+
+1 row created.
+
+SQL> INSERT INTO DEPT3 VALUES (20, 'PRODUCTION');
+
+1 row created.
+
+SQL> CREATE TABLE EMP3 (EID INT PRIMARY KEY, ENAME VARCHAR2(10), DEPTNO INT REFERENCES DEPT
+3(DEPTNO) ON DELETE SET NULL);
+
+Table created.
+
+SQL> INSERT INTO EMP3 VALUES (1, 'SMITH', 10);
+
+1 row created.
+
+SQL> INSERT INTO EMP3 VALUES (2, 'ALLEN', 20);
+
+1 row created.
+
+SQL> DELETE FROM DEPT3 WHERE DEPTNO=20;
+
+1 row deleted.
+
+SQL> REM RESULTS:
+SQL> SELECT * FROM DEPT2;
+
+    DEPTNO DNAME
+---------- ----------
+        10 SALES
+
+SQL> SELECT * FROM EMP2;
+
+       EID ENAME          DEPTNO
+---------- ---------- ----------
+         1 SMITH              10
+
+SQL> SELECT * FROM DEPT3;
+
+    DEPTNO DNAME
+---------- ----------
+        10 SALES
+
+SQL> SELECT * FROM EMP3;
+
+       EID ENAME          DEPTNO
+---------- ---------- ----------
+         1 SMITH              10
+         2 ALLEN
+
+SQL>
