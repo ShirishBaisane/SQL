@@ -1,0 +1,5513 @@
+
+SQL*Plus: Release 19.0.0.0.0 - Production on Mon Dec 26 20:28:49 2022
+Version 19.3.0.0.0
+
+Copyright (c) 1982, 2019, Oracle.  All rights reserved.
+
+Enter user-name: system
+Enter password:
+Last Successful login time: Wed Nov 23 2022 18:51:51 +05:30
+
+Connected to:
+Oracle Database 19c Enterprise Edition Release 19.0.0.0.0 - Production
+Version 19.3.0.0.0
+
+SQL> conn
+Enter user-name: mydb11am/mydb11am
+Connected.
+SQL> SELECT * FROM DICT;
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_TABLES
+Description of the user's own relational tables
+
+USER_OBJECT_TABLES
+Description of the user's own object tables
+
+USER_ALL_TABLES
+Description of all object and relational tables owned by the user's
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_TABLES
+Description of relational tables accessible to the user
+
+ALL_OBJECT_TABLES
+Description of all object tables accessible to the user
+
+ALL_ALL_TABLES
+Description of all object and relational tables accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CATALOG
+Tables, Views, Synonyms and Sequences owned by the user
+
+ALL_CATALOG
+All tables, views, synonyms, sequences accessible to the user
+
+USER_OBJECTS
+Objects owned by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_OBJECTS_AE
+Objects owned by the user
+
+ALL_OBJECTS
+Objects accessible to the user
+
+ALL_OBJECTS_AE
+Objects accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_EDITIONING_VIEWS
+Descriptions of the user's own Editioning Views
+
+USER_EDITIONING_VIEWS_AE
+Descriptions of the user's own Editioning Views
+
+ALL_EDITIONING_VIEWS
+Description of Editioning Views accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_EDITIONING_VIEWS_AE
+Description of Editioning Views accessible to the user
+
+USER_EDITIONING_VIEW_COLS
+Relationship between columns of user's Editioning Views and the table columns to
+ which they map
+
+USER_EDITIONING_VIEW_COLS_AE
+Relationship between columns of user's Editioning Views and the table columns to
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ which they map
+
+ALL_EDITIONING_VIEW_COLS
+Relationship between columns of Editioning Views accessible to the user and the
+table columns to which they map
+
+ALL_EDITIONING_VIEW_COLS_AE
+Relationship between columns of Editioning Views accessible to the user and the
+table columns to which they map
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_EDITIONS
+Describes all editions in the database
+
+ALL_EDITION_COMMENTS
+Describes comments on all editions in the database
+
+USER_RESUMABLE
+Resumable session information for current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_INDEXES
+Description of the user's own indexes
+
+ALL_INDEXES
+Descriptions of indexes on tables accessible to the user
+
+USER_IND_COLUMNS
+COLUMNs comprising user's INDEXes and INDEXes on user's TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_IND_COLUMNS
+COLUMNs comprising INDEXes on accessible TABLES
+
+USER_IND_EXPRESSIONS
+Functional index expressions in user's indexes and indexes on user's tables
+
+ALL_IND_EXPRESSIONS
+FUNCTIONAL INDEX EXPRESSIONs on accessible TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_JOIN_IND_COLUMNS
+Join Index columns comprising the join conditions
+
+ALL_JOIN_IND_COLUMNS
+Join Index columns comprising the join conditions
+
+USER_LOBS
+Description of the user's own LOBs contained in the user's own tables
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_LOBS
+Description of LOBs contained in tables accessible to the user
+
+USER_SEQUENCES
+Description of the user's own SEQUENCEs
+
+ALL_SEQUENCES
+Description of SEQUENCEs accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_SYNONYMS
+The user's private synonyms
+
+ALL_SYNONYMS
+All synonyms for base objects accessible to the user and session
+
+USER_CLUSTERS
+Descriptions of user's own clusters
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CLUSTERS
+Description of clusters accessible to the user
+
+USER_CLU_COLUMNS
+Mapping of table columns to cluster columns
+
+USER_CLUSTER_HASH_EXPRESSIONS
+Hash functions for the user's hash clusters
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CLUSTER_HASH_EXPRESSIONS
+Hash functions for all accessible clusters
+
+USER_COL_PRIVS
+Grants on columns for which the user is the owner, grantor or grantee
+
+ALL_COL_PRIVS
+Grants on columns for which the user is the grantor, grantee, owner,
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ or an enabled role or PUBLIC is the grantee
+
+USER_COL_PRIVS_MADE
+All grants on columns of objects owned by the user
+
+ALL_COL_PRIVS_MADE
+Grants on columns for which the user is owner or grantor
+
+USER_COL_PRIVS_RECD
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Grants on columns for which the user is the grantee
+
+ALL_COL_PRIVS_RECD
+Grants on columns for which the user, PUBLIC or enabled role is the grantee
+
+USER_ROLE_PRIVS
+Roles granted to current user
+
+USER_TAB_PRIVS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Grants on objects for which the user is the owner, grantor or grantee
+
+ALL_TAB_PRIVS
+Grants on objects for which the user is the grantor, grantee, owner,
+ or an enabled role or PUBLIC is the grantee
+
+USER_TAB_PRIVS_MADE
+All grants on objects owned by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_TAB_PRIVS_MADE
+User's grants and grants on user's objects
+
+USER_TAB_PRIVS_RECD
+Grants on objects for which the user is the grantee
+
+ALL_TAB_PRIVS_RECD
+Grants on objects for which the user, PUBLIC or enabled role is the grantee
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_TAB_COMMENTS
+Comments on the tables and views owned by the user
+
+ALL_TAB_COMMENTS
+Comments on tables and views accessible to the user
+
+USER_VIEWS
+Description of the user's own views
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_VIEWS_AE
+Description of the user's own views
+
+ALL_VIEWS
+Description of views accessible to the user
+
+ALL_VIEWS_AE
+Description of views accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CONSTRAINTS
+Constraint definitions on user's own tables
+
+ALL_CONSTRAINTS
+Constraint definitions on accessible tables
+
+USER_UNUSED_COL_TABS
+User tables with unused columns
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_UNUSED_COL_TABS
+All tables with unused columns accessible to the user
+
+USER_PARTIAL_DROP_TABS
+User tables with unused columns
+
+ALL_PARTIAL_DROP_TABS
+All tables with patially dropped columns accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CONS_COLUMNS
+Information about accessible columns in constraint definitions
+
+ALL_CONS_COLUMNS
+Information about accessible columns in constraint definitions
+
+USER_LOG_GROUP_COLUMNS
+Information about columns in log group definitions
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_LOG_GROUP_COLUMNS
+Information about columns in log group definitions
+
+USER_COL_COMMENTS
+Comments on columns of user's tables and views
+
+ALL_COL_COMMENTS
+Comments on columns of accessible tables and views
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_ENCRYPTED_COLUMNS
+Encryption information on all accessible columns
+
+USER_ENCRYPTED_COLUMNS
+Encryption information on columns of tables owned by the user
+
+USER_TAB_COLS
+Columns of user's tables, views and clusters
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_TAB_COLS
+Columns of user's tables, views and clusters
+
+USER_TAB_COLUMNS
+Columns of user's tables, views and clusters
+
+ALL_TAB_COLUMNS
+Columns of user's tables, views and clusters
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_LOG_GROUPS
+Log group definitions on user's own tables
+
+ALL_LOG_GROUPS
+Log group definitions on accessible tables
+
+USER_UPDATABLE_COLUMNS
+Description of updatable columns
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_UPDATABLE_COLUMNS
+Description of all updatable columns
+
+USER_TAB_IDENTITY_COLS
+Describes all table identity columns
+
+ALL_TAB_IDENTITY_COLS
+Describes all table identity columns
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_LIBRARIES
+Description of the user's own libraries
+
+ALL_LIBRARIES
+Description of libraries accessible to the user
+
+USER_PROCEDURES
+Description of the user functions/procedures/packages/types/triggers
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_PROCEDURES
+Functions/procedures/packages/types/triggers available to the user
+
+ALL_STORED_SETTINGS
+Parameter settings for objects accessible to the user
+
+USER_STORED_SETTINGS
+Parameter settings for objects owned by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_PLSQL_OBJECT_SETTINGS
+Compiler settings of stored objects owned by the user
+
+ALL_PLSQL_OBJECT_SETTINGS
+Compiler settings of stored objects accessible to the user
+
+ALL_ARGUMENTS
+Arguments in object accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_ARGUMENTS
+Arguments in object accessible to the user
+
+USER_ASSEMBLIES
+Description of the user's own assemblies
+
+ALL_ASSEMBLIES
+Description of assemblies accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_IDENTIFIERS
+Identifiers in stored objects accessible to the user
+
+ALL_IDENTIFIERS
+All identifiers in stored objects accessible to the user
+
+USER_STATEMENTS
+SQL statements in stored PL/SQL objects accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_STATEMENTS
+All SQL statements in stored objects accessible to the user
+
+USER_PLSQL_TYPES
+Description of the user's own types
+
+ALL_PLSQL_TYPES
+Description of types accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_PLSQL_COLL_TYPES
+Description of the user's own named plsql collection types
+
+ALL_PLSQL_COLL_TYPES
+Description of named plsql collection types accessible to the user
+
+USER_PLSQL_TYPE_ATTRS
+Description of attributes of the user's own types
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_PLSQL_TYPE_ATTRS
+Description of attributes of types accessible to the user
+
+USER_DB_LINKS
+Database links owned by the user
+
+ALL_DB_LINKS
+Database links accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_RECYCLEBIN
+User view of his recyclebin
+
+USER_SQL_TRANSLATION_PROFILES
+Describes all SQL translation profiles owned by the user
+
+USER_SQL_TRANSLATIONS
+Describes all SQL translations owned by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_ERROR_TRANSLATIONS
+Describes all error translations owned by the user
+
+ALL_SQL_TRANSLATION_PROFILES
+Describes all SQL translation profiles accessible to the user
+
+ALL_SQL_TRANSLATIONS
+Describes all SQL translations accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_ERROR_TRANSLATIONS
+Describes all error translations accessible to the user
+
+USER_OBJECT_USAGE
+Record of index usage
+
+USER_RESOURCE_LIMITS
+Display resource limit of the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_PASSWORD_LIMITS
+Display password limits of the user
+
+USER_USERS
+Information about the current user
+
+ALL_USERS
+Information about all users of the database
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_DEF_AUDIT_OPTS
+Auditing options for newly created objects
+
+USER_OBJ_AUDIT_OPTS
+Auditing options for user's own tables and views with atleast one option set
+
+USER_AUDIT_TRAIL
+Audit trail entries relevant to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_AUDIT_SESSION
+All audit trail records concerning CONNECT and DISCONNECT
+
+USER_AUDIT_STATEMENT
+Audit trail records concerning  grant, revoke, audit, noaudit and alter system
+
+USER_AUDIT_OBJECT
+Audit trail records for statements concerning objects, specifically: table, clus
+ter, view, index, sequence,  [public] database link, [public] synonym, procedure
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+, trigger, rollback segment, tablespace, role, user
+
+USER_SYS_PRIVS
+System privileges granted to current user
+
+USER_PROXIES
+Description of connections the user is allowed to proxy
+
+USER_CODE_ROLE_PRIVS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Roles attached to the program units owned by current user
+
+ALL_CODE_ROLE_PRIVS
+Roles attached to the program units accessible to the user
+
+USER_TYPES
+Description of the user's own types
+
+ALL_TYPES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of types accessible to the user
+
+USER_COLL_TYPES
+Description of the user's own named collection types
+
+ALL_COLL_TYPES
+Description of named collection types accessible to the user
+
+USER_TYPE_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of attributes of the user's own types
+
+ALL_TYPE_ATTRS
+Description of attributes of types accessible to the user
+
+USER_TYPE_METHODS
+Description of methods of the user's own types
+
+ALL_TYPE_METHODS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of methods of types accessible to the user
+
+USER_METHOD_PARAMS
+Description of method parameters of the user's own types
+
+ALL_METHOD_PARAMS
+Description of method parameters of types accessible
+to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_METHOD_RESULTS
+Description of method results of the user's own types
+
+ALL_METHOD_RESULTS
+Description of method results of types accessible
+to the user
+
+USER_SQLJ_TYPES
+Description of the user's own types
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_SQLJ_TYPES
+Description of types accessible to the user
+
+USER_TYPE_VERSIONS
+Description of each version of the user's types
+
+ALL_TYPE_VERSIONS
+Description of each type version accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_PENDING_CONV_TABLES
+All user's tables which are not upgraded to the latest type version
+
+ALL_PENDING_CONV_TABLES
+All tables accessible to the user which are not upgraded to the latest type vers
+ion
+
+USER_SQLJ_TYPE_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of attributes of the user's own types
+
+ALL_SQLJ_TYPE_ATTRS
+Description of attributes of types accessible to the user
+
+USER_SQLJ_TYPE_METHODS
+Description of methods of the user's own types
+
+ALL_SQLJ_TYPE_METHODS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of methods of types accessible to the user
+
+USER_OLDIMAGE_COLUMNS
+Gives all object tables and columns in old (8.0) image format
+
+USER_NESTED_TABLE_COLS
+Columns of nested tables
+
+ALL_NESTED_TABLE_COLS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Columns of nested tables
+
+ALL_DIRECTORIES
+Description of all directories accessible to the user
+
+USER_REFS
+Description of the user's own REF columns contained in the user's own tables
+
+ALL_REFS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of REF columns contained in tables accessible to the user
+
+USER_NESTED_TABLES
+Description of nested tables contained in the user's own tables
+
+ALL_NESTED_TABLES
+Description of nested tables in tables accessible to the user
+
+USER_VARRAYS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of varrays contained in the user's own tables
+
+ALL_VARRAYS
+Description of varrays in tables accessible to the user
+
+USER_OBJ_COLATTRS
+Description of object columns and attributes contained in tables owned by the us
+er
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_OBJ_COLATTRS
+Description of object columns and attributes contained in the tables accessible
+to the user
+
+USER_CONS_OBJ_COLUMNS
+List of types an object column or attribute is constrained to in the tables owne
+d by the user
+
+ALL_CONS_OBJ_COLUMNS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+List of types an object column or attribute is constrained to in the tables acce
+ssible to the user
+
+ALL_OPERATORS
+All operators available to the user
+
+USER_OPERATORS
+All user operators
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_OPBINDINGS
+All binding functions or methods on operators defined by the user
+
+ALL_OPBINDINGS
+All binding functions for operators available to the user
+
+USER_OPANCILLARY
+All ancillary opertors defined by user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_OPANCILLARY
+All ancillary operators available to the user
+
+USER_OPARGUMENTS
+All operator arguments of operators defined by user
+
+ALL_OPARGUMENTS
+All arguments of the operators available to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_OPERATOR_COMMENTS
+Comments for user-defined operators
+
+ALL_OPERATOR_COMMENTS
+Comments for user-defined operators
+
+USER_INDEXTYPES
+All user indextypes
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_INDEXTYPES
+All indextypes available to the user
+
+USER_INDEXTYPE_COMMENTS
+Comments for user-defined indextypes
+
+ALL_INDEXTYPE_COMMENTS
+Comments for user-defined indextypes
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_INDEXTYPE_ARRAYTYPES
+All array types specified by the indextype
+
+ALL_INDEXTYPE_ARRAYTYPES
+All array types specified by the indextype
+
+USER_INDEXTYPE_OPERATORS
+All user indextype operators
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_INDEXTYPE_OPERATORS
+All operators available to the user
+
+USER_SECONDARY_OBJECTS
+All secondary objects for domain indexes
+
+ALL_SECONDARY_OBJECTS
+All secondary objects for domain indexes
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_SUMDELTA
+Direct path load entries accessible to the user
+
+ALL_SUMMAP
+mapping entries of transaction ID and commit SCN accessible to the user
+
+USER_EXTERNAL_TABLES
+Description of the user's own external tables
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_EXTERNAL_TABLES
+Description of the external tables accessible to the user
+
+USER_EXTERNAL_LOCATIONS
+Description of the user's external tables locations
+
+ALL_EXTERNAL_LOCATIONS
+Description of the external tables locations accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MINING_MODELS
+Description of the user's own models
+
+ALL_MINING_MODELS
+Description of the models accessible to the user
+
+USER_MINING_MODEL_ATTRIBUTES
+Description of the user's own model attributes
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_MINING_MODEL_ATTRIBUTES
+Description of all the model attributes accessible to the user
+
+USER_MINING_MODEL_SETTINGS
+Description of the user's own model settings
+
+ALL_MINING_MODEL_SETTINGS
+Description of all the settings accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MINING_MODEL_VIEWS
+Description of the user's own model views
+
+ALL_MINING_MODEL_VIEWS
+Description of all the model views accessible to the user
+
+USER_MINING_MODEL_PARTITIONS
+Description of the user's own model partitions
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_MINING_MODEL_PARTITIONS
+Description of all the partitions accessible to the user
+
+USER_MINING_MODEL_XFORMS
+User-specified transformations embedded with the user's own models
+
+ALL_MINING_MODEL_XFORMS
+User-specified transformations embedded in all models accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CLUSTERING_TABLES
+Description of the clustering clause of tables created by the user
+
+ALL_CLUSTERING_TABLES
+Description of the clustering clause of tables accessible to the user
+
+USER_CLUSTERING_KEYS
+Description of the keys of the clustering clause of tables created by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_CLUSTERING_KEYS
+Description of the keys of the clustering clause of tables accessible to the use
+r
+
+ALL_CLUSTERING_DIMENSIONS
+All dimension details about clustering tables the user owns or has system privil
+eges
+
+USER_CLUSTERING_DIMENSIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All dimension details about clustering tables owned by the user
+
+ALL_CLUSTERING_JOINS
+All join details about clustering tables the user owns or has system privileges
+
+USER_CLUSTERING_JOINS
+All join details about clustering tables owned by the user
+
+USER_ATTRIBUTE_DIM_ORDER_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Attribute dimension order by elements in the database
+
+ALL_ATTRIBUTE_DIM_ORDER_ATTRS
+Attribute dimension order by elements in the database
+
+USER_ATTRIBUTE_DIM_CLASS
+Attribute dimension classifications in the database
+
+ALL_ATTRIBUTE_DIM_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Attribute dimension classifications in the database
+
+USER_ATTRIBUTE_DIM_ATTR_CLASS
+Attributed dimension attribute classifications in the database
+
+ALL_ATTRIBUTE_DIM_ATTR_CLASS
+Attribute dimension attribute classifications in the database
+
+USER_ATTRIBUTE_DIM_LVL_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Attribute dimension level classifications in the database
+
+ALL_ATTRIBUTE_DIM_LVL_CLASS
+Attribute dimension level classifications in the database
+
+USER_HIER_CLASS
+Hierarchy classifications in the database
+
+ALL_HIER_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchy classifications in the database
+
+USER_ANALYTIC_VIEW_LEVELS
+Analytic view levels in the database
+
+ALL_ANALYTIC_VIEW_LEVELS
+Analytic view levels in the database
+
+USER_ANALYTIC_VIEW_LVLGRPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Level groupings for an analytic view
+
+ALL_ANALYTIC_VIEW_LVLGRPS
+Level groupings for an analytic view
+
+USER_ANALYTIC_VIEW_ATTR_CLASS
+Analytic view attribute classifications in the database
+
+ALL_ANALYTIC_VIEW_ATTR_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+analytic view attribute classifications in the database
+
+USER_ANALYTIC_VIEW_HIER_CLASS
+Analytic view hierarchy classifications in the database
+
+ALL_ANALYTIC_VIEW_HIER_CLASS
+Analytic view hierarchy classifications in the database
+
+USER_ANALYTIC_VIEW_LEVEL_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view level classifications in the database
+
+ALL_ANALYTIC_VIEW_LEVEL_CLASS
+analytic view level classifications in the database
+
+USER_HIER_HIER_ATTR_CLASS
+Hierarchical attribute classifications in the database
+
+ALL_HIER_HIER_ATTR_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchical attribute classifications in the database
+
+USER_HIER_HIER_ATTRIBUTES
+Attribute dimension attributes in the database
+
+ALL_HIER_HIER_ATTRIBUTES
+attribute dimension Attributes in the database
+
+USER_ANALYTIC_VIEW_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view classifications in the database
+
+ALL_ANALYTIC_VIEW_CLASS
+Analytic view classifications in the database
+
+USER_ANALYTIC_VIEW_MEAS_CLASS
+Analytic view measure classifications in the database
+
+ALL_ANALYTIC_VIEW_MEAS_CLASS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view measure classifications in the database
+
+USER_ANALYTIC_VIEW_DIM_CLASS
+Classifications of the analytic view dimensions in the database
+
+ALL_ANALYTIC_VIEW_DIM_CLASS
+Classifications of the analytic view dimensions in the database
+
+USER_ATTRIBUTE_DIMENSIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+attribute dimensions in the database
+
+ALL_ATTRIBUTE_DIMENSIONS
+attribute dimensions in the database
+
+USER_ATTRIBUTE_DIM_ATTRS
+Attribute dimension attributes in the database
+
+ALL_ATTRIBUTE_DIM_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Attribute dimension attributes in the database
+
+USER_ATTRIBUTE_DIM_TABLES
+Attribute dimension tables in the database
+
+ALL_ATTRIBUTE_DIM_TABLES
+Attribute dimension tables in the database
+
+USER_ATTRIBUTE_DIM_LEVELS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Attribute dimension Levels in the database
+
+ALL_ATTRIBUTE_DIM_LEVELS
+Attribute dimension Levels in the database
+
+USER_HIERARCHIES
+Hierarchies in the database
+
+ALL_HIERARCHIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchies in the database
+
+USER_HIER_LEVELS
+Hierarchy levels in the database
+
+ALL_HIER_LEVELS
+Hierarchy levels in the database
+
+USER_HIER_LEVEL_ID_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchy Level ID Attributes in the database
+
+ALL_HIER_LEVEL_ID_ATTRS
+Hierarchy Level ID Attributes in the database
+
+USER_HIER_COLUMNS
+Hierarchy columns in the database
+
+ALL_HIER_COLUMNS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchy columns in the database
+
+USER_ANALYTIC_VIEWS
+Analytic views in the database
+
+ALL_ANALYTIC_VIEWS
+Analytic views in the database
+
+USER_ANALYTIC_VIEW_DIMENSIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view Dimensions in the database
+
+ALL_ANALYTIC_VIEW_DIMENSIONS
+Analytic view Dimensions in the database
+
+USER_ANALYTIC_VIEW_CALC_MEAS
+Analytic view calculated measures in the database
+
+ALL_ANALYTIC_VIEW_CALC_MEAS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view calculated measures in the database
+
+USER_ANALYTIC_VIEW_BASE_MEAS
+Analytic view base measures in the database
+
+ALL_ANALYTIC_VIEW_BASE_MEAS
+Analytic view base measures in the database
+
+USER_ANALYTIC_VIEW_KEYS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view keys in the database
+
+ALL_ANALYTIC_VIEW_KEYS
+Analytic view keys in the database
+
+USER_ANALYTIC_VIEW_HIERS
+Analytic view hierarchies in the database
+
+ALL_ANALYTIC_VIEW_HIERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Analytic view hierarchies in the database
+
+USER_ANALYTIC_VIEW_COLUMNS
+Analytic view columns in the database
+
+ALL_ANALYTIC_VIEW_COLUMNS
+Analytic view columns in the database
+
+USER_ATTRIBUTE_DIM_KEYS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+attribute dimension keys in the database
+
+ALL_ATTRIBUTE_DIM_KEYS
+attribute dimension keys in the database
+
+USER_ATTRIBUTE_DIM_LEVEL_ATTRS
+Determined attributes of each level in the database
+
+ALL_ATTRIBUTE_DIM_LEVEL_ATTRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Determined attributes of each level in the database
+
+USER_ATTRIBUTE_DIM_JOIN_PATHS
+attribute dimension join paths in the database
+
+ALL_ATTRIBUTE_DIM_JOIN_PATHS
+Attribute dimension join paths in the database
+
+USER_HIER_JOIN_PATHS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Hierarchy join paths in the database
+
+ALL_HIER_JOIN_PATHS
+Hierarchy join paths in the database
+
+USER_PRIVATE_TEMP_TABLES
+Description of the Private Temp Tables in the current session
+
+USER_ASSOCIATIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All assocations defined by the user
+
+ALL_ASSOCIATIONS
+All associations available to the user
+
+USER_USTATS
+All statistics on tables or indexes owned by the user
+
+ALL_USTATS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All statistics
+
+USER_TAB_MODIFICATIONS
+Information regarding modifications to tables
+
+ALL_TAB_MODIFICATIONS
+Information regarding modifications to tables
+
+ALL_TAB_STATS_HISTORY
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+History of table statistics modifications
+
+USER_TAB_STATS_HISTORY
+History of table statistics modifications
+
+ALL_TAB_STAT_PREFS
+Statistics preferences for tables
+
+USER_TAB_STAT_PREFS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Statistics preferences for tables
+
+ALL_TAB_PENDING_STATS
+Pending statistics of tables, partitions, and subpartitions
+
+USER_TAB_PENDING_STATS
+History of table statistics modifications
+
+ALL_IND_PENDING_STATS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Pending statistics of indexes, partitions, and subpartitions
+
+USER_IND_PENDING_STATS
+Pending statistics of indexes, partitions, and subpartitions
+
+ALL_DIMENSIONS
+Description of the dimension objects accessible to the DBA
+
+USER_DIMENSIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of the dimension objects accessible to the DBA
+
+ALL_DIM_LEVELS
+Description of dimension levels visible to DBA
+
+USER_DIM_LEVELS
+Description of dimension levels visible to DBA
+
+ALL_DIM_LEVEL_KEY
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Representations of columns of a dimension level
+
+USER_DIM_LEVEL_KEY
+Representations of columns of a dimension level
+
+ALL_DIM_ATTRIBUTES
+Representation of the relationship between a dimension level and
+ a functionally dependent column
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_DIM_ATTRIBUTES
+Representation of the relationship between a dimension level and
+ a functionally dependent column
+
+ALL_DIM_HIERARCHIES
+Representation of a dimension hierarchy
+
+USER_DIM_HIERARCHIES
+Representation of a dimension hierarchy
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_DIM_CHILD_OF
+Representaion of a 1:n hierarchical relationship between a pair of levels in
+ a dimension
+
+USER_DIM_CHILD_OF
+Representaion of a 1:n hierarchical relationship between a pair of levels in
+ a dimension
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_DIM_JOIN_KEY
+Representation of a join between two dimension tables.
+
+USER_DIM_JOIN_KEY
+Representation of a join between two dimension tables.
+
+ALL_SUMMARIES
+Description of the summaries accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_SUMMARIES
+Description of the summaries created by the user
+
+ALL_MVIEW_ANALYSIS
+Description of the materialized views accessible to the user
+
+USER_MVIEW_ANALYSIS
+Description of the materialized views created by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MVIEW_AGGREGATES
+Description of the materialized view aggregates created by the user
+
+ALL_MVIEW_AGGREGATES
+Description of the materialized view aggregates accessible to the user
+
+ALL_MVIEW_DETAIL_RELATIONS
+Description of the materialized view detail tables accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MVIEW_DETAIL_RELATIONS
+Description of the materialized view detail tables of the materialized
+views created by the user
+
+ALL_MVIEW_KEYS
+Description of the columns that appear in the GROUP BY
+list of a materialized view accessible to the user
+
+USER_MVIEW_KEYS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of the columns that appear in the GROUP BY
+list of a materialized view  created by the user
+
+ALL_MVIEW_JOINS
+Description of a join between two columns in the
+WHERE clause of a materialized view accessible to the user
+
+USER_MVIEW_JOINS
+Description of a join between two columns in the
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+WHERE clause of a materialized view created by the user
+
+ALL_MVIEW_COMMENTS
+Comments on materialized views accessible to the user
+
+USER_MVIEW_COMMENTS
+Comments on materialized views owned by the user
+
+ALL_REFRESH_DEPENDENCIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of the detail tables that materialized views depend on for
+refresh
+
+ALL_REWRITE_EQUIVALENCES
+Description of all rewrite equivalence accessible to the user
+
+USER_REWRITE_EQUIVALENCES
+Description of all rewrite equivalence owned by the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_MVIEW_DETAIL_PARTITION
+Freshness information of all PCT materialized views in the database
+
+USER_MVIEW_DETAIL_PARTITION
+Freshness information of all PCT materialized views in the database
+
+ALL_MVIEW_DETAIL_SUBPARTITION
+Freshness information of all PCT materialized views in the database
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MVIEW_DETAIL_SUBPARTITION
+Freshness information of all PCT materialized views in the database
+
+USER_TSTZ_TAB_COLS
+Columns of user's tables, which have column(s) defined on timestamp with time zo
+ne data type or ADT type containing attribute(s) of timestamp with time zone dat
+a type
+
+ALL_TSTZ_TAB_COLS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Columns of user's tables, which have column(s) defined on timestamp with time zo
+ne data type or ADT type containing attribute(s) of timestamp with time zone dat
+a type
+
+USER_TSTZ_TABLES
+Description of the user's own tables, which have column(s) defined on timestamp
+with time zone data type or ADT type containing attribute(s) of timestamp with t
+ime zone data type
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_TSTZ_TABLES
+Description of tables accessible to the user, which have column(s) defined on ti
+mestamp with time zone data type or ADT type containing attribute(s) of timestam
+p with time zone data type
+
+USER_ERRORS
+Current errors on stored objects owned by the user
+
+USER_ERRORS_AE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Current errors on stored objects owned by the user
+
+ALL_ERRORS
+Current errors on stored objects that user is allowed to create
+
+ALL_ERRORS_AE
+Current errors on stored objects that user is allowed to create
+
+USER_SOURCE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Source of stored objects accessible to the user
+
+USER_SOURCE_AE
+Source of stored objects accessible to the user
+
+ALL_SOURCE
+Current source on stored objects that user is allowed to create
+
+ALL_SOURCE_AE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Current source on stored objects that user is allowed to create
+
+USER_TRIGGERS
+Triggers having FOLLOWS or PRECEDES ordering owned by the user
+
+USER_TRIGGERS_AE
+Triggers owned by the user
+
+ALL_TRIGGERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Triggers accessible to the current user
+
+ALL_TRIGGERS_AE
+Triggers accessible to the current user
+
+USER_INTERNAL_TRIGGERS
+Description of the internal triggers on the user's own tables
+
+ALL_INTERNAL_TRIGGERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Description of the internal triggers on the tables accessible to the user
+
+USER_TRIGGER_COLS
+Column usage in user's triggers
+
+ALL_TRIGGER_COLS
+Column usage in user's triggers or in triggers on user's tables
+
+USER_DEPENDENCIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Dependencies to and from a users objects
+
+ALL_DEPENDENCIES
+Dependencies to and from objects accessible to the user
+
+USER_OBJECT_SIZE
+Sizes, in bytes, of various pl/sql objects
+
+ALL_TRIGGER_ORDERING
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Triggers having FOLLOWS or PRECEDES ordering accessible to the current user
+
+USER_SEGMENTS
+Storage allocated for all database segments
+
+USER_EXTENTS
+Extents comprising segments owned by the user
+
+USER_FREE_SPACE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Free extents in tablespaces accessible to the user
+
+USER_TABLESPACES
+Description of accessible tablespaces
+
+USER_TS_QUOTAS
+Tablespace quotas for the user
+
+USER_RSRC_CONSUMER_GROUP_PRIVS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Switch privileges for consumer groups for the user
+
+USER_RSRC_MANAGER_SYSTEM_PRIVS
+system privileges for the resource manager for the user
+
+ALL_CONTEXT
+Description of all active context namespaces under the current session
+
+USER_RULE_SETS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Rule sets owned by the user
+
+ALL_RULE_SETS
+Rule sets seen by the user
+
+USER_RULESETS
+Rulesets owned by the user: maintained for backward compatibility
+
+ALL_RULESETS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Rulesets seen by the user: maintained for backward compatibility
+
+USER_RULES
+Rules owned by the user
+
+ALL_RULES
+Rules seen by the user
+
+USER_RULE_SET_RULES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Rules in user rule sets
+
+ALL_RULE_SET_RULES
+Rules in all rule sets seen by the user
+
+USER_EVALUATION_CONTEXTS
+rule evaluation contexts owned by user
+
+ALL_EVALUATION_CONTEXTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+rule evaluation contexts seen by user
+
+USER_EVALUATION_CONTEXT_TABLES
+tables in user rule evaluation contexts
+
+ALL_EVALUATION_CONTEXT_TABLES
+tables in all rule evaluation contexts seen by the user
+
+USER_EVALUATION_CONTEXT_VARS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+variables in user rule evaluation contexts
+
+ALL_EVALUATION_CONTEXT_VARS
+variables in all rule evaluation contexts seen by the user
+
+ALL_POLICIES
+All policies for objects if the user has system privileges or owns the objects
+
+USER_POLICIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All row level security policies for synonyms, tables, or views owned by the user
+
+ALL_POLICY_GROUPS
+All policy groups defined for any synonym, table or view accessable to the user
+
+USER_POLICY_GROUPS
+All policy groups defined for any synonym, table, or view
+
+ALL_POLICY_CONTEXTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All policy driving context defined for all synonyms, tables, or views accessable
+ to the user
+
+USER_POLICY_CONTEXTS
+All policy driving context defined for synonyms, tables, or views in current sch
+ema
+
+ALL_SEC_RELEVANT_COLS
+Security Relevant columns of all VPD policies for tables or views which the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ has access
+
+USER_SEC_RELEVANT_COLS
+Security Relevant columns of VPD policies for tables or views owned by the user
+
+ALL_POLICY_ATTRIBUTES
+All attribute associations of context sensitive and shared context sensitive pol
+icies for objects if the user has system privileges or owns the objects
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_POLICY_ATTRIBUTES
+Attribute associations of all context sensitive and shared context sensitive pol
+icies for synonyms, tables, or views owned by the user
+
+ALL_AUDIT_POLICIES
+All fine grained auditing policies in the database
+
+ALL_AUDIT_POLICY_COLUMNS
+All fine grained auditing policy columns in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_AUDIT_POLICIES
+All fine grained auditing policies for objects in user schema
+
+USER_AUDIT_POLICY_COLUMNS
+Users fine grained auditing policy columns in the database
+
+USER_CHANGE_NOTIFICATION_REGS
+change notification registrations for current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CQ_NOTIFICATION_QUERIES
+Description of registered queries for CQ notification
+
+USER_SUBSCR_REGISTRATIONS
+All subscription registrations created by the user
+
+ALL_QUEUE_TABLES
+All queue tables accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_QUEUE_TABLES
+All queue tables created by the user
+
+ALL_QUEUES
+All queues accessible to the user
+
+ALL_DEQUEUE_QUEUES
+All queues accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_INT_DEQUEUE_QUEUES
+All queues accessible to the user
+
+USER_QUEUES
+All queues owned by the user
+
+USER_OUTLINES
+Stored outlines owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_OUTLINE_HINTS
+Hints stored in outlines owned by the user
+
+USER_DATAPUMP_JOBS
+Datapump jobs for current user
+
+USER_XS_USERS
+Account information for the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_XS_PASSWORD_LIMITS
+Display password limits for currently logged on application user
+
+ALL_XS_SECURITY_CLASSES
+All the Real Application Security security classes accessible to the current use
+r
+
+USER_XS_SECURITY_CLASSES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All the Real Application Security security classes owned by the current user
+
+ALL_XS_SECURITY_CLASS_DEP
+All the Real Application Security class dependencies of the security classes
+that are accessible to the current user
+
+USER_XS_SECURITY_CLASS_DEP
+All the Real Application Security class dependencies of the security classes
+that are owned by the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_XS_PRIVILEGES
+All the Real Application Security privileges scoped by the security classes acce
+ssible to the current user
+
+USER_XS_PRIVILEGES
+All the Real Application Security privileges scoped by the security classes owne
+d by the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_XS_IMPLIED_PRIVILEGES
+All the Real Application Security implied privileges scoped by the security clas
+ses accessible to the current user
+
+USER_XS_IMPLIED_PRIVILEGES
+All the Real Application Security implied privileges scoped by the security clas
+ses owned by the current user
+
+ALL_XS_ACLS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All the Real Application Security ACLs accessible to the current user
+
+USER_XS_ACLS
+All the Real Application Security ACLs owned by the current user
+
+ALL_XS_ACES
+All the Real Application Security ACES of the ACLs accessible to the current use
+r
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_XS_ACES
+All the Real Application Security ACES of the ACLs owned by the current user
+
+ALL_XS_POLICIES
+All the Real Application Security data security policies accessible to the curre
+nt user
+
+USER_XS_POLICIES
+All the Real Application Security data security policies owned by the current us
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+er
+
+ALL_XS_REALM_CONSTRAINTS
+All the Real Application Security realms accessible to the current user
+
+USER_XS_REALM_CONSTRAINTS
+All the Real Application Security realms owned by the current user
+
+ALL_XS_INHERITED_REALMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All the Real Application Security inherited realms accessible to the current use
+r
+
+USER_XS_INHERITED_REALMS
+All the Real Application Security inherited realms owned by the current user
+
+ALL_XS_ACL_PARAMETERS
+All the Real Application Security ACL parameters defined in the data security po
+licies accessbile to the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_XS_ACL_PARAMETERS
+All the Real Application Security ACL parameters defined in the data security po
+licies owned by the current user
+
+ALL_XS_COLUMN_CONSTRAINTS
+All the Real Application Security column constraints accessible to the current u
+ser
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_XS_COLUMN_CONSTRAINTS
+All the Real Application Security column constraints owned by the current user
+
+ALL_XS_APPLIED_POLICIES
+All the database objects on which Real Application Security data security polici
+es accessible to the current user are enabled
+
+ALL_XS_APPLICABLE_OBJECTS
+All the tables or views to which the current user can apply data security polici
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+es
+
+USER_JSON_COLUMNS
+Comments on the JSON columns for which the user is the owner
+
+ALL_JSON_COLUMNS
+Comments on the JSON columns accessible to the user
+
+USER_JOINGROUPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Join groups belonging to the user
+
+USER_IM_EXPRESSIONS
+Automatically captured expressions enabled for in-memory storage
+
+USER_SCHEDULER_PROGRAMS
+Scheduler programs owned by the current user
+
+ALL_SCHEDULER_PROGRAMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler programs visible to the user
+
+USER_SCHEDULER_DESTS
+Destination objects for jobs in the database owned by current user
+
+ALL_SCHEDULER_DESTS
+All destination objects for jobs in the database visible to current user
+
+ALL_SCHEDULER_EXTERNAL_DESTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+User-visible destination objects in the database pointing to remote agents
+
+USER_SCHEDULER_DB_DESTS
+User-owned destination objects in the database pointing to remote databases
+
+ALL_SCHEDULER_DB_DESTS
+User-visible destination objects in the database pointing to remote databases
+
+USER_SCHEDULER_JOB_DESTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+State of all jobs owned by current user at each of their destinations
+
+ALL_SCHEDULER_JOB_DESTS
+State of all jobs visible to current user at each of their destinations
+
+USER_SCHEDULER_JOBS
+All scheduler jobs in the database
+
+ALL_SCHEDULER_JOBS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler jobs visible to the user
+
+ALL_SCHEDULER_JOB_CLASSES
+All scheduler classes visible to the user
+
+ALL_SCHEDULER_WINDOWS
+All scheduler windows in the database
+
+USER_SCHEDULER_PROGRAM_ARGS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All arguments of all scheduler programs in the database
+
+ALL_SCHEDULER_PROGRAM_ARGS
+All arguments of all scheduler programs visible to the user
+
+USER_SCHEDULER_JOB_ARGS
+All arguments with set values of all scheduler jobs in the database
+
+ALL_SCHEDULER_JOB_ARGS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All arguments with set values of all scheduler jobs in the database
+
+USER_SCHEDULER_JOB_LOG
+Logged information for all scheduler jobs
+
+USER_SCHEDULER_JOB_RUN_DETAILS
+The details of a job run
+
+ALL_SCHEDULER_JOB_LOG
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Logged information for all scheduler jobs
+
+ALL_SCHEDULER_JOB_RUN_DETAILS
+The details of a job run
+
+ALL_SCHEDULER_WINDOW_LOG
+Logged information for all scheduler windows
+
+ALL_SCHEDULER_WINDOW_DETAILS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+The details of a window
+
+ALL_SCHEDULER_WINDOW_GROUPS
+All scheduler window groups in the database
+
+ALL_SCHEDULER_WINGROUP_MEMBERS
+Members of all scheduler window groups in the database
+
+USER_SCHEDULER_GROUP_MEMBERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Members of all scheduler object groups owned by current user
+
+ALL_SCHEDULER_GROUP_MEMBERS
+Members of all scheduler object groups visible to current user
+
+USER_SCHEDULER_GROUPS
+All scheduler object groups owned by current user
+
+ALL_SCHEDULER_GROUPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler object groups visible to current user
+
+USER_SCHEDULER_SCHEDULES
+Schedules belonging to the current user
+
+ALL_SCHEDULER_SCHEDULES
+All schedules in the database
+
+ALL_SCHEDULER_REMOTE_JOBSTATE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Remote state of all jobs originating from this database visible to current user
+
+USER_SCHEDULER_REMOTE_JOBSTATE
+Remote state of all jobs originating from this database owned by current user
+
+ALL_SCHEDULER_GLOBAL_ATTRIBUTE
+All scheduler global attributes
+
+USER_SCHEDULER_CHAINS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler chains owned by the current user
+
+ALL_SCHEDULER_CHAINS
+All scheduler chains in the database visible to current user
+
+USER_SCHEDULER_CHAIN_RULES
+All rules from scheduler chains owned by the current user
+
+ALL_SCHEDULER_CHAIN_RULES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All rules from scheduler chains visible to the current user
+
+USER_SCHEDULER_CHAIN_STEPS
+All steps of scheduler chains owned by the current user
+
+ALL_SCHEDULER_CHAIN_STEPS
+All steps of scheduler chains visible to the current user
+
+USER_SCHEDULER_RUNNING_CHAINS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All steps of chains being run by jobs owned by the current user
+
+ALL_SCHEDULER_RUNNING_CHAINS
+All job steps of running job chains visible to the user
+
+USER_SCHEDULER_CREDENTIALS
+Scheduler credentials owned by the current user
+
+ALL_SCHEDULER_CREDENTIALS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler credentials visible to the user
+
+USER_SCHEDULER_FILE_WATCHERS
+Scheduler file watch requests owned by the current user
+
+ALL_SCHEDULER_FILE_WATCHERS
+Scheduler file watch requests visible to the current user
+
+USER_SCHEDULER_NOTIFICATIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All e-mail notifications owned by the current user or for jobs it owns
+
+ALL_SCHEDULER_NOTIFICATIONS
+All job e-mail notifications visible to the current user
+
+ALL_SCHEDULER_RESOURCES
+All scheduler resource objects in the database
+
+ALL_SCHEDULER_RSC_CONSTRAINTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler resource constraint members in the database
+
+ALL_SCHEDULER_INCOMPATS
+All scheduler incompatibility resource objects in the database
+
+ALL_SCHEDULER_INCOMPAT_MEMBER
+All incompatibility resource objects members in the database
+
+USER_SCHEDULER_RESOURCES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All scheduler resource objects in the database
+
+USER_SCHEDULER_RSC_CONSTRAINTS
+All scheduler resource constraint members in the database
+
+USER_SCHEDULER_INCOMPATS
+All scheduler incompatibility resource objects in the database
+
+USER_SCHEDULER_INCOMPAT_MEMBER
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All incompatibility resource objects members in the database
+
+USER_JOBS
+All jobs owned by this user
+
+ALL_SNAPSHOTS
+Snapshots the user can access
+
+USER_SNAPSHOTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Snapshots the user can look at
+
+ALL_SNAPSHOT_LOGS
+All snapshot logs in the database that the user can see
+
+USER_SNAPSHOT_LOGS
+All snapshot logs owned by the user
+
+ALL_REFRESH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All the refresh groups that the user can touch
+
+USER_REFRESH
+All the refresh groups
+
+ALL_REFRESH_CHILDREN
+All the objects in refresh groups, where the user can touch the group
+
+USER_REFRESH_CHILDREN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All the objects in refresh groups, where the user owns the refresh group
+
+ALL_REGISTERED_SNAPSHOTS
+Remote snapshots of local tables that the user can see
+
+USER_REGISTERED_SNAPSHOTS
+Remote snapshots of local tables currently using logs owned by the user
+
+ALL_MVIEWS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All materialized views in the database
+
+USER_MVIEWS
+All materialized views in the database
+
+ALL_MVIEW_REFRESH_TIMES
+Materialized views and their last refresh times  for each master table that the
+user can look at
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_MVIEW_REFRESH_TIMES
+Materialized views and their last refresh times for each master table that the u
+ser can look at
+
+ALL_MVIEW_LOGS
+All materialized view logs in the database that the user can see
+
+USER_MVIEW_LOGS
+All materialized view logs owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_BASE_TABLE_MVIEWS
+All materialized views with log(s) in the database that the user can see
+
+USER_BASE_TABLE_MVIEWS
+All materialized views with log(s) owned by the user in the database
+
+ALL_REGISTERED_MVIEWS
+Remote materialized views of local tables that the user can see
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_REGISTERED_MVIEWS
+Remote materialized views of local tables currently using logs owned by the user
+
+ALL_ZONEMAPS
+Zonemaps accessible to the user
+
+USER_ZONEMAPS
+Zonemaps owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_ZONEMAP_MEASURES
+Zonemap measures accessible to the user
+
+USER_ZONEMAP_MEASURES
+Zonemap measures owned by the user
+
+USER_WARNING_SETTINGS
+Warning Parameter settings for objects owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_WARNING_SETTINGS
+Warnings ettings for objects accessible to the user
+
+USER_TAB_COL_STATISTICS
+Columns of user's tables, views and clusters
+
+ALL_TAB_COL_STATISTICS
+Columns of user's tables, views and clusters
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_STAT_EXTENSIONS
+Optimizer statistics extensions
+
+USER_STAT_EXTENSIONS
+Optimizer statistics extensions
+
+ALL_TAB_STATISTICS
+Optimizer statistics for all tables accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_TAB_STATISTICS
+Optimizer statistics of the user's own tables
+
+ALL_IND_STATISTICS
+Optimizer statistics for all indexes on tables accessible to the user
+
+USER_IND_STATISTICS
+Optimizer statistics for user's own indexes
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_TAB_HISTOGRAMS
+Histograms on columns of user's tables
+
+ALL_TAB_HISTOGRAMS
+Histograms on columns of all tables visible to user
+
+ALL_COL_PENDING_STATS
+Pending statistics of tables, partitions, and subpartitions
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_COL_PENDING_STATS
+Pending statistics of tables, partitions, and subpartitions
+
+ALL_TAB_HISTGRM_PENDING_STATS
+Pending statistics of tables, partitions, and subpartitions
+
+USER_TAB_HISTGRM_PENDING_STATS
+Pending statistics of tables, partitions, and subpartitions
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_EXPRESSION_STATISTICS
+Expression Usage Tracking Statistics
+
+ALL_EXPRESSION_STATISTICS
+Expression Usage Tracking Statistics
+
+USER_AWS
+Analytic Workspaces owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_AWS
+Analytic Workspaces accessible to the user
+
+USER_AW_PS
+Pagespaces in Analytic Workspaces owned by the user
+
+ALL_AW_PS
+Pagespaces in Analytic Workspaces accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBES
+OLAP Cubes in the database accessible to the user
+
+USER_CUBES
+OLAP Cubes owned by the user in the database
+
+ALL_CUBE_DIMENSIONALITY
+OLAP Cube Dimensionality in the database accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_DIMENSIONALITY
+OLAP Cube Dimensionality owned by the user in the database
+
+ALL_CUBE_MEASURES
+OLAP Measures in the database accessible to the user
+
+USER_CUBE_MEASURES
+OLAP Measures owned by the user in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_DIMENSIONS
+OLAP Cube Dimensions in the database accessible by the user
+
+USER_CUBE_DIMENSIONS
+OLAP Cube Dimensions owned by the user in the database
+
+ALL_CUBE_HIERARCHIES
+OLAP Hierarchies in the database accessible by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_HIERARCHIES
+OLAP Hierarchies owned by the user in the database
+
+ALL_CUBE_HIER_LEVELS
+OLAP Hierarchy Levels in the database accessible to the user
+
+USER_CUBE_HIER_LEVELS
+OLAP Hierarchy Levels owned by the user in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_DIM_LEVELS
+OLAP Dimension Levels in the database accessible by the user
+
+USER_CUBE_DIM_LEVELS
+OLAP Dimension Levels owned by the user in the database
+
+ALL_CUBE_ATTRIBUTES
+OLAP Attributes in the database accessible by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_ATTRIBUTES
+OLAP Attributes owned by the user in the database
+
+ALL_CUBE_ATTR_VISIBILITY
+OLAP Attributes visible for Dimensions, Hierarchies, and Levels
+
+USER_CUBE_ATTR_VISIBILITY
+OLAP Attributes visible for Dimensions, Hierarchies, and Levels
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_DIM_MODELS
+OLAP Dimension Models in the database accessible to the user
+
+USER_CUBE_DIM_MODELS
+OLAP Dimension Models in the database accessible to the user
+
+ALL_CUBE_CALCULATED_MEMBERS
+OLAP Calculated Members in the database accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_CALCULATED_MEMBERS
+OLAP Calculated Members in the database accessible to the user
+
+ALL_CUBE_VIEWS
+OLAP Cube Views in the database accessible by the user
+
+USER_CUBE_VIEWS
+OLAP Cube Views owned by the user in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_VIEW_COLUMNS
+OLAP Cube View Columns in the database accessible by the user
+
+USER_CUBE_VIEW_COLUMNS
+OLAP Cube View Columns owned by the user in the database
+
+ALL_CUBE_DIM_VIEWS
+OLAP Dimension Views in the database accessible by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_DIM_VIEWS
+OLAP Dimension Views owned by the user in the database
+
+ALL_CUBE_DIM_VIEW_COLUMNS
+OLAP Dimension View Columns in the database accessible to the user
+
+USER_CUBE_DIM_VIEW_COLUMNS
+OLAP Dimension View Columns in the database accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_HIER_VIEWS
+OLAP Hierarchy Views in the database accessible to the user
+
+USER_CUBE_HIER_VIEWS
+OLAP Hierarchy Views owner by the user in the database
+
+ALL_CUBE_HIER_VIEW_COLUMNS
+OLAP Hierarchy View Columns in the database accessible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_CUBE_HIER_VIEW_COLUMNS
+OLAP Hierarchy View Columns owned by the user in the database
+
+ALL_MEASURE_FOLDERS
+OLAP Measure Folders in the database accessible to the user
+
+USER_MEASURE_FOLDERS
+OLAP Measure Folders owned by the user in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_MEASURE_FOLDER_CONTENTS
+OLAP Measure Folder Contents in the database accessible by the user
+
+USER_MEASURE_FOLDER_CONTENTS
+OLAP Measure Folder Contents owned by the user in the database
+
+USER_MEASURE_FOLDER_SUBFOLDERS
+OLAP Measure Folders contained within the user OLAP Measure Folders
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_MEASURE_FOLDER_SUBFOLDERS
+OLAP Measure Folders contained within the OLAP Measure Folders accessible to the
+ user
+
+ALL_CUBE_BUILD_PROCESSES
+OLAP Build Processes in the database accessible to the user
+
+USER_CUBE_BUILD_PROCESSES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+OLAP Build Processes owned by the user in the database
+
+ALL_CUBE_MAPPINGS
+OLAP Cube Mappings in the database accessible to the user
+
+USER_CUBE_MAPPINGS
+OLAP Cube Mappings owned by the user in the database
+
+ALL_CUBE_MEAS_MAPPINGS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+OLAP Cube Measure Mappings in the database that are accessible to the user
+
+USER_CUBE_MEAS_MAPPINGS
+OLAP Cube Measure Mappings owned by the user in the database
+
+ALL_CUBE_DIMNL_MAPPINGS
+OLAP Cube Dimenisonality Mappings in the database that are accessible to the use
+r
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CUBE_DIMNL_MAPPINGS
+OLAP Cube Dimenisonality Mappings owned by the user in the database
+
+ALL_CUBE_DIM_MAPPINGS
+OLAP Cube Dimension Mappings in the database that are accessible to the user
+
+USER_CUBE_DIM_MAPPINGS
+OLAP Cube Dimension Mappings owned by the user in the database
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_CUBE_ATTR_MAPPINGS
+OLAP Cube Attribute Mappings in the database that are accessible by the user
+
+USER_CUBE_ATTR_MAPPINGS
+OLAP Cube Attribute Mappings owned by the user in the database
+
+ALL_CUBE_DESCRIPTIONS
+OLAP Descriptions in the database that are accessible to the user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_CUBE_DESCRIPTIONS
+OLAP Descriptions owned by the user in the database
+
+ALL_CUBE_CLASSIFICATIONS
+OLAP Object Classifications in the database that are accessible to the user
+
+USER_CUBE_CLASSIFICATIONS
+OLAP Object Classifications owned by the user in the database
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_CUBE_ATTR_UNIQUE_KEYS
+OLAP Unique Key Attributes in the database that are accessible to the current us
+er
+
+USER_CUBE_ATTR_UNIQUE_KEYS
+OLAP Unique Key Attributes owned by the user in the database
+
+USER_CUBE_NAMED_BUILD_SPECS
+OLAP Cube Named Build Specifications owned by the user in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_NAMED_BUILD_SPECS
+OLAP Cube Named Build Specifications in the database accessible by the user
+
+USER_METADATA_PROPERTIES
+OLAP Metadata Properties owned by the user in the database
+
+ALL_METADATA_PROPERTIES
+OLAP Metadata Properties in the database
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CUBE_DEPENDENCIES
+OLAP metadata dependencies in the database that are accessible to the current
+user
+
+USER_CUBE_DEPENDENCIES
+OLAP metadata dependencies owned by the user in the database
+
+USER_QUEUE_SUBSCRIBERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+queue subscribers under a user'schema
+
+ALL_QUEUE_SUBSCRIBERS
+All queue subscribers accessible to user
+
+USER_CREDENTIALS
+Credentials owned by the current user
+
+ALL_CREDENTIALS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+All credentials visible to the user
+
+USER_TUNE_MVIEW
+tune_mview catalog view owned by the user
+
+USER_FLASHBACK_ARCHIVE
+Description of the flashback archives available to the user
+
+USER_FLASHBACK_ARCHIVE_TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Information about the user tables that are enabled for Flashback Archive
+
+ALL_CAPTURE
+Details about each capture process that stores the captured changes in a queue v
+isible to the current user
+
+ALL_CAPTURE_PARAMETERS
+Details about parameters for each capture process that stores the captured chang
+es in a queue visible to the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_CAPTURE_PREPARED_DATABASE
+Is the local database prepared for instantiation?
+
+ALL_CAPTURE_PREPARED_SCHEMAS
+All user schemas at the local database that are prepared for instantiation
+
+ALL_CAPTURE_PREPARED_TABLES
+All tables visible to the current user that are prepared for instantiation
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_SYNC_CAPTURE_PREPARED_TABS
+All tables prepared for synchronous capture instantiation
+
+ALL_CAPTURE_EXTRA_ATTRIBUTES
+Extra attributes for a capture process that is visible to the current user
+
+ALL_SYNC_CAPTURE
+Details about each sync capture process that stores the captured changes in a qu
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+eue visible to the current user
+
+ALL_APPLY
+Details about each apply process that dequeues from the queue visible to the cur
+rent user
+
+ALL_APPLY_PARAMETERS
+Details about parameters of each apply process that dequeues from the queue visi
+ble to the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_APPLY_INSTANTIATED_OBJECTS
+Details about objects instantiated for the user
+
+ALL_APPLY_INSTANTIATED_SCHEMAS
+Details about schemas instantiated for the user
+
+ALL_APPLY_INSTANTIATED_GLOBAL
+Details about database instantiated for the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_APPLY_KEY_COLUMNS
+Alternative key columns for a STREAMS table visible to the current user
+
+ALL_APPLY_CONFLICT_COLUMNS
+Details about conflict resolution on tables visible to the current user
+
+ALL_APPLY_TABLE_COLUMNS
+Details about the columns of destination table object visible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_APPLY_DML_HANDLERS
+Details about the dml handler on tables visible to the current user
+
+ALL_APPLY_PROGRESS
+Information about the progress made by the apply process that dequeues from the
+queue visible to the current user
+
+ALL_APPLY_ERROR
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Error transactions that were generated after dequeuing from the queue visible to
+ the current user
+
+USER_APPLY_ERROR
+Error transactions owned by an apply visible to the current user
+
+ALL_APPLY_ERROR_MESSAGES
+Details about individual messages in an error transaction
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_APPLY_ENQUEUE
+Details about the apply enqueue action for user accessible rules where the desti
+nation queue exists and is visible to the user
+
+ALL_APPLY_EXECUTE
+Details about the apply execute action for all rules visible to the user
+
+ALL_APPLY_SPILL_TXN
+Streams apply spilled transactions info to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_XSTREAM_OUTBOUND
+Details about the XStream outbound server visible to user
+
+ALL_XSTREAM_INBOUND
+Details about the XStream inbound server visible to user
+
+ALL_GOLDENGATE_INBOUND
+Details about the XStream inbound server visible to user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_APPLY_CHANGE_HANDLERS
+Details about apply change handler
+
+ALL_APPLY_DML_CONF_HANDLERS
+Details about dml conflict handlers on objects visible to the current user
+
+ALL_APPLY_DML_CONF_COLUMNS
+Details about dml conflict handler column groups on objects visible to the curre
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+nt user
+
+ALL_APPLY_HANDLE_COLLISIONS
+Details about apply collision handlers on objects visible to the user
+
+ALL_APPLY_REPERROR_HANDLERS
+Details about apply reperror handlers on objects visible to the user
+
+ALL_GG_AUTO_CDR_TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Details about goldengate auto cdr tables
+
+ALL_GG_AUTO_CDR_COLUMNS
+Details about goldengate auto cdr columns
+
+ALL_GG_AUTO_CDR_COLUMN_GROUPS
+Details about goldengate auto cdr column groups
+
+ALL_PROPAGATION
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Streams propagation seen by the user
+
+ALL_FILE_GROUPS
+Details about file groups
+
+ALL_FILE_GROUP_VERSIONS
+Details about file group versions
+
+ALL_FILE_GROUP_EXPORT_INFO
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Details about export information of file group versions
+
+ALL_FILE_GROUP_FILES
+Details about file group files
+
+ALL_FILE_GROUP_TABLESPACES
+Details about the transportable tablespaces in the file group repository
+
+ALL_FILE_GROUP_TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Details about the tables in the file group repository
+
+USER_FILE_GROUPS
+Details about file groups
+
+USER_FILE_GROUP_VERSIONS
+Details about file group versions
+
+USER_FILE_GROUP_EXPORT_INFO
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Details about export information of file group versions
+
+USER_FILE_GROUP_FILES
+Details about file group files
+
+USER_FILE_GROUP_TABLESPACES
+Details about the transportable tablespaces in the file group repository
+
+USER_FILE_GROUP_TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Details about the tables in the file group repository
+
+ALL_STREAMS_MESSAGE_CONSUMERS
+Streams messaging consumers visible to the current user
+
+ALL_STREAMS_GLOBAL_RULES
+Global rules created on the streams capture/apply/propagation process that inter
+act with the queue visible to the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_STREAMS_SCHEMA_RULES
+Rules created by streams administrative APIs on all user schemas
+
+ALL_STREAMS_TABLE_RULES
+Rules created by streams administrative APIs on tables visible to the current us
+er
+
+ALL_STREAMS_MESSAGE_RULES
+Rules for Streams messaging visible to the current user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_STREAMS_RULES
+Rules used by streams processes
+
+ALL_SYNC_CAPTURE_TABLES
+All tables that are captured by synchronous streams captures.
+
+ALL_XSTREAM_RULES
+Details about the XStream server rules visible to user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_GOLDENGATE_RULES
+Details about the GoldenGate server rules visible to user
+
+ALL_GOLDENGATE_CONTAINER_RULES
+Details about goldengate container inclusion/exclusion rules visible to user
+
+ALL_REPL_DBNAME_MAPPING
+Details about the database name mapping
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_STREAMS_TRANSFORM_FUNCTION
+Rules-based transform functions used by Streams
+
+ALL_XSTREAM_ADMINISTRATOR
+Users granted the privileges to be a XStream administrator for the user
+
+ALL_STREAMS_TRANSFORMATIONS
+Transformations defined on rules for the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_XSTREAM_TRANSFORMATIONS
+Transformations defined on rules for the user
+
+ALL_STREAMS_KEEP_COLUMNS
+Keep columns transformations for the user
+
+ALL_GOLDENGATE_PRIVILEGES
+Details about goldengate privileges for the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_GOLDENGATE_PRIVILEGES
+Details about goldengate privileges
+
+USER_COMPARISON
+Details about the user's comparison objects
+
+USER_COMPARISON_COLUMNS
+Details about the comparison object's columns
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_COMPARISON_SCAN_SUMMARY
+Details about a comparison scan for the user
+
+USER_COMPARISON_SCAN
+Details about a comparison scan
+
+USER_COMPARISON_SCAN_SUMMARY
+Details about a comparison scan
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_COMPARISON_SCAN_VALUES
+Details about a comparison scan's values
+
+USER_COMPARISON_ROW_DIF
+Details about the differing rows in a comparison scan
+
+ALL_STREAMS_COLUMNS
+Streams unsupported columns
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_STREAMS_UNSUPPORTED
+List of all the tables that are not supported by Streams in this release
+
+ALL_STREAMS_NEWLY_SUPPORTED
+List of objects that are newly supported by Streams
+
+ALL_XSTREAM_OUT_SUPPORT_MODE
+List of support mode for objects by XStream Out
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ALL_REPLICATION_PROCESS_EVENTS
+Dictionary table for the replication processes events
+
+USER_HEAT_MAP_SEG_HISTOGRAM
+Segment access information for segments owned by the user
+
+ALL_HEAT_MAP_SEG_HISTOGRAM
+Segment access information for all segments visible to the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_HEAT_MAP_SEGMENT
+Users segment last access time
+
+ALL_HEAT_MAP_SEGMENT
+Users segment last access time
+
+USER_ILMPOLICIES
+ILM policies owned by the user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_ILMDATAMOVEMENTPOLICIES
+Data movement related policies for a user
+
+USER_ILMOBJECTS
+Policies and the objects they affect for a user
+
+USER_ILMTASKS
+Information on ILM execution for a user
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_ILMEVALUATIONDETAILS
+Details on policies considered for a particular task
+
+USER_ILMRESULTS
+Information on jobs created for a user
+
+USER_NETWORK_ACL_PRIVILEGES
+User privileges to access network hosts through PL/SQL network utility packages
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+USER_HOST_ACES
+Status of access control entries for user to access network hosts through PL/SQL
+ host utility packages
+
+USER_WALLET_ACES
+Status of access control entries for user to access wallets through PL/SQL netwo
+rk utility packages
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_XML_TABLES
+Description of the all XMLType tables that the user has privileges on
+
+USER_XML_TABLES
+Description of the user's own XMLType tables
+
+ALL_XML_TAB_COLS
+Description of the all XMLType tables that the user has privileges on
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_XML_TAB_COLS
+Description of the user's own XMLType tables
+
+ALL_XML_VIEWS
+Description of the all XMLType views that the user has privileges on
+
+USER_XML_VIEWS
+Description of the user's own XMLType views
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_XML_VIEW_COLS
+Description of the all XMLType views that the user has privileges on
+
+USER_XML_VIEW_COLS
+Description of the user's own XMLType views
+
+ALL_XML_SCHEMAS
+Description of all XML Schemas that user has privilege to reference
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_XML_SCHEMAS2
+Dummy version of ALL_XML_SCHEMAS that does not have an XMLTYPE column
+
+USER_XML_SCHEMAS
+Description of XML Schemas registered by the user
+
+ALL_XML_INDEXES
+Description of the all XMLType indexes that the user has privileges on
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_XML_INDEXES
+Description of the user's own XMLType indexes
+
+USER_EPG_DAD_AUTHORIZATION
+DADs authorized to use the user's privileges
+
+USER_JAVA_POLICY
+java security Permissions for current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_JAVA_CLASSES
+class level information for java classes owned by the current user
+
+ALL_JAVA_CLASSES
+class level information for java classes accessible to the current user
+
+USER_JAVA_LAYOUTS
+class layout information java classes owned by the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_JAVA_LAYOUTS
+class layout information for java classes accessible to the current user
+
+USER_JAVA_IMPLEMENTS
+interfaces implemented by java classes owned by the current user
+
+ALL_JAVA_IMPLEMENTS
+interfaces implemented by java classes accessible to the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_JAVA_INNERS
+list of inner classes referenced by a java class owned by user
+
+ALL_JAVA_INNERS
+list of inner classes referenced by a java class accessible to user
+
+USER_JAVA_FIELDS
+field information for java classes owned by the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_JAVA_FIELDS
+field information for java classes accessible to the current user
+
+USER_JAVA_METHODS
+method information for java classes owned by the current user
+
+ALL_JAVA_METHODS
+method information for java classes accessible the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+USER_JAVA_ARGUMENTS
+argument information for java classes owned by the current user
+
+ALL_JAVA_ARGUMENTS
+argument information for java classes accessible to the current user
+
+USER_JAVA_THROWS
+list of exceptions thrown from methods of classes owned by the current user
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ALL_JAVA_THROWS
+list of exceptions thrown from methods of classes accessible to the current user
+
+USER_JAVA_DERIVATIONS
+this view maps java source objects and their derived java class objects and java
+ resource objects  for the java class owned by user
+
+ALL_JAVA_DERIVATIONS
+this view maps java source objects and their derived java class objects and java
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ resource objects  for the java class accessible to user
+
+USER_JAVA_RESOLVERS
+resolver of java class owned by user
+
+ALL_JAVA_RESOLVERS
+resolver of java class owned by user
+
+USER_JAVA_NCOMPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+ncomp related information of java classes owned by user
+
+ALL_JAVA_NCOMPS
+ncomp related information of all java classes
+
+USER_JAVA_COMPILER_OPTIONS
+native compiler options provided by the user
+
+ALL_JAVA_COMPILER_OPTIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+native-compiler options applicable to user
+
+USER_AW_PROP
+Object properties in Analytic Workspaces owned by the user
+
+ALL_AW_PROP
+Object properties in Analytic Workspaces accessible to the user
+
+USER_AW_OBJ
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Objects in Analytic Workspaces owned by the user
+
+ALL_AW_OBJ
+Objects in Analytic Workspaces accessible to the user
+
+ALL_AW_PROP_NAME
+Analytic Workspace property names accessible to the user
+
+ALL_AW_AC
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Active Catalog Analytic Workspaces accessible to the user
+
+USER_ADVISOR_RATIONALE
+
+
+USER_ADDM_FDG_BREAKDOWN
+
+
+USER_SUBPARTITION_TEMPLATES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SQLSET_PLANS
+
+
+ALL_PART_TABLES
+
+
+USER_ADVISOR_RECOMMENDATIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_XTERNAL_LOC_SUBPARTITIONS
+
+
+ALL_SUBPART_COL_STATISTICS
+
+
+USER_ADVISOR_SQLW_PARAMETERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_XML_SCHEMA_SUBSTGRP_HEAD
+
+
+USER_ADVISOR_SQLW_TABLES
+
+
+ALL_IND_SUBPARTITIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SUBPART_KEY_COLUMNS_V$
+
+
+USER_ADVISOR_SQLA_TABVOL
+
+
+USER_SQLSET
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_TRANSFORMATIONS
+
+
+USER_XDS_ACL_REFRESH
+
+
+USER_ADVISOR_FDG_BREAKDOWN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_XMLTYPE_COLS
+
+
+USER_SR_PARTN_OPS
+
+
+ALL_SUBPART_HISTOGRAMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_MVREF_STATS_SYS_DEFAULTS
+
+
+ALL_LOB_SUBPARTITIONS
+
+
+USER_SUBPART_COL_STATISTICS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XML_SCHEMA_SUBSTGRP_HEAD
+
+
+USER_SQLSET_STATEMENTS
+
+
+USER_XML_COLUMN_NAMES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_XML_OUT_OF_LINE_TABLES
+
+
+ALL_ATTRIBUTE_TRANSFORMATIONS
+
+
+USER_ADVISOR_EXECUTIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SCHEDULER_REMOTE_DATABASES
+
+
+USER_ADVISOR_SQLW_STMTS
+
+
+USER_MVREF_CHANGE_STATS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SR_OBJ_ALL
+
+
+USER_TS
+
+
+ALL_TRANSFORMATIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLA_WK_MAP
+
+
+ALL_XTERNAL_PART_TABLES
+
+
+USER_IND_COLUMNS_V$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_PART_INDEXES
+
+
+ALL_XTERNAL_TAB_PARTITIONS
+
+
+ALL_TAB_PARTITIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XML_SCHEMA_COMPLEX_TYPES
+
+
+USER_SR_OBJ_STATUS
+
+
+USER_QUEUE_PUBLISHERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_TEMPLATES
+
+
+USER_SUBPART_KEY_COLUMNS
+
+
+USER_XTERNAL_LOC_PARTITIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADDM_TASK_DIRECTIVES
+
+
+USER_XML_SCHEMA_NAMESPACES
+
+
+USER_DBFS_HS_COMMANDS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XDS_ACL_REFRESH
+
+
+ALL_PART_KEY_COLUMNS
+
+
+USER_XDS_ACL_REFSTAT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_PART_LOBS
+
+
+ALL_TAB_SUBPARTITIONS
+
+
+USER_ADVISOR_SQLA_COLVOL
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SQLSET_BINDS
+
+
+ALL_JSON_DATAGUIDES
+
+
+USER_ADVISOR_SQLW_TEMPLATES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLA_WK_STMTS
+
+
+ALL_SQLSET_REFERENCES
+
+
+USER_ADDM_FINDINGS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_PART_COL_STATISTICS
+
+
+USER_ADVISOR_PARAMETERS
+
+
+USER_FLASHBACK_TXN_REPORT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_PART_HISTOGRAMS
+
+
+USER_ADVISOR_SQLA_TABLES
+
+
+USER_PARALLEL_EXECUTE_CHUNKS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SUBPART_KEY_COLUMNS_V$
+
+
+USER_XML_SCHEMA_SUBSTGRP_MBRS
+
+
+USER_ADVISOR_FINDINGS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLW_COLVOL
+
+
+USER_FLASHBACK_TXN_STATE
+
+
+ALL$OLAP2_AWS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SQLSET_STATEMENTS
+
+
+USER_ADVISOR_OBJECTS
+
+
+ALL_AW_AC_10G
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XML_SCHEMA_NAMESPACES
+
+
+ALL_XTERNAL_LOC_SUBPARTITIONS
+
+
+ALL_AUDITED_SYSTEM_ACTIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_JOURNAL
+
+
+ALL_XTERNAL_LOC_PARTITIONS
+
+
+USER_ADDM_TASKS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XML_SCHEMA_ATTRIBUTES
+
+
+ALL_PART_KEY_COLUMNS_V$
+
+
+ALL_SUBPART_KEY_COLUMNS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_REGISTRY_BANNERS
+
+
+USER_JSON_DATAGUIDE_FIELDS
+
+
+ALL_XML_SCHEMA_SUBSTGRP_MBRS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SQLTUNE_BINDS
+
+
+ALL_SQLSET
+
+
+USER_LOB_TEMPLATES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLA_WK_SUM
+
+
+ALL_XDS_ACL_REFSTAT
+
+
+USER_TAB_COLS_V$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_MVREF_RUN_STATS
+
+
+USER_SR_OBJ
+
+
+ALL_JSON_DATAGUIDE_FIELDS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_LOB_PARTITIONS
+
+
+ALL_TAB_COLS_V$
+
+
+USER_ADVISOR_SQLPLANS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_PART_COL_STATISTICS
+
+
+ALL_SERVICES
+
+
+USER_LOB_SUBPARTITIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XDS_LATEST_ACL_REFSTAT
+
+
+ALL_XML_NESTED_TABLES
+
+
+ALL_MINING_ALGORITHMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_IND_PARTITIONS
+
+
+USER_PART_LOBS
+
+
+USER_ADDM_INSTANCES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SR_GRP_STATUS
+
+
+USER_IND_PARTITIONS
+
+
+USER_XML_SCHEMA_COMPLEX_TYPES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_XTERNAL_PART_TABLES
+
+
+USER_XML_NESTED_TABLES
+
+
+USER_ADVISOR_EXEC_PARAMETERS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SR_OBJ_STATUS_ALL
+
+
+USER_SQLTUNE_PLANS
+
+
+USER_DBFS_HS_FILES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_IND_COLUMNS_V$
+
+
+ALL_PART_HISTOGRAMS
+
+
+USER_XDS_LATEST_ACL_REFSTAT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_PROBE_OBJECTS
+
+
+USER_LOB_PARTITIONS
+
+
+USER_MVREF_STATS_PARAMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SQLSET_REFERENCES
+
+
+ALL_QUEUE_PUBLISHERS
+
+
+USER_DBFS_HS_FIXED_PROPERTIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLW_JOURNAL
+
+
+USER_PART_KEY_COLUMNS
+
+
+ALL_XML_OUT_OF_LINE_TABLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_SUBPARTITION_TEMPLATES
+
+
+USER_ADVISOR_TASKS
+
+
+USER_MVREF_STATS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLSTATS
+
+
+USER_QUEUE_SCHEDULES
+
+
+USER_SQLTUNE_STATISTICS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_AQ_AGENT_PRIVS
+
+
+USER_PART_TABLES
+
+
+USER_ADVISOR_SQLW_SUM
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SQLSET_BINDS
+
+
+USER_ADVISOR_LOG
+
+
+USER_ADVISOR_SQLW_TABVOL
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_JSON_DATAGUIDES
+
+
+USER_XML_SCHEMA_SIMPLE_TYPES
+
+
+USER_ATTRIBUTE_TRANSFORMATIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_TAB_PARTITIONS
+
+
+ALL_QUEUE_SCHEDULES
+
+
+USER_SQLTUNE_RATIONALE_PLAN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_SR_STLOG_STATS
+
+
+USER_SQLSET_PLANS
+
+
+USER_SUBPART_HISTOGRAMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_SQLA_REC_SUM
+
+
+USER_IND_SUBPARTITIONS
+
+
+ALL_XMLTYPE_COLS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XTERNAL_TAB_SUBPARTITIONS
+
+
+USER_REGISTRY
+
+
+USER_ADVISOR_DIR_TASK_INST
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_LOB_TEMPLATES
+
+
+ALL_PART_INDEXES
+
+
+USER_DBFS_HS_PROPERTIES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_MVREF_STMT_STATS
+
+
+USER_XTERNAL_TAB_SUBPARTITIONS
+
+
+USER_PART_KEY_COLUMNS_V$
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_ADVISOR_ACTIONS
+
+
+ALL_XML_SCHEMA_SIMPLE_TYPES
+
+
+USER_XML_SCHEMA_ATTRIBUTES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_PARALLEL_EXECUTE_TASKS
+
+
+USER_DBFS_HS
+
+
+USER_XML_SCHEMA_ELEMENTS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+ALL_XML_SCHEMA_ELEMENTS
+
+
+USER_SR_GRP_STATUS_ALL
+
+
+USER_XTERNAL_TAB_PARTITIONS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+
+USER_TAB_SUBPARTITIONS
+
+
+AUDIT_ACTIONS
+Description table for audit trail action type codes.  Maps action type numbers t
+o action type names
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+COLUMN_PRIVILEGES
+Grants on columns for which the user is the grantor, grantee, owner, or
+ an enabled role or PUBLIC is the grantee
+
+DATABASE_COMPATIBLE_LEVEL
+Database compatible parameter set via init.ora
+
+DBMS_ALERT_INFO
+
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+DBMS_LOCK_ALLOCATED
+
+
+DICTIONARY
+Description of data dictionary tables and views
+
+DICT_COLUMNS
+Description of columns in data dictionary tables and views
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+DUAL
+
+
+GLOBAL_NAME
+global database name
+
+INDEX_HISTOGRAM
+statistics on keys with repeat count
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+INDEX_STATS
+statistics on the b-tree
+
+NLS_DATABASE_PARAMETERS
+Permanent NLS parameters of the database
+
+NLS_INSTANCE_PARAMETERS
+NLS parameters of the instance
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+NLS_SESSION_PARAMETERS
+NLS parameters of the user session
+
+RESOURCE_COST
+Cost for each resource
+
+ROLE_ROLE_PRIVS
+Roles which are granted to roles
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+ROLE_SYS_PRIVS
+System privileges granted to roles
+
+ROLE_TAB_PRIVS
+Table privileges granted to roles
+
+SESSION_PRIVS
+Privileges which the user currently has set
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+
+SESSION_ROLES
+Roles which the user currently has enabled.
+
+TABLE_PRIVILEGES
+Grants on objects for which the user is the grantor, grantee, owner,
+ or an enabled role or PUBLIC is the grantee
+
+ALL_OLAP2_AWS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for ALL$OLAP2_AWS
+
+X$KXFTASK
+Synonym for V_$KXFTASK
+
+V$LOADISTAT
+Synonym for V_$LOADISTAT
+
+V$LOADPSTAT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$LOADPSTAT
+
+V$LOCK_ACTIVITY
+Synonym for V_$LOCK_ACTIVITY
+
+V$MAX_ACTIVE_SESS_TARGET_MTH
+Synonym for V_$MAX_ACTIVE_SESS_TARGET_MTH
+
+V$RSRC_CONSUMER_GROUP
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$RSRC_CONSUMER_GROUP
+
+V$RSRC_CONSUMER_GROUP_CPU_MTH
+Synonym for V_$RSRC_CONSUMER_GROUP_CPU_MTH
+
+V$RSRC_CONS_GROUP_HISTORY
+Synonym for V_$RSRC_CONS_GROUP_HISTORY
+
+V$RSRC_PLAN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$RSRC_PLAN
+
+V$RSRC_PLAN_CPU_MTH
+Synonym for V_$RSRC_PLAN_CPU_MTH
+
+V$RSRC_PLAN_HISTORY
+Synonym for V_$RSRC_PLAN_HISTORY
+
+V$RSRC_SESSION_INFO
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$RSRC_SESSION_INFO
+
+V$SESSION_CONNECT_INFO
+Synonym for V_$SESSION_CONNECT_INFO
+
+V$SESSION_LONGOPS
+Synonym for V_$SESSION_LONGOPS
+
+V$SQLFN_ARG_METADATA
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$SQLFN_ARG_METADATA
+
+V$SQLFN_METADATA
+Synonym for V_$SQLFN_METADATA
+
+V$SQLPA_METRIC
+Synonym for V_$SQLPA_METRIC
+
+GV$LOADISTAT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$LOADISTAT
+
+GV$LOADPSTAT
+Synonym for GV_$LOADPSTAT
+
+GV$LOCK_ACTIVITY
+Synonym for GV_$LOCK_ACTIVITY
+
+GV$MAX_ACTIVE_SESS_TARGET_MTH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$MAX_ACTIVE_SESS_TARGET_MTH
+
+GV$NLS_PARAMETERS
+Synonym for GV_$NLS_PARAMETERS
+
+GV$NLS_VALID_VALUES
+Synonym for GV_$NLS_VALID_VALUES
+
+GV$OPTION
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$OPTION
+
+GV$PARALLEL_DEGREE_LIMIT_MTH
+Synonym for GV_$PARALLEL_DEGREE_LIMIT_MTH
+
+GV$PLSQL_DEBUGGABLE_SESSIONS
+Synonym for GV_$PLSQL_DEBUGGABLE_SESSIONS
+
+GV$SESSION_LONGOPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$SESSION_LONGOPS
+
+GV$SQLFN_ARG_METADATA
+Synonym for GV_$SQLFN_ARG_METADATA
+
+GV$SQLFN_METADATA
+Synonym for GV_$SQLFN_METADATA
+
+GV$DIAG_INFO
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$DIAG_INFO
+
+GV$DUAL
+Synonym for GV_$DUAL
+
+V$BH
+Synonym for V_$BH
+
+V$BLOCKING_QUIESCE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$BLOCKING_QUIESCE
+
+V$NLS_PARAMETERS
+Synonym for V_$NLS_PARAMETERS
+
+V$NLS_VALID_VALUES
+Synonym for V_$NLS_VALID_VALUES
+
+V$OPTION
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$OPTION
+
+V$PARALLEL_DEGREE_LIMIT_MTH
+Synonym for V_$PARALLEL_DEGREE_LIMIT_MTH
+
+V$PLSQL_DEBUGGABLE_SESSIONS
+Synonym for V_$PLSQL_DEBUGGABLE_SESSIONS
+
+V$PQ_SESSTAT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$PQ_SESSTAT
+
+V$PQ_TQSTAT
+Synonym for V_$PQ_TQSTAT
+
+V$QUEUEING_MTH
+Synonym for V_$QUEUEING_MTH
+
+V$REPLAY_CONTEXT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$REPLAY_CONTEXT
+
+V$REPLAY_CONTEXT_LOB
+Synonym for V_$REPLAY_CONTEXT_LOB
+
+V$REPLAY_CONTEXT_SEQUENCE
+Synonym for V_$REPLAY_CONTEXT_SEQUENCE
+
+V$REPLAY_CONTEXT_SYSDATE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$REPLAY_CONTEXT_SYSDATE
+
+V$REPLAY_CONTEXT_SYSGUID
+Synonym for V_$REPLAY_CONTEXT_SYSGUID
+
+V$REPLAY_CONTEXT_SYSTIMESTAMP
+Synonym for V_$REPLAY_CONTEXT_SYSTIMESTAMP
+
+V$RESTORE_POINT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$RESTORE_POINT
+
+GV$EDITIONABLE_TYPES
+Synonym for GV_$EDITIONABLE_TYPES
+
+V$SQL_MONITOR_STATNAME
+Synonym for V_$SQL_MONITOR_STATNAME
+
+V$TEMPORARY_LOBS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$TEMPORARY_LOBS
+
+V$TIMEZONE_FILE
+Synonym for V_$TIMEZONE_FILE
+
+V$TIMEZONE_NAMES
+Synonym for V_$TIMEZONE_NAMES
+
+V$VERSION
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$VERSION
+
+V$XS_SESSION_NS_ATTRIBUTES
+Synonym for V_$XS_SESSION_NS_ATTRIBUTES
+
+V$XS_SESSION_NS_ATTRIBUTE
+Synonym for V_$XS_SESSION_NS_ATTRIBUTES
+
+V$XS_SESSION_ROLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$XS_SESSION_ROLES
+
+GV$PQ_SESSTAT
+Synonym for GV_$PQ_SESSTAT
+
+GV$PQ_TQSTAT
+Synonym for GV_$PQ_TQSTAT
+
+GV$QUEUEING_MTH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$QUEUEING_MTH
+
+GV$REPLAY_CONTEXT_SYSTIMESTAMP
+Synonym for GV_$REPLAYCONTEXT_SYSTIMESTAMP
+
+GV$REPLAY_CONTEXT
+Synonym for GV_$REPLAY_CONTEXT
+
+GV$REPLAY_CONTEXT_LOB
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$REPLAY_CONTEXT_LOB
+
+GV$REPLAY_CONTEXT_SEQUENCE
+Synonym for GV_$REPLAY_CONTEXT_SEQUENCE
+
+GV$REPLAY_CONTEXT_SYSDATE
+Synonym for GV_$REPLAY_CONTEXT_SYSDATE
+
+GV$REPLAY_CONTEXT_SYSGUID
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$REPLAY_CONTEXT_SYSGUID
+
+GV$RESTORE_POINT
+Synonym for GV_$RESTORE_POINT
+
+GV$RSRC_CONSUMER_GROUP
+Synonym for GV_$RSRC_CONSUMER_GROUP
+
+GV$RSRC_CONSUMER_GROUP_CPU_MTH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$RSRC_CONSUME_GROUP_CPU_MTH
+
+GV$RSRC_CONS_GROUP_HISTORY
+Synonym for GV_$RSRC_CONS_GROUP_HISTORY
+
+GV$RSRC_PLAN
+Synonym for GV_$RSRC_PLAN
+
+GV$RSRC_PLAN_CPU_MTH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$RSRC_PLAN_CPU_MTH
+
+GV$RSRC_PLAN_HISTORY
+Synonym for GV_$RSRC_PLAN_HISTORY
+
+GV$RSRC_SESSION_INFO
+Synonym for GV_$RSRC_SESSION_INFO
+
+V$AW_LONGOPS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$AW_LONGOPS
+
+USER_SNAPSHOT_REFRESH_TIMES
+Synonym for USER_MVIEW_REFRESH_TIMES
+
+OBJ
+Synonym for USER_OBJECTS
+
+V$OBJECT_USAGE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for USER_OBJECT_USAGE
+
+ALL_OUTLINES
+Synonym for USER_OUTLINES
+
+ALL_OUTLINE_HINTS
+Synonym for USER_OUTLINE_HINTS
+
+RECYCLEBIN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for USER_RECYCLEBIN
+
+SEQ
+Synonym for USER_SEQUENCES
+
+USER_SQLSET_DEFINITIONS
+Synonym for USER_SQLSET
+
+ALL_HISTOGRAMS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for ALL_TAB_HISTOGRAMS
+
+GV$AW_LONGOPS
+Synonym for GV_$AW_LONGOPS
+
+GV$BH
+Synonym for GV_$BH
+
+GV$BLOCKING_QUIESCE
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$BLOCKING_QUIESCE
+
+ALL_SNAPSHOT_REFRESH_TIMES
+Synonym for ALL_MVIEW_REFRESH_TIMES
+
+CAT
+Synonym for USER_CATALOG
+
+CLU
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for USER_CLUSTERS
+
+SM$VERSION
+Synonym for SM_$VERSION
+
+SYN
+Synonym for USER_SYNONYMS
+
+TABS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for USER_TABLES
+
+COLS
+Synonym for USER_TAB_COLUMNS
+
+USER_HISTOGRAMS
+Synonym for USER_TAB_HISTOGRAMS
+
+GV$TEMPORARY_LOBS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$TEMPORARY_LOBS
+
+GV$TIMEZONE_FILE
+Synonym for GV_$TIMEZONE_FILE
+
+GV$TIMEZONE_NAMES
+Synonym for GV_$TIMEZONE_NAMES
+
+GV$VERSION
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$VERSION
+
+GV$XS_SESSION_NS_ATTRIBUTES
+Synonym for GV_$XS_SESSION_NS_ATTRIBUTES
+
+GV$XS_SESSION_NS_ATTRIBUTE
+Synonym for GV_$XS_SESSION_NS_ATTRIBUTES
+
+GV$XS_SESSION_ROLES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$XS_SESSION_ROLES
+
+GV$XS_SESSION_ROLE
+Synonym for GV_$XS_SESSION_ROLES
+
+V$DIAG_CRITICAL_ERROR
+Synonym for V_$DIAG_CRITICAL_ERROR
+
+V$DIAG_INFO
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$DIAG_INFO
+
+V$DUAL
+Synonym for V_$DUAL
+
+V$EDITIONABLE_TYPES
+Synonym for V_$EDITIONABLE_TYPES
+
+V$FLASHBACK_TXN_GRAPH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$FLASHBACK_TXN_GRAPH
+
+V$FLASHBACK_TXN_MODS
+Synonym for V_$FLASHBACK_TXN_MODS
+
+DATAPUMP_DIR_OBJS
+Synonym for LOADER_DIR_OBJS
+
+DICT
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for DICTIONARY
+
+IND
+Synonym for USER_INDEXES
+
+ALL_JOBS
+Synonym for USER_JOBS
+
+V$ACTIVE_INSTANCES
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$ACTIVE_INSTANCES
+
+V$ACTIVE_SESS_POOL_MTH
+Synonym for V_$ACTIVE_SESS_POOL_MTH
+
+V$ADVISOR_CURRENT_SQLPLAN
+Synonym for V_$ADVISOR_CURRENT_SQLPLAN
+
+V$ADVISOR_PROGRESS
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$ADVISOR_PROGRESS
+
+V$ALL_ACTIVE_SESSION_HISTORY
+Synonym for V_$ALL_ACTIVE_SESSION_HISTORY
+
+V$ALL_SQL_MONITOR
+Synonym for V_$ALL_SQL_MONITOR
+
+V$ALL_SQL_PLAN
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for V_$ALL_SQL_PLAN
+
+V$ALL_SQL_PLAN_MONITOR
+Synonym for V_$ALL_SQL_PLAN_MONITOR
+
+GV$ACTIVE_INSTANCES
+Synonym for GV_$ACTIVE_INSTANCES
+
+GV$ACTIVE_SESS_POOL_MTH
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$ACTIVE_SESS_POOL_MTH
+
+GV$ADVISOR_CURRENT_SQLPLAN
+Synonym for GV_$ADVISOR_CURRENT_SQLPLAN
+
+GV$ALL_ACTIVE_SESSION_HISTORY
+Synonym for GV_$ALL_ACTIVE_SESSION_HISTORY
+
+GV$ALL_SQL_MONITOR
+
+TABLE_NAME
+--------------------------------------------------------------------------------
+COMMENTS
+--------------------------------------------------------------------------------
+Synonym for GV_$ALL_SQL_MONITOR
+
+GV$ALL_SQL_PLAN
+Synonym for GV_$ALL_SQL_PLAN
+
+GV$ALL_SQL_PLAN_MONITOR
+Synonym for GV_$ALL_SQL_PLAN_MONITOR
+
+
+1068 rows selected.
+
+SQL> REM *THE ABOVE QUERY SHOWS ALL DICTIONARIES IN ORACLE_DM*
+SQL> REM *TO VIEW CONSTRAINTS_NAME AND COLUMN_NAME OF A PARTICULAR TABLE*
+SQL> CREATE TABLE TEST10(EID INT PRIMARY KEY, ENAME VARCHAR2(10) UNIQUE NOT NULL, SAL NUMBER(10) NOT NULL CHECK(SAL>=6000));
+
+Table created.
+
+SQL> DESC USER_CONS_COLUMNS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ OWNER                                     NOT NULL VARCHAR2(128)
+ CONSTRAINT_NAME                           NOT NULL VARCHAR2(128)
+ TABLE_NAME                                NOT NULL VARCHAR2(128)
+ COLUMN_NAME                                        VARCHAR2(4000)
+ POSITION                                           NUMBER
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST10';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+SYS_C007817
+ENAME
+
+SYS_C007818
+SAL
+
+SYS_C007819
+SAL
+
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+SYS_C007820
+EID
+
+SYS_C007821
+ENAME
+
+
+SQL> REM
+SQL> REM ***USER-DEFINED CONSTRAINT NAME**
+SQL> CREATE TABLE TEST11(EID INT CONSTRAINT PK_EID PRIMARY KEY, ENAME VARCHAR2(10) CONSTRAINT UQ_ENAME UNIQUE);
+
+Table created.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST11';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+PK_EID
+EID
+
+UQ_ENAME
+ENAME
+
+
+SQL> REM
+SQL> REM ***HOW TO ADD CONSTRAINT TO AN EXISTING TABLE***
+SQL> CREATE TABLE PARENT(EID INT, ENAME VARCHAR2(10), SAL NUMBER(10));
+
+Table created.
+
+SQL> REM ADDING PRIMARY KEY, UNIQUE AND CHECK IN THE ABOVE CREATED TABLE...
+SQL> ALTER TABLE PARENT ADD CONSTRAINT EID_PK PRIMARY KEY (EID);
+
+Table altered.
+
+SQL> ALTER TABLE PARENT ADD CONSTRAINT ENAME_UQ UNIQUE (ENAME);
+
+Table altered.
+
+SQL> ALTER TABLE PARENT ADD CONSTRAINT SAL_CK CHECK (SAL>12000);
+
+Table altered.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='PARENT';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+EID_PK
+EID
+
+ENAME_UQ
+ENAME
+
+SAL_CK
+SAL
+
+
+SQL> REM
+SQL> REM ***ADDING "NOT NULL" CONSTRAINT***
+SQL> ALTER TABLE PARENT MODIFY ENAME CONSTRAINT ENAME_NN NOT NULL;
+
+Table altered.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='PARENT';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+EID_PK
+EID
+
+ENAME_UQ
+ENAME
+
+SAL_CK
+SAL
+
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+ENAME_NN
+ENAME
+
+
+SQL> REM
+SQL> REM *** ADDING FOREIGN KEY ***
+SQL> CREATE TABLE CHILD(DNAME VARCHAR2(10),  EID INT);
+
+Table created.
+
+SQL> ALTERTABLE CHILD ADD CONSTRAINT EID_FK FOREIGN KEY(EID) REFERENCES PARENT(EID) ON DELET
+E CASCADE;
+SP2-0734: unknown command beginning "ALTERTABLE..." - rest of line ignored.
+SQL> ALTER TABLE CHILD ADD CONSTRAINT EID_FK FOREIGN KEY(EID) REFERENCES PARENT(EID) ON DELETE CASCADE;
+
+Table altered.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='PARENT';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+EID_PK
+EID
+
+ENAME_UQ
+ENAME
+
+SAL_CK
+SAL
+
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+ENAME_NN
+ENAME
+
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='CHILD';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+EID_FK
+EID
+
+
+SQL> REM
+SQL> REM ***HOW TO DROP CONSTRAINTS FROM A EXISTING TABLE***
+SQL> REM *DROPPING PRIMARY KEY*
+SQL> REM STEP-1
+SQL> ALTER TABLE CHILD DROP CONSTRAINT EID_FK;
+
+Table altered.
+
+SQL> REM STEP-2
+SQL> ALTER TABLE PARENT DROP CONSTRAINT EIK_PK;
+ALTER TABLE PARENT DROP CONSTRAINT EIK_PK
+                                   *
+ERROR at line 1:
+ORA-02443: Cannot drop constraint  - nonexistent constraint
+
+
+SQL> ALTER TABLE PARENT DROP CONSTRAINT EID_PK;
+
+Table altered.
+
+SQL> REM
+SQL> REM *DROPPING UNIQUE, CHECK, NOT NULL CONSTRAINTS*
+SQL> ALTER TABLE PARENT DROP CONSTRAINT ENAME_UQ;
+
+Table altered.
+
+SQL> ALTER TABLE PARENT DROP CONSTRAINT SAL_CK;
+
+Table altered.
+
+SQL> ALTER TABLE PARENT DROP CONSTRAINT ENAME_NN;
+
+Table altered.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='PARENT';
+
+no rows selected
+
+SQL> REM
+SQL> REM *** HOW TO REMANE CONSTRAINT NAME ***
+SQL> CREATE TABLE TEST11(EID INT PRIMARY KEY);
+CREATE TABLE TEST11(EID INT PRIMARY KEY)
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> DROP TABLE TEST11 PURGE;
+
+Table dropped.
+
+SQL> CREATE TABLE TEST11(EID INT PRIMARY KEY);
+
+Table created.
+
+SQL> SELECT CONSTRIANT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST11';
+SELECT CONSTRIANT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST11'
+       *
+ERROR at line 1:
+ORA-00904: "CONSTRIANT_NAME": invalid identifier
+
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST11';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+SYS_C007833
+EID
+
+
+SQL> ALTER TABLE TEST11 RENAME CONSTRAINT SYS_C007833 TO EID_PK;
+
+Table altered.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST11';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+EID_PK
+EID
+
+
+SQL> REM
+SQL> REM ***HOW TO DISABLE/ENABLE CONSTRAINT ON EXISTING TABLE***
+SQL> CREATE TABLE TEST12(ENAME VARCHAR2(10), SAL NUMBER(10) CHECK (SAL>5000));
+
+Table created.
+
+SQL> SELECT CONSTRAINT_NAME, COLUMN_NAME FROM USER_CONS_COLUMNS WHERE TABLE_NAME='TEST12';
+
+CONSTRAINT_NAME
+--------------------------------------------------------------------------------
+COLUMN_NAME
+--------------------------------------------------------------------------------
+SYS_C007834
+SAL
+
+
+SQL> ALTER TABLE TEST12 DISABLE CONSTRAINT SYS_C007834;
+
+Table altered.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST12 VALUES('C', 1500);
+
+1 row created.
+
+SQL> INSERT INTO TEST12 VALUES('D', 4500);
+
+1 row created.
+
+SQL> REM NOVALIDATE: THIS KEYWORD DOES NOT VERIFY EXISTING VALUES IN COLUMN BUT WILL VERIFY
+FROM NEXT INSERTION.
+SQL> ALTER TABLE TEST12 ENABLE NOVALIDATE CONSTRAINT SYS_C007834;
+
+Table altered.
+
+SQL> INSERT INTO TEST12 VALUES('E', 4500);
+INSERT INTO TEST12 VALUES('E', 4500)
+*
+ERROR at line 1:
+ORA-02290: check constraint (MYDB11AM.SYS_C007834) violated
+
+
+SQL> INSERT INTO TEST12 VALUES('F', 7500);
+
+1 row created.
+
+SQL> REM
+SQL> REM ***DEFAULT CONSTRAINT***
+SQL> CREATE TABLE TEST13 (SNO INT, LOC VARCHAR2(10) DEFAULT 'HYD');
+
+Table created.
+
+SQL> REM TESTING:
+SQL> INSERT INTO TEST13 VALUES (1, 'MUMBAI');
+
+1 row created.
+
+SQL> INSERT INTO TEST13 VALUES (2);
+INSERT INTO TEST13 VALUES (2)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO TEST13 VALUES (2, );
+INSERT INTO TEST13 VALUES (2, )
+                              *
+ERROR at line 1:
+ORA-00936: missing expression
+
+
+SQL> DROP TABLE TEST13 PURGE;
+
+Table dropped.
+
+SQL> CREATE TABLE TEST13 (SNO INT, LOC VARCHAR2(10) DEFAULT'HYD');
+
+Table created.
+
+SQL> INSERT INTO TEST13 VALUES (1, 'MUMBAI');
+
+1 row created.
+
+SQL> INSERT INTO TEST13 VALUES (2);
+INSERT INTO TEST13 VALUES (2)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> REM 'DEFAULT' CONSTRAINT NOT WORKING!!!!
+SQL> REM
+SQL> CREATE TABLE TEST14(EID INT UNIQUE, SAL NUMBER(10));
+
+Table created.
+
+SQL> ALTER TABLE TEST14 MODIFY SAL DEFAULT 8000;
+
+Table altered.
+
+SQL> INSERT INTO TEST14 VALUES (1);
+INSERT INTO TEST14 VALUES (1)
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> INSERT INTO TEST14 VALUES (1, 5);
+
+1 row created.
+
+SQL> SELECT * FROM TEST14;
+
+       EID        SAL
+---------- ----------
+         1          5
+
+SQL> REM 'DEFAULT' CONSTRAINT NOT WORKING!!!!
+SQL> REM *** HOW TO REMOVE 'DEFAULT' CONSTRAINT FROM A COLUMN***
+SQL> ALTER TABLE TEST14 MODIFY SAL DEFAULT NULL;
+
+Table altered.
+
+SQL>
