@@ -1,0 +1,849 @@
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 15
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> connect girrafe
+Connection id:    16
+Current database: girrafe
+
+mysql> CREATE TABLE student ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> CREATE TABLE student ();
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> CREATE TABLE student ()
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> CREATE TABLE student (student_id INT PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) )' at line 1
+mysql> CONNECT shirish
+ERROR 1049 (42000): Unknown database 'shirish'
+mysql> connect girrafe
+Connection id:    18
+Current database: girrafe
+
+mysql> CREATE TABLE student (student_id INT PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) )' at line 1
+mysql> CREATE TABLE student (student_id INT PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'PRIMRY KEY, name VARCHAR(20), major VARCHAR(20) )' at line 1
+mysql> CREATE DATABASE giraffe
+    -> CREATE DATABASE giraffe;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE DATABASE giraffe' at line 2
+mysql> CREATE DATABASE giraffe;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> CONNECT giraffe
+Connection id:    19
+Current database: giraffe
+
+mysql> CREATE TABLE student (
+    -> student_id INT PRIMARY KEY,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20)
+    -> );
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> CREATE TABLE student1 (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20)
+    -> PRIMARY KEY
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    ->
+    -> (student_id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(student_id)
+)' at line 18
+mysql> CREATE TABLE student1 (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20)
+    -> PRIMARY KEY(student_id)
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(student_id)
+)' at line 5
+mysql> CREATE TABLE student1 (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20),
+    -> PRIMARY KEY(student_id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int         | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.08 sec)
+
+mysql> DROP TABLE student1;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> DESCRIBE student1;
+ERROR 1146 (42S02): Table 'giraffe.student1' doesn't exist
+mysql> ALTER TABLE student ADD gpa DECIMAL(3,2);
+Query OK, 0 rows affected (0.09 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DROP TABLE student;
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE student (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20),
+    -> PRIMARY KEY(student_id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> ALTER TABLE student ADD gpa DECIMAL(3,2);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE student;
++------------+--------------+------+-----+---------+-------+
+| Field      | Type         | Null | Key | Default | Extra |
++------------+--------------+------+-----+---------+-------+
+| student_id | int          | NO   | PRI | NULL    |       |
+| name       | varchar(20)  | YES  |     | NULL    |       |
+| major      | varchar(20)  | YES  |     | NULL    |       |
+| gpa        | decimal(3,2) | YES  |     | NULL    |       |
++------------+--------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> ALTER TABLE student DROP COLUMN gpa;
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DESCRIBE student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int         | NO   | PRI | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| major      | varchar(20) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO student VALUES(1, 'Jack', 'Biology');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> SELECT * FROM student;
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
++------------+------+---------+
+1 row in set (0.00 sec)
+
+mysql> INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          2 | Kate | Sociology |
++------------+------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM student;
++------------+--------+-----------+
+| student_id | name   | major     |
++------------+--------+-----------+
+|          1 | Jack   | Biology   |
+|          2 | Kate   | Sociology |
+|          3 | Claire | NULL      |
++------------+--------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+ERROR 1062 (23000): Duplicate entry '3' for key 'student.PRIMARY'
+mysql> INSERT INTO student(student_id, name) VALUES(4, 'Claire');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> SELECT * FROM student;
++------------+--------+-----------+
+| student_id | name   | major     |
++------------+--------+-----------+
+|          1 | Jack   | Biology   |
+|          2 | Kate   | Sociology |
+|          3 | Claire | NULL      |
+|          4 | Claire | NULL      |
++------------+--------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO student VALUES(5, 'Mike', 'Computer Science');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT * FROM student;
++------------+--------+------------------+
+| student_id | name   | major            |
++------------+--------+------------------+
+|          1 | Jack   | Biology          |
+|          2 | Kate   | Sociology        |
+|          3 | Claire | NULL             |
+|          4 | Claire | NULL             |
+|          5 | Mike   | Computer Science |
++------------+--------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> DROP TABLE student;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> SELECT * FROM student;
+ERROR 1146 (42S02): Table 'giraffe.student' doesn't exist
+mysql> CREATE TABLE student (
+    -> student_id INT,
+    -> name VARCHAR(20) NOT NULL,
+    -> major VARCHAR(20) UNIQUE,
+    -> PRIMARY KEY(student_id)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> INSERT INTO student VALUES(1, 'Jack', 'Biology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(3, NULL, 'Chemistry');
+ERROR 1048 (23000): Column 'name' cannot be null
+mysql> INSERT INTO student VALUES(4,'Jack' , 'Biology');
+ERROR 1062 (23000): Duplicate entry 'Biology' for key 'student.major'
+mysql> DROP TABLE student;
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> CREATE TABLE student (
+    -> student_id INT;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 2
+mysql> CREATE TABLE student (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20) DEFAULT 'undecided';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 4
+mysql> CREATE TABLE student (
+    -> student_id INT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20) DEFAULT 'undecided',
+    -> PRIMARY KEY(student_id)
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> INSERT INTO student VALUES(1, 'Jack', 'Biology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(3, NULL, 'Chemistry');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(4,'Jack');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO student VALUES(4,'Jack',);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> INSERT INTO student VALUES(5,'Jack');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO student VALUES(5,'Jack', );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
+mysql> INSERT INTO student VALUES(5,'Jack', '');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO student VALUES(6,'Jack', '');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          2 | Kate | Sociology |
+|          3 | NULL | Chemistry |
+|          5 | Jack |           |
+|          6 | Jack |           |
++------------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> INSERT INTO student(student_id, name) VALUES(6,'Jack');
+ERROR 1062 (23000): Duplicate entry '6' for key 'student.PRIMARY'
+mysql> INSERT INTO student(student_id, name) VALUES(7,'Jack');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO student(student_id, name) VALUES(9,'sam');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          2 | Kate | Sociology |
+|          3 | NULL | Chemistry |
+|          5 | Jack |           |
+|          6 | Jack |           |
+|          7 | Jack | undecided |
+|          9 | sam  | undecided |
++------------+------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> DROP TABLE student;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE student (
+    -> student_id INT AUTO_INCREMENT,
+    -> name VARCHAR(20),
+    -> major VARCHAR(20),
+    -> PRIMARY KEY(student_id)
+    -> );
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO student(name, major) VALUES('Jack','Biology');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO student(name, major) VALUES('Kate','Sociology');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO student(name, major) VALUES('Sam','Chemistry');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          2 | Kate | Sociology |
+|          3 | Sam  | Chemistry |
++------------+------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> INSERT INTO student(name, major) VALUES('Jack','Biology');
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO student(name, major) VALUES('Mike','Computer Science');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Biology          |
+|          2 | Kate | Sociology        |
+|          3 | Sam  | Chemistry        |
+|          4 | Jack | Biology          |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET major = 'Bio'
+    -> WHERE major = 'Biology';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT * FROM student;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Bio              |
+|          2 | Kate | Sociology        |
+|          3 | Sam  | Chemistry        |
+|          4 | Jack | Bio              |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET major = 'Comp Sci'
+    -> WHERE major = 'Computer Science';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> UPDATE student
+    -> SET major = 'Comp Sci'
+    -> WHERE student_id = 4;
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Bio       |
+|          2 | Kate | Sociology |
+|          3 | Sam  | Chemistry |
+|          4 | Jack | Comp Sci  |
+|          5 | Mike | Comp Sci  |
++------------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET major = 'Bio-Chemistry'
+    -> WHERE major = 'Bio' OR major = 'Chemistry';
+Query OK, 2 rows affected (0.01 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT * FROM student;
++------------+------+---------------+
+| student_id | name | major         |
++------------+------+---------------+
+|          1 | Jack | Bio-Chemistry |
+|          2 | Kate | Sociology     |
+|          3 | Sam  | Bio-Chemistry |
+|          4 | Jack | Comp Sci      |
+|          5 | Mike | Comp Sci      |
++------------+------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET name='Tom', major='undecided'
+    -> WHERE student_id=1;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM student;
++------------+------+---------------+
+| student_id | name | major         |
++------------+------+---------------+
+|          1 | Tom  | undecided     |
+|          2 | Kate | Sociology     |
+|          3 | Sam  | Bio-Chemistry |
+|          4 | Jack | Comp Sci      |
+|          5 | Mike | Comp Sci      |
++------------+------+---------------+
+5 rows in set (0.00 sec)
+
+mysql> UPDATE student
+    -> SET major = 'undecided';
+Query OK, 4 rows affected (0.01 sec)
+Rows matched: 5  Changed: 4  Warnings: 0
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Tom  | undecided |
+|          2 | Kate | undecided |
+|          3 | Sam  | undecided |
+|          4 | Jack | undecided |
+|          5 | Mike | undecided |
++------------+------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> DELETE FROM student
+    -> WHERE student_id = 4;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Tom  | undecided |
+|          2 | Kate | undecided |
+|          3 | Sam  | undecided |
+|          5 | Mike | undecided |
++------------+------+-----------+
+4 rows in set (0.00 sec)
+
+mysql> INSERT INTO student VALUES('Tom','Bio');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> DELETE FROM student
+    -> WHERE student_id = 5;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO student VALUES('Tom','Bio');
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Tom  | undecided |
+|          2 | Kate | undecided |
+|          3 | Sam  | undecided |
++------------+------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> DELETE FROM student
+    -> WHERE name = 'Tom' AND major='undecided';
+Query OK, 1 row affected (0.01 sec)
+
+mysql> SELECT * FROM student;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          2 | Kate | undecided |
+|          3 | Sam  | undecided |
++------------+------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> DELETE FROM student;
+Query OK, 2 rows affected (0.01 sec)
+
+mysql> SELECT * FROM student;
+Empty set (0.00 sec)
+
+mysql> DROP TABLE student;
+Query OK, 0 rows affected (0.10 sec)
+
+mysql> DROP TABLE student(
+    -> student_id INT PRIMARY KEY,
+    -> name VARCHAR(20) NOT NULL,
+    -> major VARCHAR(20) DEFAULT 'undecided'
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+student_id INT PRIMARY KEY,
+name VARCHAR(20) NOT NULL,
+major VARCHAR(20) DEFAU' at line 1
+mysql> CREATE TABLE student(
+    -> student_id INT PRIMARY KEY,
+    -> name VARCHAR(20) NOT NULL,
+    -> major VARCHAR(20) DEFAULT 'undecided'
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> INSERT INTO student VALUES(1, 'Jack', 'Biology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(2, 'Kate', 'Sociology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(3, 'Sam', 'Chemistry');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUES(4, 'Jack', 'Biology');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO student VALUE(5, 'Mike', 'Computer Science');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT FROM * student;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM * student' at line 1
+mysql> SELECT * FROM student;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Biology          |
+|          2 | Kate | Sociology        |
+|          3 | Sam  | Chemistry        |
+|          4 | Jack | Biology          |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT name
+    -> FROM student;
++------+
+| name |
++------+
+| Jack |
+| Kate |
+| Sam  |
+| Jack |
+| Mike |
++------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student;
++------+------------------+
+| name | major            |
++------+------------------+
+| Jack | Biology          |
+| Kate | Sociology        |
+| Sam  | Chemistry        |
+| Jack | Biology          |
+| Mike | Computer Science |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT student.name, student.major
+    -> FROM student;
++------+------------------+
+| name | major            |
++------+------------------+
+| Jack | Biology          |
+| Kate | Sociology        |
+| Sam  | Chemistry        |
+| Jack | Biology          |
+| Mike | Computer Science |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT student.name, student.major
+    -> FROM student;
++------+------------------+
+| name | major            |
++------+------------------+
+| Jack | Biology          |
+| Kate | Sociology        |
+| Sam  | Chemistry        |
+| Jack | Biology          |
+| Mike | Computer Science |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT student.name, student.major
+    -> FROM student
+    -> ORDER BY name;
++------+------------------+
+| name | major            |
++------+------------------+
+| Jack | Biology          |
+| Jack | Biology          |
+| Kate | Sociology        |
+| Mike | Computer Science |
+| Sam  | Chemistry        |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT student.name, student.major
+    -> FROM student
+    -> ORDER BY name DESC;
++------+------------------+
+| name | major            |
++------+------------------+
+| Sam  | Chemistry        |
+| Mike | Computer Science |
+| Kate | Sociology        |
+| Jack | Biology          |
+| Jack | Biology          |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT student.name, student.major
+    -> FROM student
+    -> ORDER BY student_id DESC;
++------+------------------+
+| name | major            |
++------+------------------+
+| Mike | Computer Science |
+| Jack | Biology          |
+| Sam  | Chemistry        |
+| Kate | Sociology        |
+| Jack | Biology          |
++------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY student_id;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Biology          |
+|          2 | Kate | Sociology        |
+|          3 | Sam  | Chemistry        |
+|          4 | Jack | Biology          |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY student_id DESC;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          5 | Mike | Computer Science |
+|          4 | Jack | Biology          |
+|          3 | Sam  | Chemistry        |
+|          2 | Kate | Sociology        |
+|          1 | Jack | Biology          |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY major, student_id;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Biology          |
+|          4 | Jack | Biology          |
+|          3 | Sam  | Chemistry        |
+|          5 | Mike | Computer Science |
+|          2 | Kate | Sociology        |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY major, student_id DESC;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          4 | Jack | Biology          |
+|          1 | Jack | Biology          |
+|          3 | Sam  | Chemistry        |
+|          5 | Mike | Computer Science |
+|          2 | Kate | Sociology        |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> LIMIT 2;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          2 | Kate | Sociology |
++------------+------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY student_id DESC,
+    -> LIMIT 2;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 2' at line 4
+mysql> SELECT *
+    -> FROM student
+    -> ORDER BY student_id DESC
+    -> LIMIT 2;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          5 | Mike | Computer Science |
+|          4 | Jack | Biology          |
++------------+------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> WHERE major = 'Biology';
++------------+------+---------+
+| student_id | name | major   |
++------------+------+---------+
+|          1 | Jack | Biology |
+|          4 | Jack | Biology |
++------------+------+---------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student
+    -> WHERE major = 'Chemistry';
++------+-----------+
+| name | major     |
++------+-----------+
+| Sam  | Chemistry |
++------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student
+    -> WHERE major = 'Chemistry' OR major = 'Computer Science';
++------+------------------+
+| name | major            |
++------+------------------+
+| Sam  | Chemistry        |
+| Mike | Computer Science |
++------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student
+    -> WHERE major = 'Chemistry' OR name = 'Kate';
++------+-----------+
+| name | major     |
++------+-----------+
+| Kate | Sociology |
+| Sam  | Chemistry |
++------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student
+    -> WHERE major <> 'Biology';
++------+------------------+
+| name | major            |
++------+------------------+
+| Kate | Sociology        |
+| Sam  | Chemistry        |
+| Mike | Computer Science |
++------+------------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT name, major
+    -> FROM student
+    -> WHERE student_id <= 3;
++------+-----------+
+| name | major     |
++------+-----------+
+| Jack | Biology   |
+| Kate | Sociology |
+| Sam  | Chemistry |
++------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> WHERE student_id <= 3 AND name <> 'Jack';
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          2 | Kate | Sociology |
+|          3 | Sam  | Chemistry |
++------------+------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> WHERE name IN ('Claire', 'Kate', 'Mike');
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          2 | Kate | Sociology        |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> WHERE major IN ('Chemistry', 'Biology');
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          1 | Jack | Biology   |
+|          3 | Sam  | Chemistry |
+|          4 | Jack | Biology   |
++------------+------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM student
+    -> WHERE major IN ('Chemistry', 'Biology') AND student_id > 2;
++------------+------+-----------+
+| student_id | name | major     |
++------------+------+-----------+
+|          3 | Sam  | Chemistry |
+|          4 | Jack | Biology   |
++------------+------+-----------+
+2 rows in set (0.00 sec)
+
+mysql>

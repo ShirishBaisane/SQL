@@ -1,0 +1,619 @@
+Enter password: ***********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 20
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> connect giraffe
+Connection id:    21
+Current database: giraffe
+
+mysql> SELECT *
+    -> FROM student;
++------------+------+------------------+
+| student_id | name | major            |
++------------+------+------------------+
+|          1 | Jack | Biology          |
+|          2 | Kate | Sociology        |
+|          3 | Sam  | Chemistry        |
+|          4 | Jack | Biology          |
+|          5 | Mike | Computer Science |
++------------+------+------------------+
+5 rows in set (0.00 sec)
+
+mysql> CREATE TABLE employee (
+    -> emp_id int primary key,
+    -> first_name VARCHAR(40),
+    -> last_name VARCHAR(40),
+    -> birth_day DATE,
+    -> sex VARCHAR(1),
+    -> salary INT,
+    -> super_id INT,
+    -> branch_id INT
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TABLE branch (
+    -> branch_id INT PRIMARY KEY,
+    -> branch_name VARCHAR(40),
+    -> mgr_id INT,
+    -> mgr_start_date DATE,
+    -> FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> ALTER TABLE employee
+    -> ADD FOREIGN KEY(branch_id)
+    -> REFERENCES branch(branch_id)
+    -> ON DELETE SET NULL;
+Query OK, 0 rows affected (0.12 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE employee (
+    -> ADD FOREIGN KEY(super_id)
+    -> REFERENCES employee(emp_id)
+    -> ON DELETE SET NULL;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL' at line 1
+mysql> ALTER TABLE employee
+    -> ADD FOREIGN KEY(super_id)
+    -> REFERENCES employee(emp_id)
+    -> ON DELETE SET NULL;
+Query OK, 0 rows affected (0.13 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> CREATE TABLE client (
+    -> client_id INT PRIMARY KEY,
+    -> client_name VARCHAR(40),
+    -> branch_id INT,
+    -> FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> CREATE TABLE works_with (
+    -> emp_id INT,
+    -> client_id INT,
+    -> total_sales INT,
+    -> PRIMARY KEY(emp_id, client_id),
+    -> FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+    -> FOREIGN KEY(client_id) REFERENCES client(client_id) ON DELEE CASCADE
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'DELEE CASCADE
+)' at line 7
+mysql> CREATE TABLE works_with (
+    -> emp_id INT,
+    -> client_id INT,
+    -> total_sales INT,
+    -> PRIMARY KEY(emp_id, client_id),
+    -> FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE,
+    -> FOREIGN KEY(client_id) REFERENCES client(client_id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.09 sec)
+
+mysql> CREATE TABLE branch_supplier (
+    -> branch_id INT,
+    -> supplier_name VARCHAR(40),
+    -> supply_type VARCHAR(40),
+    -> PRIMARY KEY(branch_id, supplier_name),
+    -> FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE
+    -> );
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> -- WE HAVE SUCCESSFULLY CREATED THE TABLES
+mysql> -- NOW, LET'S INSERT DATA INTO RESP. TABLES
+mysql> --
+mysql> --Corporate
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '--Corporate' at line 1
+mysql> -- Corporate
+mysql> INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> UPDATE employee
+    -> SET branch_id = 1
+    -> WHERE emp_id = 100;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO employee VALUES(101, 'Jan', 'Levinson', '1961-05-11', 'F', 110000, 100, 1);
+Query OK, 1 row affected (0.04 sec)
+
+mysql> INSERT INTO employee VALUES(102, 'Michael', 'Scoot', '1964-03-15', 'M', 75000, 100, NULL);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO branch VALUES(2, 'Scranton', 102, '1992-04-06');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> UPDATE employee
+    -> SET branch_id = 2
+    -> WHERE emp_id = 102;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO employee VALUES(103, 'Angela', 'Martin', '1971-06-25', 'F', 63000, 102, 2);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO employee VALUES(104, 'Kelly', 'Kapoor', '1980-02-05', 'F', 55000, 102, 2);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO employee VALUES(105, 'Stanley', 'Hudson', '1958-02-19', 'M', 69000, 102, 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> -- Stamford
+mysql> INSERT INTO employee VALUES (106, 'Josh', 'Porter', '1969-09-05', 'M', 78000, 100, NULL);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO branch VALUES(3, 'Stamford', 106, '1998-02-13');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> UPDATE employee
+    -> SET branch_id = 3
+    -> WHERE emp_id = 106;
+Query OK, 1 row affected (0.05 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> INSERT INTO employee VALUES(107, 'Andy', 'Bernard', '1973-07-22', 'M', 65000, 106, 3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO employee VALUES(108, 'Jim', 'Halpert', '1978-10-01', 'M', 71000, 106, 3);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> SELECT *
+    -> FROM branch_suppllier;
+ERROR 1146 (42S02): Table 'giraffe.branch_suppllier' doesn't exist
+mysql> SELECT *
+    -> FROM branch_supplier;
+Empty set (0.00 sec)
+
+mysql> DESC branch_supplier;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| branch_id     | int         | NO   | PRI | NULL    |       |
+| supplier_name | varchar(40) | NO   | PRI | NULL    |       |
+| supply_type   | varchar(40) | YES  |     | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+3 rows in set (0.05 sec)
+
+mysql> -- Branch Supplier
+mysql> INSERT INTO branch_supplier VALUES(&branch_id, '&supplier_name', '&supply_type');
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '&branch_id, '&supplier_name', '&supply_type')' at line 1
+mysql> INSERT INTO branch_supplier VALUES(2, 'Hammer Mill', 'Paper'),(2, 'Uni-ball', 'Writing Utensils'),(3, 'Patriot Paper', 'Paper'),(2, 'J.T. Forms & Labels', 'Custom Forms'),(3, 'Uni-ball', 'Writing Utensils'),(3, 'Hammer Mill', 'Paper'),(3, 'Stamford Lables', 'Custom Forms');
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> -- CLIENT TABLE
+mysql> INSERT INTO client VALUES(400, 'Dunmore Highschool', 2),(401, 'Lackawana Country', 2),(402, 'FedEx', 3),(403, 'John Daly Law, LLC', 3),(404, 'Scranton Whitepages', 2),(405, 'Times Newspaper', 3),(406, 'FedEx', 2);
+Query OK, 7 rows affected (0.05 sec)
+Records: 7  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO works_with VALUES(105, 400, 55000),(102, 401, 267000),(108, 402, 22500),(107, 403, 5000),(108, 403, 12000),(105, 404, 33000),(107, 405, 26000),(102, 406, 15000),(105, 406, 130000);
+Query OK, 9 rows affected (0.05 sec)
+Records: 9  Duplicates: 0  Warnings: 0
+
+mysql> SHOW TABLES;
++-------------------+
+| Tables_in_giraffe |
++-------------------+
+| branch            |
+| branch_supplier   |
+| client            |
+| employee          |
+| student           |
+| works_with        |
++-------------------+
+6 rows in set (0.02 sec)
+
+mysql> -- Find all employees
+mysql> SELECT *
+    -> FROM employee;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find all clients
+mysql> SELECT *
+    -> FROM client;
++-----------+---------------------+-----------+
+| client_id | client_name         | branch_id |
++-----------+---------------------+-----------+
+|       400 | Dunmore Highschool  |         2 |
+|       401 | Lackawana Country   |         2 |
+|       402 | FedEx               |         3 |
+|       403 | John Daly Law, LLC  |         3 |
+|       404 | Scranton Whitepages |         2 |
+|       405 | Times Newspaper     |         3 |
+|       406 | FedEx               |         2 |
++-----------+---------------------+-----------+
+7 rows in set (0.00 sec)
+
+mysql> -- Find all employees ordered by salary
+mysql> SELECT *
+    -> FROM employee
+    -> ORDER BY salary;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> ORDER BY salary DESC;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find all employees ordered by sex and then name
+mysql> SELECT *
+    -> FROM employee
+    -> ORDER BY sex, first_name, last_name;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find the first 5 employee
+mysql> SELECT *
+    -> FROM employee
+    -> LIMIT 5;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+5 rows in set (0.00 sec)
+
+mysql> -- Find the first and last name of all employees
+mysql> SELECT *
+    -> FROM employee
+    ->
+    -> ;
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    100 | David      | Wallace   | 1967-11-17 | M    | 250000 |     NULL |         1 |
+|    101 | Jan        | Levinson  | 1961-05-11 | F    | 110000 |      100 |         1 |
+|    102 | Michael    | Scoot     | 1964-03-15 | M    |  75000 |      100 |         2 |
+|    103 | Angela     | Martin    | 1971-06-25 | F    |  63000 |      102 |         2 |
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
+|    106 | Josh       | Porter    | 1969-09-05 | M    |  78000 |      100 |         3 |
+|    107 | Andy       | Bernard   | 1973-07-22 | M    |  65000 |      106 |         3 |
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find the first and last name of all employees
+mysql> SELECT first_name, last_name
+    -> FROM employee;
++------------+-----------+
+| first_name | last_name |
++------------+-----------+
+| David      | Wallace   |
+| Jan        | Levinson  |
+| Michael    | Scoot     |
+| Angela     | Martin    |
+| Kelly      | Kapoor    |
+| Stanley    | Hudson    |
+| Josh       | Porter    |
+| Andy       | Bernard   |
+| Jim        | Halpert   |
++------------+-----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find the forename and surname of all employees
+mysql> SELECT first_name AS forename, last_name AS surname
+    -> FROM employee;
++----------+----------+
+| forename | surname  |
++----------+----------+
+| David    | Wallace  |
+| Jan      | Levinson |
+| Michael  | Scoot    |
+| Angela   | Martin   |
+| Kelly    | Kapoor   |
+| Stanley  | Hudson   |
+| Josh     | Porter   |
+| Andy     | Bernard  |
+| Jim      | Halpert  |
++----------+----------+
+9 rows in set (0.00 sec)
+
+mysql> -- Find out the different genders
+mysql> SELECT DISTINCT sex
+    -> FROM employee;
++------+
+| sex  |
++------+
+| M    |
+| F    |
++------+
+2 rows in set (0.01 sec)
+
+mysql> -- Funtions in MySQL
+mysql> --
+mysql> -- Find the number of employees
+mysql> SELECT COUNT(emp_id)
+    -> FROM employee;
++---------------+
+| COUNT(emp_id) |
++---------------+
+|             9 |
++---------------+
+1 row in set (0.01 sec)
+
+mysql> -- Find the number of employees with supevisor
+mysql> SELECT COUNT(super_id)
+    -> FROM employee;
++-----------------+
+| COUNT(super_id) |
++-----------------+
+|               8 |
++-----------------+
+1 row in set (0.01 sec)
+
+mysql> -- Find the number of female employee born after 1970
+mysql> SELECT COUNT(emp_id)
+    -> FROM student
+    -> WHERE sex = 'F' AND birth_date >= '1971-01-01';
+ERROR 1054 (42S22): Unknown column 'emp_id' in 'field list'
+mysql> SELECT COUNT(emp_id)
+    -> FROM employee
+    -> WHERE sex = 'F' AND birth_date >= '1971-01-01';
+ERROR 1054 (42S22): Unknown column 'birth_date' in 'where clause'
+mysql> desc employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| emp_id     | int         | NO   | PRI | NULL    |       |
+| first_name | varchar(40) | YES  |     | NULL    |       |
+| last_name  | varchar(40) | YES  |     | NULL    |       |
+| birth_day  | date        | YES  |     | NULL    |       |
+| sex        | varchar(1)  | YES  |     | NULL    |       |
+| salary     | int         | YES  |     | NULL    |       |
+| super_id   | int         | YES  | MUL | NULL    |       |
+| branch_id  | int         | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(emp_id)
+    -> FROM employee
+    -> WHERE sex = 'F' AND birth_day >= '1971-01-01';
++---------------+
+| COUNT(emp_id) |
++---------------+
+|             2 |
++---------------+
+1 row in set (0.05 sec)
+
+mysql> -- Find the average of all employee's salaries
+mysql> SELECT AVG(salary)
+    -> FROM employee;
++-------------+
+| AVG(salary) |
++-------------+
+|  92888.8889 |
++-------------+
+1 row in set (0.01 sec)
+
+mysql> -- Find the average of all employee's salaries who are male
+mysql> SELECT AVG(salary)
+    -> FROM employee
+    -> WHERE sex = 'M';
++-------------+
+| AVG(salary) |
++-------------+
+| 101333.3333 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> -- Find the sum of all employee's salaries
+mysql> SELECT SUM(salary)
+    -> FROM employee;
++-------------+
+| SUM(salary) |
++-------------+
+|      836000 |
++-------------+
+1 row in set (0.00 sec)
+
+mysql> -- Find out how many males and females there are
+mysql> SELECT COUNT(sex), sex
+    -> FROM employee
+    -> GROUP BY sex;
++------------+------+
+| COUNT(sex) | sex  |
++------------+------+
+|          6 | M    |
+|          3 | F    |
++------------+------+
+2 rows in set (0.00 sec)
+
+mysql> -- Find the total sales of each salesman
+mysql> SELECT emp_id, SUM(total_sales)
+    -> FROM works_with
+    -> GROUP BY emp_id;
++--------+------------------+
+| emp_id | SUM(total_sales) |
++--------+------------------+
+|    102 |           282000 |
+|    105 |           218000 |
+|    107 |            31000 |
+|    108 |            34500 |
++--------+------------------+
+4 rows in set (0.00 sec)
+
+mysql> -- Find the total money spent by each client
+mysql> SELECT client_id, SUM(total_sales)
+    -> FROM works_with
+    -> GROUP BY client_id;
++-----------+------------------+
+| client_id | SUM(total_sales) |
++-----------+------------------+
+|       400 |            55000 |
+|       401 |           267000 |
+|       402 |            22500 |
+|       403 |            17000 |
+|       404 |            33000 |
+|       405 |            26000 |
+|       406 |           145000 |
++-----------+------------------+
+7 rows in set (0.00 sec)
+
+mysql> --
+mysql> -- Wildcards
+mysql> -- % = any # character
+mysql> -- _ = one character
+mysql> --
+mysql> -- Find any clients who are an LLC
+mysql> SELECT *
+    -> FROM client
+    -> WHERE client_name LIKE '%LCC';
+Empty set (0.05 sec)
+
+mysql> SELECT *
+    -> FROM client
+    -> WHERE client_name LIKE '%LLC';
++-----------+--------------------+-----------+
+| client_id | client_name        | branch_id |
++-----------+--------------------+-----------+
+|       403 | John Daly Law, LLC |         3 |
++-----------+--------------------+-----------+
+1 row in set (0.00 sec)
+
+mysql> -- Find any branch suppliers who are in the label business
+mysql> SELECT *
+    -> FROM branch_supplier
+    -> WHERE supplier_name LIKE '%label%';
++-----------+---------------------+--------------+
+| branch_id | supplier_name       | supply_type  |
++-----------+---------------------+--------------+
+|         2 | J.T. Forms & Labels | Custom Forms |
++-----------+---------------------+--------------+
+1 row in set (0.00 sec)
+
+mysql> WHERE supplier_name LIKE '%label%' OR '%lable%';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE supplier_name LIKE '%label%' OR '%lable%'' at line 1
+mysql> SELECT *
+    -> FROM branch_supplier
+    -> WHERE supplier_name LIKE '%label%' OR '%lable%';
++-----------+---------------------+--------------+
+| branch_id | supplier_name       | supply_type  |
++-----------+---------------------+--------------+
+|         2 | J.T. Forms & Labels | Custom Forms |
++-----------+---------------------+--------------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> -- Find any employee born in October
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE birth_day LIKE '%10%';
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE birth_day LIKE '%02%';
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE birth_day LIKE '____-10%';
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    108 | Jim        | Halpert   | 1978-10-01 | M    |  71000 |      106 |         3 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT *
+    -> FROM employee
+    -> WHERE birth_day LIKE '____-02%';
++--------+------------+-----------+------------+------+--------+----------+-----------+
+| emp_id | first_name | last_name | birth_day  | sex  | salary | super_id | branch_id |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+|    104 | Kelly      | Kapoor    | 1980-02-05 | F    |  55000 |      102 |         2 |
+|    105 | Stanley    | Hudson    | 1958-02-19 | M    |  69000 |      102 |         2 |
++--------+------------+-----------+------------+------+--------+----------+-----------+
+2 rows in set (0.00 sec)
+
+mysql> -- Find any clients who are schools
+mysql> SELECT *
+    -> FROM client
+    -> WHERE client_name LIKE '%school%';
++-----------+--------------------+-----------+
+| client_id | client_name        | branch_id |
++-----------+--------------------+-----------+
+|       400 | Dunmore Highschool |         2 |
++-----------+--------------------+-----------+
+1 row in set (0.00 sec)
+
+mysql>
